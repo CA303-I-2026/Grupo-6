@@ -2,15 +2,17 @@
 
 ## Integrantes del grupo
 
-|   Nombre completo  | Carné | Correo institucional |
-|Katia Moreno Aspiroz|C6A060 |katia.moreno@ucr.ac.cr|
-|                    |       |                      |
-|                    |       |                      |
-|                    |       |                      |
+
+| Katia Moreno Aspiroz | C6A060 | katia.moreno@ucr.ac.cr |  
+|                      |        |                        |  
+|                      |        |                        |  
+|                      |        |                        |  
 
 ## Descripción del proyecto
 
-<!-- Describa brevemente el tema, la pregunta de investigación y el objetivo general del proyecto. -->
+Este trabajo se centra en analizar el uso de redes sociales en estudiantes universitarios y cómo este hábito puede estar relacionado con su rendimiento académico. En particular, se busca explorar si el tiempo que se pasa en estas plataformas puede influir en la concentración y en los resultados académicos.  
+A partir de esta idea, se plantea la siguiente pregunta de investigación, ¿existe una relación entre el tiempo dedicado a las redes sociales y el rendimiento académico en estudiantes universitarios?  
+El objetivo general del proyecto es analizar esta posible relación.
 
 ## Estructura del repositorio
 

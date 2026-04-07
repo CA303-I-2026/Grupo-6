@@ -1,12 +1,12 @@
-# Proyecto CA303 — [Título del Proyecto]
+# Proyecto CA303 — [Análisis de la relación entre el uso de las redes sociales y el rendimiento académico en estudiantes universitarios]
 
 ## Integrantes del grupo
 
-| Nombre completo | Carné | Correo institucional |
-|-----------------|-------|----------------------|
-|                 |       |                      |
-|                 |       |                      |
-|                 |       |                      |
+|   Nombre completo  | Carné | Correo institucional |
+|Katia Moreno Aspiroz|C6A060 |katia.moreno@ucr.ac.cr|
+|                    |       |                      |
+|                    |       |                      |
+|                    |       |                      |
 
 ## Descripción del proyecto
 

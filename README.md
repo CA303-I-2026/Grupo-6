@@ -52,6 +52,8 @@ proyecto-ca303/
 ## Fuente de datos
 
 <!-- Indique el origen de los datos: nombre del conjunto de datos, institución que los publica, URL de descarga, fecha de acceso y licencia de uso. -->
+Los datos que se utilizan en este trabajo provienen del conjunto de datos llamado Student Social Media and Academic Performance Dataset, disponible en la plataforma Kaggle. Este dataset puede descargarse a través del siguiente enlace: https://www.kaggle.com/datasets/mr101rror/student-social-media-academic-performance-dataset.  
+La fecha de acceso a este dataset fue el 25 de marzo de 2026. En cuanto a la licencia de uso, se permite su uso con fines académicos y de investigación.
 
 ## Instrucciones de reproducibilidad
 

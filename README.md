@@ -4,7 +4,7 @@
 
 
 | Katia Moreno Aspiroz | C6A060 | katia.moreno@ucr.ac.cr |  
-|                      |        |                        |  
+| Jeremy Garcia Solano | C33171 | jeremy.garciasolano@ucr.ac.cr |  
 |                      |        |                        |  
 |                      |        |                        |  
 

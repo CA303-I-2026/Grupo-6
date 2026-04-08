@@ -46,11 +46,55 @@ La motivación de este proyecto surge
 \subsection{Fuente de información}
 Para este proyecto se utiliza una base de datos obtenida del sitio web Kaggle, la cual según su autor, fue elaborada para elaborar una tesis de pregrado titulada "The Impact of Social Media on Academic and Personal Well-being: A Data-Driven Approach".
 \subsection{Contexto temporal y espacial}
-Los datos recolectados en la base de datos, incluye principalmente estudiantes de la "Metropolitan University" y otras comunidades educativas que no se especifican en la descripción de la base de datos.
+Los datos recolectados en la base de datos, incluye principalmente estudiantes de la  "Metropolitan University", y otras comunidades educativas que no se especifican en la descripción de la base de datos.
 \subsection{Población y muestra}
 La Población la cual se estudia son los estudiantes universitarios de diferentes comuninades académicas.
 La muestra corresponde a las 404 lineas que están presentes en el la base de datos, donde cada linea representa a un estudiante que realizó la encuesta. 
 \subsection{Unidad estadística}
-Cada estudiante que realizó la encuesta, corresponde a la unidad estadística.
+Cada estudiante que realizó la encuesta corresponde a la unidad estadística de este estudio.
+\subsection{Descripción de variables}
+La base de datos contiene un total de 20 variables, las cuales se describen a continuación, detallando su intención dentro de la investigación:
+\begin{enumerate}
+    \item \textbf{Timestamp (Marca de Tiempo):} Esta es una variable que simplemente marca el momento en el cual la persona encuestada realiza la encuesta. No es un dato de mucha relevancia para el proyecto, ya que no revela información de suma importacia para armar relaciones.
+    
+    \item \textbf{Age (Edad):} La variable Age nos muestra la edad de cada individuo, lo cual es un dato sumamente importante para la investigación porque nos permite identificar, a grandes rasgos, la etapa de la vida en que se encuentra dicha persona.
+    
+    \item \textbf{Gender (Género):} Permite identificar el género de cada persona, masculino o femenino, esto para poder comparar comportamientos entre ambos grupos.
+    
+    \item \textbf{Residence.Area (Zona de residencia):} La zona de residencia (rural o urbano) puede ser un factor clave en como se comportan los estudiantes, esto por diferentes motivos como lo es la forma en la que se vive, ya que no tienen la misma forma de vivir el día a día.
+    
+    \item \textbf{Education.Level (Nivel Educativo):} En esta columna se nos muestra el nivel educativo de cada individuo que realizó la encuesta, dicha información es util para comparar comportamientos entre los distintos grupos academicos registrados en la base de datos.
+    
+    \item \textbf{Socioeconomic.status..Parent.s.education.level. (Nivel socioeconómico de los padres):} Esta variable nos indica el nivel socioeconomico de los padres de cada estudiante, nos indica un dato importante para la elaboración del trabajo ya que puede indicar el acceso a diferentes medios de entretenimiento/distracción que tiene cada estudiante.
+    
+    \item \textbf{Study.time..In.Hours.(Tiempo de estudio en horas):} Indica la cantidad de horas que le dedica cada estudiante a estudiar, para este proyecto es fundamental este dato ya que nos da la oporunidad de comparar el tiempo dedicado al uso de dispositivos móviles, contra el tiempo que es dedicado al estudio.
+    
+    \item \textbf{Attendance.rate..In.Percentile.(Porcentaje de asistencia):} Acá los estudiantes indican de forma porcentual, su asistencia a clases. Este indicador nos da una idea del compromiso académico que tiene el estudiante, el cual puede estar altamente relacionado con el rendimiento que tenga dicho estudiante.
+    
+    \item \textbf{Social.Media.Platform(Red Social):} Esta variable nos muestra cual es la 
+    red social en la cual los estudiantes invierten la mayor parte de su tiempo, con esta variable podriamos establecer alguna relación, positiva o negativa, entre el uso de alguna red social y el rendimiento académico.
+    
+    \item \textbf{Time.spent.in.social.media..hours.(Tiempo estimado gastado en redes sociales):} Variable que muestra cuanto tiempo estima el estudiante que gasta en las redes sociales en horas. Esto es un dato importante en nuestro proyecto ya que podemos relacionar el tiempo que gastan los estudiantes, y como se ve esto reflejado en su desempeño estudiantil.
+    
+    \item \textbf{Most.time.spent.in.a.day(Momento del día en el que más usa las redes):} Esta columna nos indica en que momento (mañana, tarde o noche) utilizan las redes sociales con mayor frecuencia.
+    
+    \item \textbf{Physical.activity..30.min..(Actividad Física):} Como no hay que dejar de lado la parte física, en esta variable, se le preguntó a los estudiantes si mantienen una actividad fisica de al menos treinta minutos. Para el actual proyecto, puede ser interante analizar el comportamiento de las personas que, tal vez no usan tantas redes sociales e invierten mayor tiempo en actividades físicas, en sus estudios.
+    
+    \item \textbf{Withdrawal.symptoms..Side.effects.of.not.using.social.media.(Síntomas por el no uso de redes sociales):} Este indicador nos da información que nos habla sobre la dependencia de los estudiantes si se les restringe el uso de las redes sociales. Problemas como la ansiedad se pueden ver reflejados directamente en el rendimiento de los estudiantes, lo cual sería interesante de analizar en el proyecto.
+    
+    \item \textbf{Sleep.Disturbance.on.Sleep.Quality(Transtornos del sueño):} Esta columna de la base de datos nos muestra si la persona encuestada tiene algún transtorno de sueño a causa del uso de redes sociales. Debido a que el descanso es beneficioso para la salud en general, en especifico para la actividad cerebral, este punto puede revelar información importante sobre el comportamiento de los distintos estudiantes.
+    
+    \item \textbf{Mood.Modification.Scale(Cambio en estado de ánimo):} Mide si el estudiante utiliza las redes sociales como una herramienta para escapar de problemas o mejorar su estado de ánimo.
+    
+    \item \textbf{Anxiety.Scale(Escala de ansiedad):} En una escala del uno al cinco, se le consulta al estudiante a que niveles de ansiedad se enfrenta en el día a día. Aunque sea algo un poco subjetivo, es lo que siente el estudiante, puede revelar el estado emocional en el que se encuentra el estudiante.
+    
+    \item \textbf{Depression.Scale(Escala de Depresión):} Presenta el nivel de depresión, que según el estudiante tiene. La salud mental es un factor clave en el rendimiento academico de una persona, lo cual nos puede dar informacion relevante a la hora de formar relaciones con otras variables.
+    
+    \item \textbf{Self.esteem.Scale(Nivel de persepción propia):} Nos indica que tan buena, o mala impresión, tiene la persona estudiante de si misma. Similarmente a la variable de depresión, esta variable está relacionada con la salud mental del estudiante.
+    
+    \item \textbf{Last.Academic.Result..GPA.CGPA.(Resultados académicos):} Esta variable es fundamental para el proyecto, ya que es la forma en la cual se va a medir el rendimiento de los estudiantes. Con esta variable se pueden armar diferentes relaciones con las otras variables, y así poder determinar el objetivo del proyecto.
+    
+    \item \textbf{Social.Media.Distraction.During.Academic.Activities(Distracción con Redes sociales):} Se le consulta al estudiante, con que frecuencia (del uno al cinco), se distraen con las redes sociales mientras realizan actividades académicas. 
+\end{enumerate}
 
 \end{document}

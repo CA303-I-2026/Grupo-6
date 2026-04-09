@@ -72,13 +72,22 @@ La fecha de acceso a este dataset fue el 25 de marzo de 2026. En cuanto a la lic
 
 <!-- Liste aquí las referencias más importantes del proyecto (formato APA o BibTeX). El archivo completo se encuentra en `referencias/referencias.bib`. -->
 
-	León Luyo, Sandra Lizzette et al. “Redes Sociales y Rendimiento AcadéMico En Estudiantes de Administración, Universidad Nacional de Trujillo. Perú” Revista de climatología 23 (2023): 1214–1220. Print.
-		Santos, Martín. “AnáLisis de Redes Sociales y Rendimiento AcadéMico: Lecciones a Partir Del Caso de Los Estados Unidos.” Debates en sociología 35 (2010): 7. Print.
-		Miranda-Rosero, Oswaldo Damián, María Eugenia Paredes-Herrera, and Andrés Sebastián Zamora-Paredes. “Influencia de Las Redes Sociales En El Rendimiento AcadéMico de Estudiantes de Odontología.” Revista de Ciencias Médicas de Pinar del Río 27.suppl 2 (2023): Revista de Ciencias Médicas de Pinar del R & #237;o, 2023, Vol.27 (suppl 2). Print.
-		Aljemely, Yousef A. “Relación Entre Adicción a TeléFonos Inteligentes, Redes Sociales, Alienación y Rendimiento AcadéMico Entre Estudiantes de Pregrado.” Dilemas contemporáneos: educación, política y valores (2020): Dilemas contemporáneos: educaci & #243;n, política y valores, 2020-05. Print.
-		Ramírez Jaime, Liliana Estefanía et al. “Adicción a Las Redes Sociales, Estrés AcadéMico y Rendimiento AcadéMico En JóVenes Universitarios de Sinaloa y Nayarit.” Dilemas contemporáneos: educación, política y valores XI.1 (2023): Dilemas contemporáneos: educaci & #243;n, política y valores, 2023-09, Vol.XI (1). Print.
-		Rodelo Moreno, Jesús Adolfo, and Jorge Lizárraga Reyes. “Correlación Del Uso de Redes Sociales Con El Rendimiento AcadéMico de Estudiantes de Nivel Superior.” Revista de Investigación en Tecnologías de la Información 6.12 (2018): 62–67. Print.
-		Pasato Peña, Milton Eduardo, and Carlos Marcelo Ávila Mediavilla. “Redes Sociales y Rendimiento AcadéMico En Los Estudiantes de DéCimo Año de Educación BáSica.” PACHA. Revista de Estudios Contemporáneos del Sur Global 3.9 (2022): e210129. Print.
-		Zarate Obregon, Jenner Augusto. Las Redes Sociales y El Rendimiento AcadéMico En El CEBA Mateo Pumacahua, Sicuani, Cusco 2019. ProQuest Dissertations & Theses, 2022. Print.
-		Aljemely, Yousef A. “Relación Entre Adicción a TeléFonos Inteligentes, Redes Sociales, Alienación y Rendimiento AcadéMico Entre Estudiantes de Pregrado.” Dilemas contemporáneos: educación, política y valores VII.3 (2020): Dilemas contemporáneos: educaci & #243;n, política y valores, 2020-05, Vol.VII (3). Print.
-		Sotelo Correa, María Gloria, Susana Sánchez Bernal, and Zulma Beatriz Vega Medina. “Valoración Del Uso de Redes Sociales y Otros Factores Asociados al Rendimiento AcadéMico de Estudiantes Del Nivel Medio de Una Institución Educativa.” Pediatria (Asunción) 50.2 (2023): 102–111. Print.
+León Luyo, Sandra Lizzette et al. “Redes Sociales y Rendimiento AcadéMico En Estudiantes de Administración, Universidad Nacional de Trujillo. Perú” Revista de climatología 23 (2023): 1214–1220. Print.
+
+Santos, Martín. “AnáLisis de Redes Sociales y Rendimiento AcadéMico: Lecciones a Partir Del Caso de Los Estados Unidos.” Debates en sociología 35 (2010): 7. Print.
+
+Miranda-Rosero, Oswaldo Damián, María Eugenia Paredes-Herrera, and Andrés Sebastián Zamora-Paredes. “Influencia de Las Redes Sociales En El Rendimiento AcadéMico de Estudiantes de Odontología.” Revista de Ciencias Médicas de Pinar del Río 27.suppl 2 (2023): Revista de Ciencias Médicas de Pinar del R & #237;o, 2023, Vol.27 (suppl 2). Print.
+
+Aljemely, Yousef A. “Relación Entre Adicción a TeléFonos Inteligentes, Redes Sociales, Alienación y Rendimiento AcadéMico Entre Estudiantes de Pregrado.” Dilemas contemporáneos: educación, política y valores (2020): Dilemas contemporáneos: educaci & #243;n, política y valores, 2020-05. Print.
+
+Ramírez Jaime, Liliana Estefanía et al. “Adicción a Las Redes Sociales, Estrés AcadéMico y Rendimiento AcadéMico En JóVenes Universitarios de Sinaloa y Nayarit.” Dilemas contemporáneos: educación, política y valores XI.1 (2023): Dilemas contemporáneos: educaci & #243;n, política y valores, 2023-09, Vol.XI (1). Print.
+
+Rodelo Moreno, Jesús Adolfo, and Jorge Lizárraga Reyes. “Correlación Del Uso de Redes Sociales Con El Rendimiento AcadéMico de Estudiantes de Nivel Superior.” Revista de Investigación en Tecnologías de la Información 6.12 (2018): 62–67. Print.
+
+Pasato Peña, Milton Eduardo, and Carlos Marcelo Ávila Mediavilla. “Redes Sociales y Rendimiento AcadéMico En Los Estudiantes de DéCimo Año de Educación BáSica.” PACHA. Revista de Estudios Contemporáneos del Sur Global 3.9 (2022): e210129. Print.
+
+Zarate Obregon, Jenner Augusto. Las Redes Sociales y El Rendimiento AcadéMico En El CEBA Mateo Pumacahua, Sicuani, Cusco 2019. ProQuest Dissertations & Theses, 2022. Print.
+
+Aljemely, Yousef A. “Relación Entre Adicción a TeléFonos Inteligentes, Redes Sociales, Alienación y Rendimiento AcadéMico Entre Estudiantes de Pregrado.” Dilemas contemporáneos: educación, política y valores VII.3 (2020): Dilemas contemporáneos: educaci & #243;n, política y valores, 2020-05, Vol.VII (3). Print.
+
+Sotelo Correa, María Gloria, Susana Sánchez Bernal, and Zulma Beatriz Vega Medina. “Valoración Del Uso de Redes Sociales y Otros Factores Asociados al Rendimiento AcadéMico de Estudiantes Del Nivel Medio de Una Institución Educativa.” Pediatria (Asunción) 50.2 (2023): 102–111. Print.

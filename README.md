@@ -6,7 +6,7 @@
 | Katia Moreno Aspiroz | C6A060 | katia.moreno@ucr.ac.cr |  
 | Jeremy Garcia Solano | C33171 | jeremy.garciasolano@ucr.ac.cr |  
 | Sebastián Calderón Segura| C21517 | sebastian.calderonsegura@ucr.ac.cr |  
-|                      |        |                        |  
+| Luis Diego Elizondo Fennell | C4E844 | luis.elizondofennell@ucr.ac.cr |  
 
 ## Descripción del proyecto
 

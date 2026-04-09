@@ -1,0 +1,46 @@
+---
+title: "Exploracion_Inicial_Datos"
+format: html
+editor: visual
+---
+Acá se va a desarrollar una especie de análisis exploratorio de los datos, esto para poder desarrollor la bitácora 1.
+
+#Importación de los datos
+```{r}
+datos <- read.csv("C:/Users/jereg/Proyecto_Estadistica/Grupo-6/datos/originales/survey.csv")
+head(datos)
+View(datos)
+```
+
+#Limpieza de la Base
+
+1-Existe una columna con nombre "Column.19" la cual no tiene ningún dato, por lo cual se procede a eliminar dicha columna.
+```{r}
+datos <- datos %>% 
+  select(-Column.19)
+```
+
+2-Número de filas, columnas y nombre de las columnas
+```{r}
+nrow(datos)
+ncol(datos)
+colnames(datos)
+```
+
+3-¿Existencia de NA´s?
+```{r}
+colSums(is.na(datos))
+```
+
+4-Caracteristicas de los datos
+```{r}
+datos %>% 
+  summary()
+```
+5-Exportacion de la Base con las modificaciones
+```{r}
+write.csv(datos,file="survey_clean.csv",row.names = FALSE)
+```
+
+
+

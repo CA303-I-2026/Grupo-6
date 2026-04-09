@@ -5,6 +5,9 @@
 \usepackage{geometry}
 \usepackage{pdfpages}
 \geometry{margin=2.5cm}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs} % Para líneas de tabla más elegantes
+\usepackage{tabularx} % Para que la tabla se ajuste al ancho del texto
 
 \title{\Huge Bitácora 1\\ \Large Análisis de la relación entre el uso de redes sociales y el rendimiento académico en estudiantes}
 \author{Katia Moreno Aspiroz C6A060\\
@@ -482,8 +485,41 @@ Se eligió centrar el proyecto en la pregunta:
 \end{itemize}
 
 \section{Registro de uso de IA}
+\begin{itemize}
+    \item Se utiliza la IA para crear el cuadro correspondiente en la seccion de Log de contribuciones:
+    \begin{itemize}
+        \item \textbf{Herramienta:} Google Gemini
+        \item \textbf{Promt:} Necesito que me crees un cuadro en Latex, que contenga el nombre de la persona y el apartado que realizó en la bitácora.
+        \item \textbf{Respuesta:} "Aquí tienes el código en LaTeX para generar la tabla. He utilizado el entorno tabularx para que se ajuste bien al ancho de la página y el paquete booktabs para que tenga un acabado profesional." Y brinda el código listo para copiar y pegar.
+        \item \textbf{Evaluación:} Muy útil esta ayuda ya que crea inmediatamente el cuadro, con la información que le hemos brindado.
+        \item \textbf{Modificaciones:} No se realizó ninguna modificación.
+        \item \textbf{Aprendizaje:} A realizar cuadros en LaTeX.
+    \end{itemize}
+    \item Se utilza la IA para guiar en la sección de Datos:
+    \begin{itemize}
+         \item \textbf{Herramienta:} Google Gemini
+        \item \textbf{Promt:} Guíame para completar la sección de Datos en la bitácora 1. Explica qué poner en cada sección de las instrucciones y dame ejemplos breves.
+        \item \textbf{Respuesta:} La IA responde con una guía para poder realizar cada apartado correctamente, incluyendo lo que debería de aparecer en cada apartado, y un ejemplo sobre como puede quedar.
+        \item \textbf{Evaluación:} Esta guía resulta beneficiosa ya que ayuda a centrar las ideas, de lo que tiene que tener cada apartado.
+        \item \textbf{Modificaciones:} No se copia nada directamente, solo se utiliza la guía
+        \item \textbf{Aprendizaje:} Ya se tiene claro que tiene que llevar cada parte de la sección de Datos.
+    \end{itemize}
+\end{itemize}
 
 \section{Log de contribuciones}
+\begin{table}[h]
+    \centering
+    \caption{Registro de Contribuciones - Bitácora}
+    \vspace{2mm}
+    \begin{tabularx}{\textwidth}{l X}
+    \toprule
+    \textbf{Nombre de la Persona} & \textbf{Apartados Realizados} \\ \midrule
+    Jeremy García      & Datos y argumentación, Registro de uso de IA, Log de contribuciones. \\ \addlinespace
+    Katia Moreno       & Introducción, Idea. \\ \addlinespace
+    Sebastian Calderon & Revisión Bibliográfica, UVE de Gowin. \\ \addlinespace
+    Luis Elizondo      & Parte de escritura, Arco narrativo, Diario de aprendizaje, Rastro de decisiones. \\ \bottomrule
+    \end{tabularx}
+\end{table}
 
 \bibliographystyle{apalike}
 \bibliography{referencias}

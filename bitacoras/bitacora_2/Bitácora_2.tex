@@ -8,6 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{booktabs} % Para líneas de tabla más elegantes
 \usepackage{tabularx} % Para que la tabla se ajuste al ancho del texto
+\usepackage{makecell} % más de una línea en la misma celda dentro de una tabla
 
 \title{\Huge Bitácora 2\\ \Large Análisis de la relación entre el uso de redes sociales y el rendimiento académico en estudiantes}
 \author{Katia Moreno Aspiroz C6A060\\
@@ -23,9 +24,16 @@ Sebastián Calderón Segura C21517}
 \tableofcontents
 \newpage
 
-Esta bitácora se centra en pasar de 'tengo una idea sobre la que trabajar' a 'tengo una pregunta clara, literatura organizada, datos entendidos y una dirección metodológica que seguir'.
+\section{Introducción}
+\section{Planificación}
+\subsection{Respuesta retroalimentación}
+necesitamos la retroalimentación
+\subsection{Rastro de decisiones}
+\subsection{Audiencia del proyecto}
+Esta semana, le diría a un profesor universitario que ...
 
-\section{Orden Literatura}
+\section{Ordenamiento Literatura}
+Con el objetivo de organizar ...
 
 \begin{table}[h]
 \centering
@@ -35,16 +43,47 @@ Esta bitácora se centra en pasar de 'tengo una idea sobre la que trabajar' a 't
 \cline{1-5}
 Clasificación & Justificación breve & Título & Año & Autor(es) \\
 \hline
-Metodológico & Método base para comparación & Título 1 & 2000 & Autor 1\\
-Metodológico & Extensión del método anterior & Título 2 & 2001 & Autor 2\\
-Temático & Contexto del problema & Título 3 & 2002 & Autor 3\\
+Metodológica & \makecell{Estudia si el uso de\\ redes
+sociales afecta el\\ rendimiento académico en\\ estudiantes de Finanzas} & \makecell{Redes Sociales y rendimiento\\ académico en estudiantes de\\ Administración, Universidad\\ Nacional de Trujillo. Perú} & 2003 & \makecell{Sandra L. L.,\\ Denis G. C.,\\ Nelly V. C.,\\ Heyner Y. M.}\\
+Teórica & \makecell{Examina cómo la\\ estructura y contenido\\ de redes de amistad\\ afectan el rendimiento\\ académico} & \makecell{Análisis de redes sociales y\\ rendimiento académico:\\ lecciones a partir del caso\\ de los Estados Unidos} & 2010 & Martín Santos\\
+Temática & \makecell{Analiza cómo la adicción\\ a smartphones y redes\\ sociales afecta alienación y\\ rendimiento académico} & \makecell{Relación entre adicción a\\ teléfonos inteligentes, redes\\ sociales, alienación\\ y rendimiento académico\\ entre estudiantes de\\ pregrado} & 2020 & \makecell{Yousef A.\\ Aljemely}\\
 \hline
 \end{tabular}
 \caption{Ordenamiento de la literatura.}
 \end{table}
 
+\section{Enlaces de la literatura}
+cada párrafo con resumen, contraste y contribución propia.
 
-\section{Registro IA}
+\section{Análisis estadísticos}
+\subsection{Identidad visual}
+\subsection{Análisis descriptivo}
+\subsection{Fichas de resultados}
+\subsection{Imagen que cuenta la historia}
+
+\section{Arco narrativo}
+al explorar los datos, descubrimos que...
+\section{Diario de aprendizaje}
+\section{Log de contribuciones}
+
+\section{Registro de uso de IA}
+\begin{itemize}
+    \item Se utiliza la IA para crear el cuadro correspondiente al ordenamiento de la literatura con la estructura que se propone en la Bitácora 2:
+    \begin{itemize}
+        \item \textbf{Herramienta:} ChatGPT
+        \item \textbf{Promt:} Necesito que me expliques cómo crear en lenguaje Latex una tabla que contenga celdas combinadas.
+        \item \textbf{Respuesta:} "Puedes hacerlo combinando \texttt{multicolumn}, \texttt{cline} y líneas parciales La clave es:\\
+        $|$ en la definición de columnas $\rightarrow$ líneas verticales.\\
+        \texttt{hline} $\rightarrow$ línea horizontal completa.\\
+        \texttt{cline\{i-j\}} $\rightarrow$ línea horizontal solo entre ciertas columnas.\\
+        \texttt{multicolumn} $\rightarrow$ unir columnas y controlar si aparecen líneas alterales."\\
+        Y brinda un ejemplo de código.
+        \item \textbf{Evaluación:} Muy útil esta ayuda ya que la información de tablas de los manuales de Latex son básicas y no contienen información sobre la función \texttt{multicolumn}.
+        \item \textbf{Modificaciones:} Se modificó la tabla con la información necesaria para el trabajo y las celdas combinadas que requeríamos en este caso, que no correspondían a las que combinó la IA.
+        \item \textbf{Aprendizaje:} Realizar cuadros combinados en LaTeX.
+    \end{itemize}
+    
+\end{itemize}
 
 
 \end{document}

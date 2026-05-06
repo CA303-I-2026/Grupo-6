@@ -3,24 +3,36 @@ title: "Exploracion_Inicial_Datos"
 format: html
 editor: visual
 ---
+
+# Bitacora #1
+
 Acá se va a desarrollar una especie de análisis exploratorio de los datos, esto para poder desarrollor la bitácora 1.
 
-#Importación de los datos
+## Importación de los datos
+```{r}
+library(stringr)
+library(lubridate)
+library(tidyverse)
+library(dplyr)
+```
+
 ```{r}
 datos <- read.csv("C:/Users/jereg/Proyecto_Estadistica/Grupo-6/datos/originales/survey.csv")
 head(datos)
 View(datos)
 ```
 
-#Limpieza de la Base
+## Limpieza de la Base
 
 1-Existe una columna con nombre "Column.19" la cual no tiene ningún dato, por lo cual se procede a eliminar dicha columna.
+
 ```{r}
 datos <- datos %>% 
   select(-Column.19)
 ```
 
 2-Número de filas, columnas y nombre de las columnas
+
 ```{r}
 nrow(datos)
 ncol(datos)
@@ -28,19 +40,229 @@ colnames(datos)
 ```
 
 3-¿Existencia de NA´s?
+
 ```{r}
 colSums(is.na(datos))
 ```
 
 4-Caracteristicas de los datos
+
 ```{r}
 datos %>% 
   summary()
+typeof(datos)
 ```
-5-Exportacion de la Base con las modificaciones
+
+5-Exportación de la Base con las modificaciones
+
 ```{r}
 write.csv(datos,file="survey_clean.csv",row.names = FALSE)
 ```
+
+# Bitácora #2
+
+##Limpieza de columnas para manejo de datos
+
+Tenemos una circunstancia, la base de datos en la columna dates presenta problemas tipo '20 years' '08/02/00', "23 (one month left), los cuales hay que solucionar para poder trabajar correctamente con esta variable. Se va a hacer una función para corregir dichos problemas.
+```{r}
+convertir_a_edad <- function(x) {
+  
+  # Asegurar que es texto
+  x <- as.character(x)
+  
+  # 🔹 Arreglar formato tipo "8/8/2004" → "08/08/2004"
+  x <- str_replace(x, "^(\\d)/(\\d)/(\\d{4})$", "0\\1/0\\2/\\3")
+  
+  # 🔹 Intentar parsear como fecha
+  fecha <- suppressWarnings(parse_date_time(x, orders = "dmy"))
+  
+  if (!is.na(fecha)) {
+    return(floor(time_length(interval(fecha, Sys.Date()), "years")))
+  }
+  
+  # 🔹 Año tipo "2004"
+  if (str_detect(x, "^\\d{4}$")) {
+    return(year(Sys.Date()) - as.numeric(x))
+  }
+  
+  # 🔹 Cualquier número en texto → edad
+  if (str_detect(x, "\\d+")) {
+    return(as.numeric(str_extract(x, "\\d+")))
+  }
+  
+  return(NA)
+}
+```
+
+Aplicamos esta función para corregir la columna de Age
+```{r}
+datos <- datos %>%
+  mutate(edad = sapply(Age, convertir_a_edad)) %>% 
+  mutate(Age=edad) %>% 
+  select(-edad)
+datos$Age <- as.numeric(datos$Age)
+```
+Tenemos un problema similar con la columna de Study.time..In.Hours.
+Hacemos la Funcion necesario y luego la aplicamos
+```{r}
+clean_study_time <- function(x) {
+  
+  x <- tolower(as.character(x))
+  
+  # 🔹 Caso rango (ej: "40-50 minutes", "1-2 hrs")
+  if (str_detect(x, "\\d+\\s*-\\s*\\d+")) {
+    nums <- as.numeric(unlist(str_extract_all(x, "\\d+")))
+    val <- min(nums)
+    
+    # Si son minutos → convertir
+    if (str_detect(x, "min")) {
+      return(val / 60)
+    } else {
+      return(val)
+    }
+  }
+  
+  # 🔹 Caso minutos (ej: "10 minutos", "30 min")
+  if (str_detect(x, "min")) {
+    num <- as.numeric(str_extract(x, "\\d+"))
+    return(num / 60)
+  }
+  
+  # 🔹 Caso normal (horas)
+  if (str_detect(x, "\\d+")) {
+    return(as.numeric(str_extract(x, "\\d+")))
+  }
+  
+  return(0)
+}
+```
+Aplicamos la función
+```{r}
+datos <- datos %>%
+  mutate(tiempo = sapply(Study.time..In.Hours. , clean_study_time)) %>% 
+  mutate(Study.time..In.Hours.=tiempo) %>% 
+  select(-tiempo)
+datos$Study.time..In.Hours. <- as.numeric(datos$Study.time..In.Hours.)
+```
+
+Lo mismo sucede en la columna Time.spent.in.social.media..hours.
+*Funcion¨*
+```{r}
+clean_social_time <- function(x) {
+  
+  x <- tolower(as.character(x))
+  
+  # 🔹 "all day"
+  if (str_detect(x, "all day")) {
+    return(12)  # o 16 si querés ser agresivo
+  }
+  
+  # 🔹 "less than 1 hour"
+  if (str_detect(x, "less than")) {
+    return(0.5)
+  }
+  
+  # 🔹 "more than 5 hours"
+  if (str_detect(x, "more than")) {
+    num <- as.numeric(str_extract(x, "\\d+"))
+    return(num)
+  }
+  
+  # 🔹 rangos "2-3 hours", "40-50 minutes"
+  if (str_detect(x, "\\d+\\s*-\\s*\\d+")) {
+    nums <- as.numeric(unlist(str_extract_all(x, "\\d+")))
+    val <- mean(nums)
+    
+    if (str_detect(x, "min")) {
+      return(val / 60)
+    } else {
+      return(val)
+    }
+  }
+  
+  # 🔹 minutos
+  if (str_detect(x, "min")) {
+    num <- as.numeric(str_extract(x, "\\d+"))
+    return(num / 60)
+  }
+  
+  # 🔹 horas normales
+  if (str_detect(x, "\\d+")) {
+    return(as.numeric(str_extract(x, "\\d+")))
+  }
+  
+  return(NA)
+}
+```
+
+
+Aplicamos la función
+```{r}
+datos <- datos %>%
+  mutate(tiempo = sapply(Time.spent.in.social.media..hours. , clean_social_time)) %>% 
+  mutate(Time.spent.in.social.media..hours.=tiempo) %>% 
+  select(-tiempo)
+datos$Time.spent.in.social.media..hours. <- as.numeric(datos$Time.spent.in.social.media..hours.)
+```
+```{r}
+datos$Time.spent.in.social.media..hours.[is.na(datos$Time.spent.in.social.media..hours.)] <- mean(datos$Time.spent.in.social.media..hours., na.rm =TRUE)
+```
+
+
+
+Hacemos lo mismo para attendence 
+```{r}
+clean_attendance <- function(x) {
+  
+  x <- tolower(as.character(x))
+  
+  #   forma 8/9
+  if (str_detect(x, "\\d+\\s*/\\s*\\d+")) {
+    nums <- as.numeric(unlist(str_extract_all(x, "\\d+")))
+    return((nums[1] / nums[2]) * 100)
+  }
+  
+  # 🔹 rango: "70-80%"
+  if (str_detect(x, "\\d+\\s*-\\s*\\d+")) {
+    nums <- as.numeric(unlist(str_extract_all(x, "\\d+")))
+    val <- mean(nums)
+    return(val)
+  }
+  
+  # 🔹 cualquier número (quita %, texto, etc.)
+  if (str_detect(x, "\\d+")) {
+    val <- as.numeric(str_extract(x, "\\d+"))
+    
+    # validar rango lógico
+    if (val >= 0 && val <= 100) {
+      return(val)
+    }
+  }
+  
+  return(NA)
+}
+```
+Aplicamos la función
+```{r}
+datos <- datos %>%
+  mutate(porcentaje = sapply(Attendance.rate..In.Percentile. , clean_attendance)) %>% 
+  mutate(Attendance.rate..In.Percentile.= porcentaje) %>% 
+  select(-porcentaje)
+datos$Attendance.rate..In.Percentile. <- as.numeric(datos$Attendance.rate..In.Percentile.)
+```
+
+## Continuacion con el analisis estadístico
+```{r}
+str(datos)
+```
+```{r}
+datos %>% 
+  group_by(Social.Media.Platform) %>% 
+  summarise(n=n())
+```
+
+
+
 
 
 

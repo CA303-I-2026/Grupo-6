@@ -1,0 +1,783 @@
+## Análisis descriptivo completo de la base de datos
+
+El objetivo de este análisis descriptivo es comprender la estructura general de la base de datos, revisar la calidad de los datos disponibles y explorar el comportamiento de las principales variables relacionadas con el proyecto. En particular, interesa describir las características generales de los estudiantes, sus hábitos de estudio, su uso de redes sociales, sus indicadores de bienestar y su rendimiento académico medido mediante el promedio.
+
+```{r}
+library(tidyverse)
+library(readr)
+library(knitr)
+library(cowplot)
+library(scales)
+```
+
+### 1. Carga de datos
+
+```{r}
+df <- read_csv(
+  "../../datos/procesados/survey.limpio.csv",
+  show_col_types = FALSE
+) %>%
+  mutate(
+    cat_horas_redes = factor(
+      cat_horas_redes,
+      levels = c("0–2 h", "2–4 h", "4–6 h", ">6 h"),
+      ordered = TRUE
+    ),
+    plataforma = factor(plataforma),
+    genero = factor(genero),
+    zona_residencia = factor(zona_residencia),
+    nivel_educativo = factor(nivel_educativo),
+    nivel_socioeco = factor(nivel_socioeco),
+    momento_uso = factor(momento_uso),
+    actividad_fisica = factor(actividad_fisica)
+  )
+
+cat("Filas de la base:", nrow(df), "\n")
+cat("Columnas de la base:", ncol(df), "\n")
+```
+
+### 2. Vista general de la base
+
+```{r}
+glimpse(df)
+```
+
+```{r}
+head(df, 10) %>%
+  kable(
+    caption = "Primeras 10 observaciones de la base limpia"
+  )
+```
+
+### 3. Clasificación de variables
+
+```{r}
+tipos_variables <- tibble(
+  variable = names(df),
+  tipo = map_chr(df, ~ class(.x)[1]),
+  valores_unicos = map_int(df, ~ n_distinct(.x, na.rm = TRUE)),
+  valores_perdidos = map_int(df, ~ sum(is.na(.x))),
+  porcentaje_na = round(valores_perdidos / nrow(df) * 100, 2)
+)
+
+tipos_variables %>%
+  kable(
+    caption = "Tipo de variable, valores únicos y valores perdidos"
+  )
+```
+
+### 4. Revisión de valores perdidos
+
+```{r}
+na_resumen <- df %>%
+  summarise(across(
+    everything(),
+    ~ sum(is.na(.x))
+  )) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "variable",
+    values_to = "n_na"
+  ) %>%
+  mutate(
+    porcentaje_na = round(n_na / nrow(df) * 100, 2)
+  ) %>%
+  arrange(desc(n_na))
+
+na_resumen %>%
+  kable(
+    caption = "Resumen de valores perdidos por variable"
+  )
+```
+
+```{r}
+ggplot(na_resumen, aes(x = reorder(variable, porcentaje_na), y = porcentaje_na)) +
+  geom_col(fill = "#4E6E73") +
+  coord_flip() +
+  labs(
+    title = "Porcentaje de valores perdidos por variable",
+    x = "Variable",
+    y = "Porcentaje de valores perdidos"
+  ) +
+  theme_bw(base_size = 12)
+```
+
+### 5. Estadísticas descriptivas de variables numéricas
+
+```{r}
+variables_numericas <- df %>%
+  select(where(is.numeric))
+
+resumen_numerico <- variables_numericas %>%
+  summarise(across(
+    everything(),
+    list(
+      n = ~ sum(!is.na(.x)),
+      media = ~ mean(.x, na.rm = TRUE),
+      mediana = ~ median(.x, na.rm = TRUE),
+      desviacion = ~ sd(.x, na.rm = TRUE),
+      minimo = ~ min(.x, na.rm = TRUE),
+      q1 = ~ quantile(.x, 0.25, na.rm = TRUE),
+      q3 = ~ quantile(.x, 0.75, na.rm = TRUE),
+      maximo = ~ max(.x, na.rm = TRUE),
+      iqr = ~ IQR(.x, na.rm = TRUE)
+    ),
+    .names = "{.col}_{.fn}"
+  )) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "variable_estadistico",
+    values_to = "valor"
+  ) %>%
+  separate(
+    variable_estadistico,
+    into = c("variable", "estadistico"),
+    sep = "_(?=[^_]+$)"
+  ) %>%
+  pivot_wider(
+    names_from = estadistico,
+    values_from = valor
+  ) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 3)))
+
+resumen_numerico %>%
+  kable(
+    caption = "Estadísticas descriptivas de las variables numéricas"
+  )
+```
+
+### 6. Distribución de variables numéricas principales
+
+```{r}
+df_num_largo <- df %>%
+  select(
+    edad,
+    horas_estudio,
+    asistencia,
+    horas_redes,
+    promedio,
+    distraccion_acad,
+    ansiedad,
+    depresion,
+    autoestima,
+    alteracion_sueno,
+    modificacion_ani
+  ) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "variable",
+    values_to = "valor"
+  )
+
+ggplot(df_num_largo, aes(x = valor)) +
+  geom_histogram(bins = 25, fill = "#4E6E73", color = "white") +
+  facet_wrap(~ variable, scales = "free", ncol = 3) +
+  labs(
+    title = "Distribución de variables numéricas principales",
+    x = "Valor",
+    y = "Frecuencia"
+  ) +
+  theme_bw(base_size = 12)
+```
+
+### 7. Boxplots de variables numéricas principales
+
+```{r}
+ggplot(df_num_largo, aes(x = variable, y = valor)) +
+  geom_boxplot(fill = "#E69F5B", alpha = 0.75, outlier.alpha = 0.45) +
+  coord_flip() +
+  labs(
+    title = "Dispersión de variables numéricas principales",
+    x = "Variable",
+    y = "Valor"
+  ) +
+  theme_bw(base_size = 12)
+```
+
+### 8. Estadísticas descriptivas de variables categóricas
+
+```{r}
+variables_categoricas <- df %>%
+  select(where(~ is.character(.x) || is.factor(.x)))
+
+resumen_categorico <- variables_categoricas %>%
+  summarise(across(
+    everything(),
+    ~ n_distinct(.x, na.rm = TRUE)
+  )) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "variable",
+    values_to = "categorias_unicas"
+  ) %>%
+  arrange(desc(categorias_unicas))
+
+resumen_categorico %>%
+  kable(
+    caption = "Cantidad de categorías únicas por variable categórica"
+  )
+```
+
+### 9. Tablas de frecuencia de variables categóricas principales
+
+```{r}
+tabla_frecuencia <- function(data, variable) {
+  data %>%
+    count({{ variable }}, name = "frecuencia") %>%
+    mutate(
+      porcentaje = round(frecuencia / sum(frecuencia) * 100, 2)
+    ) %>%
+    arrange(desc(frecuencia))
+}
+
+tabla_frecuencia(df, genero) %>%
+  kable(caption = "Distribución por género")
+
+tabla_frecuencia(df, zona_residencia) %>%
+  kable(caption = "Distribución por zona de residencia")
+
+tabla_frecuencia(df, nivel_educativo) %>%
+  kable(caption = "Distribución por nivel educativo")
+
+tabla_frecuencia(df, nivel_socioeco) %>%
+  kable(caption = "Distribución por nivel educativo de los padres")
+
+tabla_frecuencia(df, plataforma) %>%
+  kable(caption = "Distribución por red social principal")
+
+tabla_frecuencia(df, cat_horas_redes) %>%
+  kable(caption = "Distribución por categoría de horas en redes sociales")
+```
+
+### 10. Gráficos de frecuencias categóricas
+
+```{r}
+p_genero <- ggplot(df, aes(x = genero, fill = genero)) +
+  geom_bar(alpha = 0.85) +
+  labs(
+    title = "Distribución por género",
+    x = "Género",
+    y = "Frecuencia"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "none")
+
+p_zona <- ggplot(df, aes(x = zona_residencia, fill = zona_residencia)) +
+  geom_bar(alpha = 0.85) +
+  labs(
+    title = "Distribución por zona de residencia",
+    x = "Zona",
+    y = "Frecuencia"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "none")
+
+p_plataforma <- ggplot(df, aes(x = fct_infreq(plataforma), fill = plataforma)) +
+  geom_bar(alpha = 0.85) +
+  coord_flip() +
+  labs(
+    title = "Red social principal",
+    x = "Plataforma",
+    y = "Frecuencia"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "none")
+
+p_cat_redes <- ggplot(df, aes(x = cat_horas_redes, fill = cat_horas_redes)) +
+  geom_bar(alpha = 0.85) +
+  labs(
+    title = "Categorías de horas en redes",
+    x = "Horas diarias en redes",
+    y = "Frecuencia"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "none")
+
+plot_grid(
+  p_genero,
+  p_zona,
+  p_plataforma,
+  p_cat_redes,
+  ncol = 2
+)
+```
+
+### 11. Descripción específica de las variables centrales del proyecto
+
+```{r}
+variables_centrales <- df %>%
+  select(
+    horas_redes,
+    cat_horas_redes,
+    promedio,
+    horas_estudio,
+    asistencia,
+    distraccion_acad,
+    ansiedad,
+    depresion,
+    autoestima,
+    alteracion_sueno
+  )
+
+summary(variables_centrales)
+```
+
+```{r}
+df %>%
+  summarise(
+    n = n(),
+    media_horas_redes = mean(horas_redes, na.rm = TRUE),
+    mediana_horas_redes = median(horas_redes, na.rm = TRUE),
+    sd_horas_redes = sd(horas_redes, na.rm = TRUE),
+    media_promedio = mean(promedio, na.rm = TRUE),
+    mediana_promedio = median(promedio, na.rm = TRUE),
+    sd_promedio = sd(promedio, na.rm = TRUE),
+    media_horas_estudio = mean(horas_estudio, na.rm = TRUE),
+    media_asistencia = mean(asistencia, na.rm = TRUE),
+    media_distraccion = mean(distraccion_acad, na.rm = TRUE)
+  ) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+  kable(
+    caption = "Resumen general de variables centrales del proyecto"
+  )
+```
+
+### 12. Relación descriptiva entre uso de redes sociales y promedio académico
+
+```{r}
+ggplot(df, aes(x = horas_redes, y = promedio)) +
+  geom_point(alpha = 0.55, color = "#4E6E73", size = 2) +
+  geom_smooth(method = "loess", se = TRUE, color = "#B24745", fill = "#B24745", alpha = 0.15) +
+  labs(
+    title = "Relación entre horas en redes sociales y promedio académico",
+    subtitle = "Dispersión con curva LOESS",
+    x = "Horas diarias en redes sociales",
+    y = "Promedio académico"
+  ) +
+  theme_bw(base_size = 12)
+```
+
+```{r}
+df %>%
+  group_by(cat_horas_redes) %>%
+  summarise(
+    n = n(),
+    promedio_medio = mean(promedio, na.rm = TRUE),
+    promedio_mediano = median(promedio, na.rm = TRUE),
+    sd_promedio = sd(promedio, na.rm = TRUE),
+    min_promedio = min(promedio, na.rm = TRUE),
+    max_promedio = max(promedio, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+  kable(
+    caption = "Promedio académico por categoría de uso diario de redes sociales"
+  )
+```
+
+```{r}
+ggplot(df, aes(x = cat_horas_redes, y = promedio, fill = cat_horas_redes)) +
+  geom_boxplot(alpha = 0.8, outlier.alpha = 0.5) +
+  geom_jitter(width = 0.12, alpha = 0.25, size = 1.4) +
+  labs(
+    title = "Promedio académico según categoría de uso de redes",
+    x = "Horas diarias en redes sociales",
+    y = "Promedio académico"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "none")
+```
+
+### 13. Relación entre horas de estudio y promedio académico
+
+```{r}
+ggplot(df, aes(x = horas_estudio, y = promedio)) +
+  geom_point(alpha = 0.55, color = "#2DA9CE", size = 2) +
+  geom_smooth(method = "lm", se = TRUE, color = "#4E6E73") +
+  labs(
+    title = "Relación entre horas de estudio y promedio académico",
+    subtitle = "Dispersión con recta de regresión lineal descriptiva",
+    x = "Horas diarias de estudio",
+    y = "Promedio académico"
+  ) +
+  theme_bw(base_size = 12)
+```
+
+```{r}
+df %>%
+  summarise(
+    correlacion_horas_estudio_promedio = cor(horas_estudio, promedio, use = "complete.obs"),
+    correlacion_horas_redes_promedio = cor(horas_redes, promedio, use = "complete.obs"),
+    correlacion_asistencia_promedio = cor(asistencia, promedio, use = "complete.obs"),
+    correlacion_distraccion_promedio = cor(distraccion_acad, promedio, use = "complete.obs")
+  ) %>%
+  mutate(across(everything(), ~ round(.x, 3))) %>%
+  kable(
+    caption = "Correlaciones descriptivas con el promedio académico"
+  )
+```
+
+### 14. Matriz de correlación de variables numéricas
+
+```{r}
+cor_df <- df %>%
+  select(
+    edad,
+    horas_estudio,
+    asistencia,
+    horas_redes,
+    promedio,
+    distraccion_acad,
+    ansiedad,
+    depresion,
+    autoestima,
+    alteracion_sueno,
+    modificacion_ani
+  )
+
+matriz_cor <- cor(cor_df, use = "pairwise.complete.obs")
+
+matriz_cor_larga <- as.data.frame(matriz_cor) %>%
+  rownames_to_column("variable_1") %>%
+  pivot_longer(
+    cols = -variable_1,
+    names_to = "variable_2",
+    values_to = "correlacion"
+  )
+
+ggplot(matriz_cor_larga, aes(x = variable_1, y = variable_2, fill = correlacion)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = round(correlacion, 2)), size = 3) +
+  scale_fill_gradient2(
+    low = "#B24745",
+    mid = "white",
+    high = "#2DA9CE",
+    midpoint = 0,
+    limits = c(-1, 1)
+  ) +
+  labs(
+    title = "Matriz de correlación de variables numéricas",
+    x = "",
+    y = "",
+    fill = "Correlación"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+```
+
+### 15. Promedio académico por plataforma principal
+
+```{r}
+df %>%
+  group_by(plataforma) %>%
+  summarise(
+    n = n(),
+    promedio_medio = mean(promedio, na.rm = TRUE),
+    promedio_mediano = median(promedio, na.rm = TRUE),
+    horas_redes_media = mean(horas_redes, na.rm = TRUE),
+    sd_promedio = sd(promedio, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(promedio_medio)) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+  kable(
+    caption = "Promedio académico y horas en redes por plataforma principal"
+  )
+```
+
+```{r}
+ggplot(df, aes(x = fct_reorder(plataforma, promedio, .fun = mean), y = promedio, fill = plataforma)) +
+  geom_boxplot(alpha = 0.8, outlier.alpha = 0.45) +
+  coord_flip() +
+  labs(
+    title = "Promedio académico por plataforma principal",
+    x = "Plataforma",
+    y = "Promedio académico"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "none")
+```
+
+### 16. Promedio académico según género y zona de residencia
+
+```{r}
+df %>%
+  group_by(genero) %>%
+  summarise(
+    n = n(),
+    promedio_medio = mean(promedio, na.rm = TRUE),
+    horas_redes_media = mean(horas_redes, na.rm = TRUE),
+    horas_estudio_media = mean(horas_estudio, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+  kable(
+    caption = "Resumen por género"
+  )
+```
+
+```{r}
+df %>%
+  group_by(zona_residencia) %>%
+  summarise(
+    n = n(),
+    promedio_medio = mean(promedio, na.rm = TRUE),
+    horas_redes_media = mean(horas_redes, na.rm = TRUE),
+    horas_estudio_media = mean(horas_estudio, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+  kable(
+    caption = "Resumen por zona de residencia"
+  )
+```
+
+```{r}
+p_genero_prom <- ggplot(df, aes(x = genero, y = promedio, fill = genero)) +
+  geom_boxplot(alpha = 0.8) +
+  labs(
+    title = "Promedio académico por género",
+    x = "Género",
+    y = "Promedio"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "none")
+
+p_zona_prom <- ggplot(df, aes(x = zona_residencia, y = promedio, fill = zona_residencia)) +
+  geom_boxplot(alpha = 0.8) +
+  labs(
+    title = "Promedio académico por zona de residencia",
+    x = "Zona de residencia",
+    y = "Promedio"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "none")
+
+plot_grid(p_genero_prom, p_zona_prom, ncol = 2)
+```
+
+### 17. Distracción académica, redes sociales y promedio
+
+```{r}
+df %>%
+  group_by(distraccion_acad) %>%
+  summarise(
+    n = n(),
+    promedio_medio = mean(promedio, na.rm = TRUE),
+    horas_redes_media = mean(horas_redes, na.rm = TRUE),
+    horas_estudio_media = mean(horas_estudio, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+  kable(
+    caption = "Promedio, horas en redes y horas de estudio según distracción académica"
+  )
+```
+
+```{r}
+ggplot(df, aes(x = factor(distraccion_acad), y = promedio, fill = factor(distraccion_acad))) +
+  geom_boxplot(alpha = 0.8) +
+  labs(
+    title = "Promedio académico según nivel de distracción académica",
+    x = "Nivel de distracción académica",
+    y = "Promedio académico"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "none")
+```
+
+### 18. Heatmap descriptivo: uso de redes y distracción académica
+
+```{r}
+heat_df <- df %>%
+  filter(!is.na(cat_horas_redes), !is.na(distraccion_acad)) %>%
+  group_by(cat_horas_redes, distraccion_acad) %>%
+  summarise(
+    n = n(),
+    promedio_medio = mean(promedio, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+ggplot(
+  heat_df,
+  aes(
+    x = cat_horas_redes,
+    y = factor(distraccion_acad),
+    fill = promedio_medio
+  )
+) +
+  geom_tile(color = "white") +
+  geom_text(
+    aes(label = paste0(round(promedio_medio, 2), "\n(n=", n, ")")),
+    color = "white",
+    fontface = "bold",
+    size = 3.5
+  ) +
+  scale_fill_gradient2(
+    low = "#B24745",
+    mid = "grey90",
+    high = "#2DA9CE",
+    midpoint = median(heat_df$promedio_medio, na.rm = TRUE)
+  ) +
+  labs(
+    title = "Promedio académico por uso de redes y distracción académica",
+    x = "Categoría de horas en redes",
+    y = "Nivel de distracción académica",
+    fill = "Promedio medio"
+  ) +
+  theme_bw(base_size = 12)
+```
+
+### 19. Bienestar emocional y promedio académico
+
+```{r}
+bienestar_largo <- df %>%
+  select(
+    promedio,
+    ansiedad,
+    depresion,
+    autoestima,
+    alteracion_sueno,
+    modificacion_ani
+  ) %>%
+  pivot_longer(
+    cols = -promedio,
+    names_to = "indicador",
+    values_to = "valor"
+  )
+
+ggplot(bienestar_largo, aes(x = factor(valor), y = promedio, fill = factor(valor))) +
+  geom_boxplot(alpha = 0.8) +
+  facet_wrap(~ indicador, scales = "free_x") +
+  labs(
+    title = "Promedio académico según indicadores de bienestar",
+    x = "Nivel reportado",
+    y = "Promedio académico"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(legend.position = "none")
+```
+
+```{r}
+df %>%
+  summarise(
+    cor_ansiedad_promedio = cor(ansiedad, promedio, use = "complete.obs"),
+    cor_depresion_promedio = cor(depresion, promedio, use = "complete.obs"),
+    cor_autoestima_promedio = cor(autoestima, promedio, use = "complete.obs"),
+    cor_sueno_promedio = cor(alteracion_sueno, promedio, use = "complete.obs"),
+    cor_animo_promedio = cor(modificacion_ani, promedio, use = "complete.obs")
+  ) %>%
+  mutate(across(everything(), ~ round(.x, 3))) %>%
+  kable(
+    caption = "Correlaciones entre indicadores de bienestar y promedio académico"
+  )
+```
+
+### 20. Asistencia y promedio académico
+
+```{r}
+ggplot(df, aes(x = asistencia, y = promedio)) +
+  geom_point(alpha = 0.55, color = "#78B49D", size = 2) +
+  geom_smooth(method = "lm", se = TRUE, color = "#4E6E73") +
+  labs(
+    title = "Relación entre asistencia y promedio académico",
+    x = "Asistencia reportada",
+    y = "Promedio académico"
+  ) +
+  theme_bw(base_size = 12)
+```
+
+```{r}
+df %>%
+  mutate(
+    cat_asistencia = cut(
+      asistencia,
+      breaks = c(-Inf, 60, 80, 90, Inf),
+      labels = c("≤60", "61–80", "81–90", ">90"),
+      ordered_result = TRUE
+    )
+  ) %>%
+  group_by(cat_asistencia) %>%
+  summarise(
+    n = n(),
+    promedio_medio = mean(promedio, na.rm = TRUE),
+    horas_redes_media = mean(horas_redes, na.rm = TRUE),
+    horas_estudio_media = mean(horas_estudio, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+  kable(
+    caption = "Promedio académico, horas en redes y estudio por categoría de asistencia"
+  )
+```
+
+### 21. Detección descriptiva de posibles valores atípicos
+
+```{r}
+detectar_outliers <- function(x) {
+  q1 <- quantile(x, 0.25, na.rm = TRUE)
+  q3 <- quantile(x, 0.75, na.rm = TRUE)
+  iqr <- q3 - q1
+  limite_inf <- q1 - 1.5 * iqr
+  limite_sup <- q3 + 1.5 * iqr
+  sum(x < limite_inf | x > limite_sup, na.rm = TRUE)
+}
+
+outliers_resumen <- variables_numericas %>%
+  summarise(across(
+    everything(),
+    detectar_outliers
+  )) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = "variable",
+    values_to = "posibles_outliers"
+  ) %>%
+  arrange(desc(posibles_outliers))
+
+outliers_resumen %>%
+  kable(
+    caption = "Cantidad de posibles valores atípicos por variable numérica usando regla 1.5 IQR"
+  )
+```
+
+### 22. Conclusiones descriptivas preliminares
+
+A partir del análisis descriptivo, la base permite estudiar adecuadamente la relación entre el uso de redes sociales y el rendimiento académico porque contiene tanto la variable de exposición principal, horas diarias en redes sociales, como la variable de resultado, promedio académico. Además, incluye variables complementarias que pueden ayudar a interpretar esa relación, como horas de estudio, asistencia, distracción académica, ansiedad, depresión, autoestima y alteración del sueño.
+
+En términos descriptivos, el análisis no debe interpretarse como evidencia causal. Las tablas y gráficos muestran asociaciones iniciales entre variables, pero no prueban que el uso de redes sociales cause directamente cambios en el promedio académico. La exploración sugiere que el tiempo en redes debe analizarse junto con variables de comportamiento académico, especialmente la distracción durante actividades académicas. Por esta razón, los análisis posteriores deberían considerar modelos que incluyan simultáneamente horas en redes, horas de estudio, asistencia y distracción académica, en lugar de estudiar únicamente la relación bivariada entre redes sociales y promedio.
+
+### 23. Guardar tablas principales del análisis descriptivo
+
+```{r}
+dir.create("../../datos/procesados/descriptivos", showWarnings = FALSE)
+
+write_csv(
+  tipos_variables,
+  "../../datos/procesados/descriptivos/tipos_variables.csv"
+)
+
+write_csv(
+  na_resumen,
+  "../../datos/procesados/descriptivos/valores_perdidos.csv"
+)
+
+write_csv(
+  resumen_numerico,
+  "../../datos/procesados/descriptivos/resumen_numerico.csv"
+)
+
+write_csv(
+  resumen_categorico,
+  "../../datos/procesados/descriptivos/resumen_categorico.csv"
+)
+
+write_csv(
+  matriz_cor_larga,
+  "../../datos/procesados/descriptivos/matriz_correlacion.csv"
+)
+
+cat("Tablas descriptivas guardadas en ../../datos/procesados/descriptivos/\n")
+```

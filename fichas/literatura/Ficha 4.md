@@ -1,31 +1,31 @@
 **Nivel descriptivo**
 
-- **Título:** Coorrelación del uso de redes sociales con el rendimiento académico de estudiantes de nivel superior.
+- **Título:** Influence of Social Media on the Academic Performance Among Undergraduate Students of University of Ilorin.
 
-- **Autor(es):** Jesús Adolfo Rodelo Moreno, Jorge Lizárraga Reyes
+- **Autor(es):** Olamilekan O. Ogunbiyi.
 
-- **Año:** 2018
+- **Año:** 2024
 
-- **Nombre del tema:** Relación entre el uso de redes sociales y el rendimiento académico usando análisis de correlación.
+- **Nombre del tema:** Influencia del uso de redes sociales en el rendimiento académico de estudiantes universitarios.
 
-- **Clasificación:** Metodológica (usa métodos de estadísticos de correlación a partir de encuestas).
+- **Clasificación:** Metodológica (usa encuestas y análisis estadístico para estudiar la relación entre redes sociales y rendimiento académico).
 
-- **Resumen en una oración:** Estudia si existe relación entre el uso de redes sociales y el rendimiento académico en estudiantes universitarios.
+- **Resumen en una oración:** Analiza cómo el uso de redes sociales influye en el rendimiento académico de estudiantes universitarios mediante encuestas y análisis estadístico.
 
-- **Argumento central:** El uso de redes sociales puede tener relación positiva con el rendimiento académico cuando se utilizan con fines académicos.
+- **Argumento central:** Las redes sociales pueden ser útiles para el aprendizaje, pero un uso excesivo puede afectar negativamente al rendimiento académico y la concentración.
 
-- **Problemas:** La muestra es limitada y los datos dependen de lo que responden los estudiantes en las encuestas.
+- **Problemas:** El estudio se basa en respuestas subjetivas de estudiantes de una sola universidad.
 
 **Nivel analítico**
 
-- **Conexión con nuestro proyecto:** Se relaciona bastante con nuestro trabajo porque también usa encuestas y análisis de correlación para estudiar redes sociales y rendimiento académico.
+- **Conexión con nuestro proyecto:** Se relaciona directamente con nuestro trabajo porque estudia variables similares como tiempo de uso y rendimiento académico.
 
-- **Lo que NO dice el autor:** No analiza otros factores que podrían influir en las notas, como hábitos de estudio o situación personal de cada estudiante.
+- **Lo que NO dice el autor:** No explica si el tiempo de uso afecta igual a todos los estudiantes o si depende de cómo utilicen las redes sociales.
 
-- **Contraste con otra fuente:** A diferencia de León Luyo 2023, este estudio sí encuentra algunas relaciones positivas entre redes sociales y rendimiento académico.
+- **Contraste con otra fuente:** A diferencia de León Luyo 2023, este estudio sí relaciona el uso excesivo de redes sociales con una bajada en el rendimiento académico.
 
-- **Evaluación de aplicabilidad (1–5):** 5 - muy útil para el proyecto porque utiliza una metodología parecida a la nuestra.
+- **Evaluación de aplicabilidad (1–5):** 4 - útil para comparar resultados y metodología con nuestro proyecto.
 
-- **Pregunta al autor:** ¿Qué tipo de uso de redes sociales creen que influye más en el rendimiento académico, el académico de forma positiva o en recreativo de forma negativa?
+- **Pregunta al autor:** ¿Los resultados serían diferentes si el estudio se realizase en estudiantes de otras carreras o países?
 
-- **Resumen argumentativo:** El artículo analiza la relación entre el uso de redes sociales y el rendimiento académico mediante encuestas y análisis de correlación. Es útil para este proyecto porque trabaja con variables muy similares a las nuestras y también utiliza una metodología similar. Además, nos sirve para comparar resultados con estudios distintos que encuentran relaciones diferentes entre redes sociales y desempeño académico.
+- **Resumen argumentativo:** El artículo estudia cómo el uso de redes sociales puede influir tanto positiva como negativamente en el rendimiento académico de estudiantes universitarios. Utiliza encuestas y análisis estadístico para relacionar tiempo de uso, concentración y desempeño académico. Para nuestro proyecto es útil porque cuenta con variables similares a las de nuestra base de datos y permite comparar resultados de forma más clara.

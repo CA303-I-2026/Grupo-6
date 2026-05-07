@@ -10,6 +10,7 @@
 \usepackage{tabularx} % Para que la tabla se ajuste al ancho del texto
 \usepackage{makecell} % más de una línea en la misma celda dentro de una tabla
 \usepackage{array}
+\usepackage{float}
 
 \title{\Huge Bitácora 2\\ \Large Análisis de la relación entre el uso de redes sociales y el rendimiento académico en estudiantes}
 \author{Katia Moreno Aspiroz C6A060\\
@@ -205,8 +206,103 @@ cada párrafo con resumen, contraste y contribución propia.
 \section{Análisis estadísticos}
 \subsection{Identidad visual}
 \subsection{Análisis descriptivo}
+
+\subsubsection{Gráficos preliminares}
+
+Tras la limpieza del conjunto de datos se obtuvieron columnas con variables relevantes que van a ser interrelacionadas mediante gráficos. La columna de rendimiento académico (GPA) contenía texto en diferentes formatos por lo que se tuvo que estandarizar a una escala 1-5. Para esto se utilizó una función de parseo que toma el valor numérico en cada caso. Además, se identificaron algunos valores atípicos. Por ejemplo, en la columna de horas diarias en redes sociales se presentaba un valor de 60 horas, lo cual es físicamente imposible y se identificó como un error, por lo que se implementó un filtro donde se descartan las observaciones con más de 20 horas reportadas. Además, se optó por renombrar las columnas del conjunto a nombres cortos y descriptivos en español para facilitar la lectura del código, por ejemplo "horas\_redes", promedio, "horas\_estudio", "distraccion\_acad", entre otras. Seguidamente, todas las plataformas de redes sociales con menos de 10 observaciones fueron agrupadas bajo la categoría "otro" para evitar estimaciones poco confiables en los graficos que desagregan por red social. Finalmente, se construyó una variable "cat\_horas\_redes", la cual agrupa el tiempo diario en redes en cuatro categorías: 0–2 h, 2–4 h, 4–6 h y más de 6 h. Esto se seleccionó de esta manera convenientemente para un gráfico posterior. El resultado de este proceso es un conjunto de datos en formato tidy de 395 observaciones y 22 columnas, donde cada fila representa un estudiante, cada columna representa exactamente una variable, y cada celda contiene un único valor, cumpliendo así los tres principios del estándar tidy data.
+
+Este data set representa cuatro ejes importantes para este análisis mediante las siguientes variables:
+
+\begin{enumerate}
+    \item Uso de redes sociales:
+    \begin{itemize}
+        \item horas\_redes (continua), \item cat\_horas\_redes (ordinal derivada), \item plataforma (categórica nominal), \item momento\_uso (mañana, tarde o noche).
+    \end{itemize}
+    \item Rendimiento y compromiso académico:
+    \begin{itemize}
+        \item promedio (continua, 0–5), 
+        \item horas\_estudio (continua), 
+        \item asistencia (porcentual).
+    \end{itemize}
+    \item Impacto percibido de las redes:
+    \begin{itemize}
+        \item distraccion\_acad (escala 1–5), 
+        \item sintomas\_abstine (síntomas por no usar redes), 
+        \item alteracion\_sueno (trastornos de sueño asociados al uso).
+    \end{itemize}
+    \item Estado de salud mental
+    \begin{itemize}
+        \item ansiedad,
+        \item depresion,
+        \item autoestima.
+    \end{itemize}
+\end{enumerate}
+
+Mediante la combinación de estos cuatro puntos de vista se construyeron los siguientes gráficos:
+\\
+
+\textbf{Gráfico 1: Horas en redes sociales vs Promedio académico (Dispersión + LOESS)}
+
+Este gráfico es el más esperado para analizar la pregunta de investigación "¿Existe alguna relación entre el tiempo de uso de redes sociales y el rendimiento                   académico en estudiantes?", ya que se relaciona el tiempo diario dedicado a redes y el promedio académico en escala 0-5. Cada punto representa un estudiante y el color indica la plataforma que más utiliza. Además, se aplico una curva LOESS para ajustar los datos a un promedio que se observa relativamente estable entre 0 y 5 horas y comienza a descender. 
+
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/grafico_1_horas_redes_vs_promedio.png} 
+    \caption{Asociación entre el tiempo diario en redes sociales y el promedio académico en estudiantes universitarios}
+    \label{fig:grafico1}
+\end{figure}
+\textbf{Gráfico 2: Distribución del promedio por nivel de uso de redes (Boxplot)}
+
+Para este gráfico se utilizó la variable creada cat\_horas\_redes: 0–2 h, 2–4 h, 4–6 h y más de 6 h diarias. Para cada una de estas agrupaciones, se visualiza la media y mediana del promedio académico mediante box plots. 
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/grafico_2_categoria_redes_vs_promedio.png} 
+    \caption{Distribución del promedio académico según categoría de uso diario de redes sociales}
+    \label{fig:grafico2}
+\end{figure}
+
+\textbf{Gráfico 3: Horas de estudio vs Promedio académico con color = horas en redes (Dispersión + regresión)}
+
+Este gráfico introduce una variable importante: las horas diarias dedicadas al estudio, relacionada con el promedio académico. Cada punto representa un estudiante y el color la cantidad de horas que dedica a redes. Se aplicó una regresión lineal entre horas de estudio y promedio, la cual indica lo esperado: a más horas de estudio, mayor promedio. La utilidad del color en este gráfico es visualizar si los puntos rojos y azules se distribuyen de forma aleatoria o si hay alguna tendencia. 
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/grafico_3_horas_estudio_vs_promedio.png} 
+    \caption{Relación entre horas de estudio y promedio académico según intensidad de uso de redes sociales}
+    \label{fig:grafico3}
+\end{figure}
+
+\textbf{Gráfico 4: Promedio académico medio por red social principal (Barras horizontales)}
+
+El objetivo de este gráfico es analizar si tiene alguna importancia qué plataforma usa el estudiante, o solo importa cuánto tiempo pasa en ella. Las barras horizontales muestran el promedio de cada grupo de usuarios en distintas plataformas. Cada barra tiene un error estándar asociado, un promedio y el tamaño de la muestra, para facilitar la comparación. 
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/grafico_4_promedio_por_plataforma.png} 
+    \caption{Promedio académico medio por plataforma de red social de uso principal}
+    \label{fig:grafico4}
+\end{figure}
+
+\textbf{Gráfico 5: Heatmap: Promedio académico por nivel de uso de redes y distracción académica}
+
+En este gráfico se introduce la variable de distracción del 1-5 y se relaciona con los mismos cuatro grupos de uso. Cada celda representa un subgrupo de estudiantes que está entre los rangos definidos, e incluye el promedio y tamaño muestral para evaluar la confiabilidad de cada medición, así como un color asociado al promedio medio. 
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.75\textwidth]{figuras/grafico_5_heatmap_redes_distraccion_promedio.png} 
+    \caption{Promedio académico medio según nivel de uso de redes sociales y grado de distracción durante actividades académicas}
+    \label{fig:grafico5}
+\end{figure}
+
 \subsection{Fichas de resultados}
+
 \subsection{Imagen que cuenta la historia}
+
+Se escoge como gráfico central el Heatmap: Promedio académico por nivel de uso de redes y distracción académica de la figura \ref{fig:grafico5}. Este es el único gráfico que responde a la pregunta de investigación desde dos ángulos, ya que no solo se muestra cuánto tiempo pasa un estudiante en redes sociales, sino también qué tan distraído se siente durante actividades académicas a causa de ellas. Los gráficos \ref{fig:grafico1} y \ref{fig:grafico2} (dispersión y boxplot de horas vs GPA) muestran la relación entre tiempo y promedio, pero no explican por qué podría existir esa relación. El gráfico \ref{fig:grafico3} es útil como control y asociar las horas de estudio con el promedio; asimismo, el gráfico \ref{fig:grafico4} es descriptivo y útil. Sin embargo, el heatmap permite identificar inmediatamente con solo ver el gráfico las celdas de alto riesgo: estudiantes que pasan más de seis horas en redes y reportan distracción máxima concentran los promedios más bajos, mientras que estudiantes con uso alto pero distracción baja mantienen promedios competitivos. 
+
+Este gráfico omite intencionalmente muchas variables que quedan por fuera como el nivel socioeconómico, las horas de sueño o la ansiedad, que también están en los datos y podrían explicar mejor la varianza; pero esta omisión simplifica la lectura pero introduce el riesgo de atribuir casualidad donde solo hay asociación. También simplifica al agregar todos los estudiantes en celdas sin distinguir carrera, género o plataforma, con lo que cada celda promedia realidades heterogéneas que podrían contar historias distintas. Aun así, este gráfico conecta con la pregunta de investigación: ¿existe alguna relación entre el tiempo de uso de redes sociales y el rendimiento académico?, ya que muestra que la relación existe y que podría explicarse por la variable de la distracción. 
 
 \section{Arco narrativo}
 Al explorar los datos, descubrimos que una gran cantidad de estudiantes utiliza redes sociales durante varias horas al día sin que esto implique necesariamente un bajo rendimiento académico, lo que nos obliga a repensar cómo abordaremos el problema y considerar que no solo importa el tiempo de uso, sino tambiñen la forma en que se utilizan estas plataformas.

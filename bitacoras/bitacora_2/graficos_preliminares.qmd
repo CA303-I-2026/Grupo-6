@@ -5,23 +5,299 @@ format: html
 editor: visual
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
 ```{r}
-1 + 1
+library(tidyverse)
+library(cowplot)
+library(ggsci)  
+library(scales)
 ```
 
-You can add options to executable code like this
-
+1. Cargar datos
 ```{r}
-#| echo: false
-2 * 2
+library(tidyverse)
+library(readr)
+
+df <- read_csv(
+  "../../datos/procesados/survey.limpio.csv",
+  show_col_types = FALSE
+) %>%
+  mutate(
+    cat_horas_redes = factor(
+      cat_horas_redes,
+      levels = c("0–2 h", "2–4 h", "4–6 h", ">6 h"),
+      ordered = TRUE
+    ),
+    plataforma = factor(plataforma)
+  ) %>%
+  filter(!is.na(promedio), !is.na(horas_redes))
+
+cat("Filas disponibles para graficar:", nrow(df), "\n")
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+2. Paleta de colores seleccionada
+```{r}
+jama <- pal_jama()(5)
+
+estilo_grupo <- function() {
+  theme_bw(base_size = 13) +
+    theme(
+      plot.title       = element_text(face = "bold", size = 14, hjust = 0),
+      plot.subtitle    = element_text(size = 12, color = "grey40"),
+      axis.title       = element_text(size = 12),
+      axis.text        = element_text(size = 11),
+      legend.title     = element_text(size = 12, face = "bold"),
+      legend.text      = element_text(size = 11),
+      panel.grid.minor = element_blank(),
+      strip.background = element_rect(fill = "grey92", color = NA),
+      strip.text       = element_text(size = 11, face = "bold")
+    )
+}
+```
+
+3. Grafico 1: Dispersión: horas en redes vs Promedio + LOESS
+```{r}
+pA <- ggplot(df, aes(x = horas_redes, y = promedio)) +
+  geom_jitter(aes(color = plataforma),
+              width = 0.15, height = 0.04,
+              alpha = 0.65, size = 2) +
+  geom_smooth(method = "loess", formula = y ~ x,
+              se = TRUE,
+              color = jama[4], fill = jama[4],
+              alpha = 0.15, linewidth = 1.3) +
+  scale_color_manual(values = jama, name = "Red social") +
+  labs(
+    title    = "Horas en redes sociales vs Promedio académico",
+    subtitle = "Tendencia LOESS con banda de confianza al 95%",
+    x        = "Horas diarias en redes sociales",
+    y        = "Promedio académico (escala 0–5)"
+  ) +
+  estilo_grupo()
+pA
+```
+
+4. Gráfico 2: Boxplot: categoría de uso de redes vs Promedio
+
+```{r}
+pB <- ggplot(df %>% filter(!is.na(cat_horas_redes)),
+             aes(x = cat_horas_redes, y = promedio, fill = cat_horas_redes)) +
+  geom_boxplot(outlier.shape = 21, outlier.size  = 2,
+               outlier.fill  = "white", alpha = 0.82, width = 0.55) +
+  geom_jitter(width = 0.12, alpha = 0.22, size = 1.4, color = "grey30") +
+  stat_summary(fun = mean, geom = "point",
+               shape = 23, size = 3, fill = "white", color = "grey20") +
+  scale_fill_manual(values = jama, guide = "none") +
+  labs(
+    title    = "Distribución del promedio por nivel de uso de redes",
+    subtitle = "Grupos definidos por horas diarias · ◇ = media grupal",
+    x        = "Horas diarias en redes sociales",
+    y        = "Promedio académico (escala 0–5)"
+  ) +
+  estilo_grupo()
+pB
+```
+
+
+5. Gráfico 3: Dispersión: horas de estudio vs Promedio (color continuo = horas en redes)
+
+```{r}
+df_c <- df %>% filter(!is.na(horas_estudio))
+
+pC <- ggplot(df_c, aes(x = horas_estudio, y = promedio,
+                        color = horas_redes)) +
+  geom_point(alpha = 0.7, size = 2.2) +
+  geom_smooth(method = "lm", formula = y ~ x,
+              se = FALSE, color = jama[1],
+              linewidth = 1.2, linetype = "dashed") +
+  scale_color_gradient(low = jama[3], high = jama[4],
+                       name = "Horas en\nredes (color)") +
+  labs(
+    title    = "Horas de estudio vs Promedio académico",
+    subtitle = "Color = horas diarias en redes · línea = regresión lineal",
+    x        = "Horas diarias de estudio",
+    y        = "Promedio académico (escala 0–5)"
+  ) +
+  estilo_grupo()
+
+pC
+```
+
+6. Gráfico 4: Barras horizontales: promedio medio por plataforma
+
+```{r}
+resumen_plat <- df %>%
+  group_by(plataforma) %>%
+  summarise(
+    media_prom  = mean(promedio,    na.rm = TRUE),
+    se          = sd(promedio,     na.rm = TRUE) / sqrt(n()),
+    media_horas = mean(horas_redes, na.rm = TRUE),
+    n           = n(),
+    .groups     = "drop"
+  ) %>%
+  mutate(plataforma = fct_reorder(plataforma, media_prom))
+
+pD <- ggplot(resumen_plat,
+             aes(x = media_prom, y = plataforma, fill = plataforma)) +
+  geom_col(width = 0.55, alpha = 0.88) +
+  geom_errorbar(aes(xmin = media_prom - se,
+                    xmax = media_prom + se),
+                width = 0.25, linewidth = 0.9, color = "grey25") +
+  geom_text(aes(label = sprintf("%.1f h/día  (n=%d)", media_horas, n)),
+            hjust = -0.08, size = 3.5, color = "grey25") +
+  scale_fill_manual(values = jama, guide = "none") +
+  scale_x_continuous(limits = c(0, 5.5),
+                     expand = expansion(mult = c(0, 0.05))) +
+  labs(
+    title    = "Promedio académico medio por red social principal",
+    subtitle = "Barras de error: ±1 error estándar · etiqueta: horas promedio en esa red",
+    x        = "Promedio académico medio (escala 0–5)",
+    y        = "Plataforma"
+  ) +
+  estilo_grupo()
+
+pD
+```
+
+7. Gráfico 5: Heatmap: distracción académica × cat_horas_redes (relleno = promedio medio)
+
+```{r}
+
+niveles_cat <- c("0–2 h", "2–4 h", "4–6 h", ">6 h")
+
+heat_df <- df %>%
+  filter(!is.na(distraccion_acad), !is.na(cat_horas_redes)) %>%
+  group_by(cat_horas_redes, distraccion_acad) %>%
+  summarise(media_prom = mean(promedio, na.rm = TRUE),
+            n          = n(),
+            .groups    = "drop") %>%
+  mutate(
+    cat_horas_redes  = factor(cat_horas_redes, levels = niveles_cat),
+    distraccion_acad = factor(distraccion_acad,
+                              levels = 1:5,
+                              labels = paste0("Distr. ", 1:5))
+  )
+
+pE <- ggplot(heat_df,
+             aes(x = cat_horas_redes, y = distraccion_acad,
+                 fill = media_prom)) +
+  geom_tile(color = "white", linewidth = 0.7) +
+  geom_text(aes(label = sprintf("%.2f\n(n=%d)", media_prom, n)),
+            size = 3.4, color = "white", fontface = "bold") +
+  scale_fill_gradient2(
+    low      = jama[4],
+    mid      = "grey88",
+    high     = jama[3],
+    midpoint = median(heat_df$media_prom, na.rm = TRUE),
+    name     = "Promedio\nmedio"
+  ) +
+  labs(
+    title    = "Promedio académico por nivel de uso de redes y distracción",
+    subtitle = "Escala de distracción académica: 1 = mínima → 5 = máxima",
+    x        = "Horas diarias en redes sociales",
+    y        = "Escala de distracción académica"
+  ) +
+  estilo_grupo()
+pE
+```
+
+
+8. Ensamble utilizando cowplot
+
+```{r}
+fila1 <- plot_grid(pA, pB, ncol = 2,
+                   labels = c("A", "B"),
+                   label_size = 14, label_fontface = "bold")
+
+fila2 <- plot_grid(pC, pD, ncol = 2,
+                   labels = c("C", "D"),
+                   label_size = 14, label_fontface = "bold")
+
+fila3 <- plot_grid(pE, ncol = 1,
+                   labels = "E",
+                   label_size = 14, label_fontface = "bold")
+
+titulo <- ggdraw() +
+  draw_label(
+    "Redes Sociales y Rendimiento Académico — Análisis Exploratorio",
+    fontface = "bold", size = 16, x = 0.04, hjust = 0
+  )
+
+panel_final <- plot_grid(
+  titulo, fila1, fila2, fila3,
+  ncol        = 1,
+  rel_heights = c(0.05, 1, 1, 0.82)
+)
+panel_final
+```
+
+9. Guardar gráficos
+```{r}
+# Carpeta con los gráficos
+dir.create("figuras", showWarnings = FALSE)
+
+ggsave(
+  filename = "figuras/grafico_1_horas_redes_vs_promedio.png",
+  plot     = pA,
+  width    = 10,
+  height   = 7,
+  dpi      = 300,
+  bg       = "white"
+)
+
+ggsave(
+  filename = "figuras/grafico_2_categoria_redes_vs_promedio.png",
+  plot     = pB,
+  width    = 10,
+  height   = 7,
+  dpi      = 300,
+  bg       = "white"
+)
+
+ggsave(
+  filename = "figuras/grafico_3_horas_estudio_vs_promedio.png",
+  plot     = pC,
+  width    = 10,
+  height   = 7,
+  dpi      = 300,
+  bg       = "white"
+)
+
+ggsave(
+  filename = "figuras/grafico_4_promedio_por_plataforma.png",
+  plot     = pD,
+  width    = 10,
+  height   = 7,
+  dpi      = 300,
+  bg       = "white"
+)
+
+ggsave(
+  filename = "figuras/grafico_5_heatmap_redes_distraccion_promedio.png",
+  plot     = pE,
+  width    = 10,
+  height   = 7,
+  dpi      = 300,
+  bg       = "white"
+)
+
+# panel final combinado
+ggsave(
+  filename = "figuras/graficos_redes_sociales_panel.png",
+  plot     = panel_final,
+  width    = 16,
+  height   = 20,
+  dpi      = 300,
+  bg       = "white"
+)
+
+ggsave(
+  filename = "figuras/graficos_redes_sociales_panel.pdf",
+  plot     = panel_final,
+  width    = 16,
+  height   = 20,
+  device   = cairo_pdf,
+  bg       = "white"
+)
+
+```
+
+

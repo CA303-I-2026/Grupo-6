@@ -9,6 +9,7 @@
 \usepackage{booktabs} % Para líneas de tabla más elegantes
 \usepackage{tabularx} % Para que la tabla se ajuste al ancho del texto
 \usepackage{makecell} % más de una línea en la misma celda dentro de una tabla
+\usepackage{array}
 
 \title{\Huge Bitácora 2\\ \Large Análisis de la relación entre el uso de redes sociales y el rendimiento académico en estudiantes}
 \author{Katia Moreno Aspiroz C6A060\\
@@ -25,6 +26,11 @@ Sebastián Calderón Segura C21517}
 \newpage
 
 \section{Introducción}
+El uso de redes sociales forma parte del día a día de la mayoría de universitarios. Plataformas como TikTok, Instragram o WhatsApp ocupan un tiempo significativo a lo largo día, incluso en momentos dedicados al estudio o a pausas durante el mismo.
+\\
+En este contexto, resulta interesante analizar si existe una relación entre el tiempo dedicado a las redes sociales y el rendimiento académico, ya que es razonable pensar que estos hábitos pueden influir en la concentración, la organización del tiempo o las horas de estudio.
+\\
+En esta segunda bitácora profundizamos en el análisis de la base de datos utilizada en el proyecto, ampliamos la revisión bibliográfica y comenzamos a relacionar distintos estudios y resultados para construir una visión más completa sobre el problema planteado.
 \section{Planificación}
 \subsection{Respuesta retroalimentación}
 necesitamos la retroalimentación
@@ -34,6 +40,7 @@ Esta semana, le diría a un profesor universitario que ...
 
 \section{Ordenamiento Literatura}
 \subsection{Fichas literarias}
+A continuación, se presentan las dichas de literatura utlizadas como base teórica y metodológica del proyecto. Estas fuentes permiten contextualizar el problema estudiado y comparar distintos enfoques y resultados.
 
 \section*{Ficha 1}
 
@@ -132,22 +139,53 @@ Esta semana, le diría a un profesor universitario que ...
 \end{itemize}
 
 
-\subsection{Ordenamiento Literatura}
-Con el objetivo de organizar ...
+\subsection{Ordenamiento de las Fichas Literarias}
+Las fuentes revisadas fueron organizadas según su clasificación y enfoque principal, con el objetivo de estructurar mejor la introducción y la metodología del proyecto.
 
 \begin{table}[h]
-\centering
-\begin{tabular}{|c|c|c|c|c|}
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{2.5cm}|p{4cm}|p{4.8cm}|p{1.2cm}|p{3cm}|}
 \hline
-\multicolumn{2}{|c|}{Organización} & \multicolumn{3}{c|}{Literatura}\\
-\cline{1-5}
-Clasificación & Justificación breve & Título & Año & Autor(es) \\
+\multicolumn{2}{|c|}{\textbf{Organización}} & 
+\multicolumn{3}{c|}{\textbf{Literatura}} \\
 \hline
-Metodológica & \makecell{Estudia si el uso de\\ redes
-sociales afecta el\\ rendimiento académico en\\ estudiantes de Finanzas} & \makecell{Redes Sociales y rendimiento\\ académico en estudiantes de\\ Administración, Universidad\\ Nacional de Trujillo. Perú} & 2003 & \makecell{Sandra L. L.,\\ Denis G. C.,\\ Nelly V. C.,\\ Heyner Y. M.}\\
-Teórica & \makecell{Examina cómo la\\ estructura y contenido\\ de redes de amistad\\ afectan el rendimiento\\ académico} & \makecell{Análisis de redes sociales y\\ rendimiento académico:\\ lecciones a partir del caso\\ de los Estados Unidos} & 2010 & Martín Santos\\
-Temática & \makecell{Analiza cómo la adicción\\ a smartphones y redes\\ sociales afecta alienación y\\ rendimiento académico} & \makecell{Relación entre adicción a\\ teléfonos inteligentes, redes\\ sociales, alienación\\ y rendimiento académico\\ entre estudiantes de\\ pregrado} & 2020 & \makecell{Yousef A.\\ Aljemely}\\
+
+\textbf{Clasificación} & 
+\textbf{Justificación breve} & 
+\textbf{Título} & 
+\textbf{Año} & 
+\textbf{Autor(es)} \\
 \hline
+
+Metodológica & 
+Estudio correlacional basado en encuestas para analizar la relación entre redes sociales y rendimiento académico en estudiantes universitarios. & 
+Redes Sociales y rendimiento académico en estudiantes de Administración, Universidad Nacional de Trujillo, Perú & 
+2023 & 
+Sandra Lizzette León Luyo, Denis Guizela Chávez Bejarano, Nelly Victoria De La Cruz Ruiz, Heyner Yuliano Marquez Yauri \\
+\hline
+
+Metodológica & 
+Aplicación de análisis correlacional y métodos estadísticos sobre variables relacionadas con uso de redes sociales y desempeño académico. & 
+Correlación del uso de redes sociales con el rendimiento académico de estudiantes de nivel superior & 
+2018 & 
+Jesús Adolfo Rodelo Moreno, Jorge Lizárraga Reyes \\
+\hline
+
+Metodológica & 
+Uso de encuestas y análisis estadístico para estudiar cómo el tiempo en redes sociales puede influir en el rendimiento académico. & 
+Influence of Social Media on the Academic Performance Among Undergraduate Students of University of Ilorin & 
+2024 & 
+Olamilekan O. Ogunbiyi \\
+\hline
+
+Temática & 
+Analiza la relación entre adicción a smartphones, redes sociales y sus posibles efectos en el rendimiento académico. & 
+Relación entre adicción a teléfonos inteligentes, redes sociales, alienación y rendimiento académico entre estudiantes de pregrado & 
+2020 & 
+Yousef A. Aljemely \\
+\hline
+
 \end{tabular}
 \caption{Ordenamiento de la literatura.}
 \end{table}
@@ -171,16 +209,11 @@ al explorar los datos, descubrimos que...
     \item Se utiliza la IA para crear el cuadro correspondiente al ordenamiento de la literatura con la estructura que se propone en la Bitácora 2:
     \begin{itemize}
         \item \textbf{Herramienta:} ChatGPT
-        \item \textbf{Promt:} Necesito que me expliques cómo crear en lenguaje Latex una tabla que contenga celdas combinadas.
-        \item \textbf{Respuesta:} "Puedes hacerlo combinando \texttt{multicolumn}, \texttt{cline} y líneas parciales La clave es:\\
-        $|$ en la definición de columnas $\rightarrow$ líneas verticales.\\
-        \texttt{hline} $\rightarrow$ línea horizontal completa.\\
-        \texttt{cline\{i-j\}} $\rightarrow$ línea horizontal solo entre ciertas columnas.\\
-        \texttt{multicolumn} $\rightarrow$ unir columnas y controlar si aparecen líneas alterales."\\
-        Y brinda un ejemplo de código.
-        \item \textbf{Evaluación:} Muy útil esta ayuda ya que la información de tablas de los manuales de Latex son básicas y no contienen información sobre la función \texttt{multicolumn}.
-        \item \textbf{Modificaciones:} Se modificó la tabla con la información necesaria para el trabajo y las celdas combinadas que requeríamos en este caso, que no correspondían a las que combinó la IA.
-        \item \textbf{Aprendizaje:} Realizar cuadros combinados en LaTeX.
+        \item \textbf{Promt:} Necesito crear en Latex una tabla con algunas celdas combinadas y columnas donde el texto se ajuste automáticamente sin salirse de los márgenes.
+        \item \textbf{Respuesta:} La IA recomendó utilizar comandos como \texttt{multicolumn} y \texttt{cline} para combinar columnas y lineas parciales en tablas. Además, sugirió usar el paquete \texttt{array} y columnas de ancho fijo (\texttt{p\{\}}) para ajustar automáticamente el texto dentro de la tabla y evitar que se saliera de los márgenes. También proporcionó un ejemplo de código base que luego modificamos.
+        \item \textbf{Evaluación:} La ayuda fue útil para mejorar el formato de la tabla y hacer que el texto se ajustara automáticamente dentro de las celdas, algo que no conocíamos.
+        \item \textbf{Modificaciones:} Se adaptó el ejemplo proporcionado a las necesidades el trabajo, modificando tamaños de columnas, contenido y formato general de la tabla, ya que no contenía combinadas las mismas columnas que necesitábamos.
+        \item \textbf{Aprendizaje:} Aprendimos a crear tablas más complejas en LaTeX, utilizando celdas combinadas y columnas que ajustan automáticamente el texto.
     \end{itemize}
     
 \end{itemize}

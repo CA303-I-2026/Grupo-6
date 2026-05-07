@@ -22,7 +22,7 @@
 
 - **Lo que NO dice el autor:** No analiza diferencias por tipo de red social más allá de frecuencia ni efectos longitudinales.
 
-- **Contraste con otra fuente:** Pendiente
+- **Contraste con otra fuente:** A diferencia de Aljemely 2020, esta ficha no relaciona el uso de redes sociales con efectos negativos importantes en el rendimiento académico, sino que encuentra resultados más neutrales.
 
 - **Evaluación de aplicabilidad (1–5):** 4: metodología correlacional aplicable, aunque con muestra pequeña.
 

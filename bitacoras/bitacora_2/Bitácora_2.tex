@@ -294,14 +294,74 @@ La paleta seleccionada para todas las figuras del proyecto es pal\_jama() del pa
 
 \subsection{Análisis descriptivo}
 
-En el análisis descriptivo se trabajó con una base de **405 estudiantes** y **20 variables originales**. La base incluye información personal, académica y de uso de redes sociales. Primero se revisó la estructura general del conjunto de datos y se identificó que hay variables numéricas como edad, horas de estudio, asistencia, horas en redes sociales, promedio académico y escalas de ansiedad, depresión, autoestima, sueño y distracción. También hay variables categóricas como género, zona de residencia, nivel educativo, nivel educativo de los padres, plataforma principal, momento del día en que más se usan las redes y actividad física. La muestra está compuesta por **219 hombres y 186 mujeres**. La mayoría de estudiantes vive en zona **urbana**, con **343 casos**, mientras que **62** viven en zona rural. También se observa que la mayor parte de la muestra pertenece a educación terciaria, con **331 estudiantes**, lo cual coincide con el enfoque universitario del proyecto.
+En el análisis descriptivo se trabajó con una base de 405 estudiantes y 20 variables originales. La base incluye información personal, académica y de uso de redes sociales. Primero se revisó la estructura general del conjunto de datos y se identificó que hay variables numéricas como edad, horas de estudio, asistencia, horas en redes sociales, promedio académico y escalas de ansiedad, depresión, autoestima, sueño y distracción. También hay variables categóricas como género, zona de residencia, nivel educativo, nivel educativo de los padres, plataforma principal, momento del día en que más se usan las redes y actividad física. La muestra está compuesta por 219 hombres y 186 mujeres. La mayoría de estudiantes vive en zona urbana, con 343 casos, mientras que 62 viven en zona rural. También se observa que la mayor parte de la muestra pertenece a educación terciaria, con 331 estudiantes, lo cual coincide con el enfoque universitario del proyecto.
 
-En cuanto a las variables centrales, el promedio académico tiene una media aproximada de **4.14** en una escala de 0 a 5, con una mediana de **4.0**. Esto indica que, en general, la muestra reporta un rendimiento académico alto. El tiempo diario en redes sociales tiene una media de **4.04 horas** y una mediana de **3.5 horas**, por lo que el uso de redes es frecuente en la población estudiada. Al agrupar las horas de redes, el grupo más grande fue el de **2 a 4 horas**, con **140 estudiantes**, seguido por **0 a 2 horas**, con **115 estudiantes**. También hay **91 estudiantes** en el grupo de **4 a 6 horas** y **57 estudiantes** con **más de 6 horas diarias**. Las plataformas principales fueron **Facebook**, con 137 estudiantes, **Instagram**, con 125, y **YouTube**, con 121. Además, la mayoría usa más redes sociales durante la noche, con **261 estudiantes** en esa categoría.
+En cuanto a las variables centrales, el promedio académico tiene una media aproximada de 4.14 en una escala de 0 a 5, con una mediana de 4.0. Esto indica que, en general, la muestra reporta un rendimiento académico alto. El tiempo diario en redes sociales tiene una media de 4.04 horas y una mediana de 3.5 horas, por lo que el uso de redes es frecuente en la población estudiada. Al agrupar las horas de redes, el grupo más grande fue el de 2 a 4 horas, con 140 estudiantes, seguido por 0 a 2 horas, con 115 estudiantes. También hay 91 estudiantes en el grupo de 4 a 6 horas y 57 estudiantes con más de 6 horas diarias. Las plataformas principales fueron Facebook, con 137 estudiantes, Instagram, con 125, y YouTube, con 121. Además, la mayoría usa más redes sociales durante la noche, con 261 estudiantes en esa categoría.
 
-También se describieron variables académicas y de bienestar. Las horas de estudio tienen una media de **3.23 horas diarias**, mientras que la asistencia promedio es de **86.35 %**. La distracción académica tiene una media de **2.70** en una escala de 1 a 5, lo que muestra un nivel intermedio de distracción por redes durante actividades académicas. Las escalas de ansiedad, depresión, autoestima, alteración del sueño y modificación del ánimo también se concentran cerca del valor 3, por lo que en general se ubican en niveles medios. Al comparar las categorías de uso de redes, se observa que el promedio académico más alto aparece en el grupo de **0 a 2 horas**, con una media de **4.24**. Luego baja ligeramente en los grupos de **2 a 4 horas** y **4 a 6 horas**, con medias de **4.15** y **4.02**. El grupo de más de 6 horas tiene una media de **4.10**, pero también muestra más distracción académica y menos horas de estudio. En resumen, el conjunto de datos muestra que el rendimiento académico no se explica solo por el tiempo en redes sociales. También parecen importar las horas de estudio, la asistencia y el nivel de distracción durante las actividades académicas.
+También se describieron variables académicas y de bienestar. Las horas de estudio tienen una media de 3.23 horas diarias, mientras que la asistencia promedio es de 86.35 \%. La distracción académica tiene una media de 2.70 en una escala de 1 a 5, lo que muestra un nivel intermedio de distracción por redes durante actividades académicas. Las escalas de ansiedad, depresión, autoestima, alteración del sueño y modificación del ánimo también se concentran cerca del valor 3, por lo que en general se ubican en niveles medios. Al comparar las categorías de uso de redes, se observa que el promedio académico más alto aparece en el grupo de 0 a 2 horas, con una media de 4.24. Luego baja ligeramente en los grupos de 2 a 4 horas y 4 a 6 horas, con medias de 4.15 y 4.02. El grupo de más de 6 horas tiene una media de 4.10, pero también muestra más distracción académica y menos horas de estudio. En resumen, el conjunto de datos muestra que el rendimiento académico no se explica solo por el tiempo en redes sociales. También parecen importar las horas de estudio, la asistencia y el nivel de distracción durante las actividades académicas.
 
 \subsubsection{Cuadro de variables}
 
+Antes de presentar los resultados del análisis descriptivo, se resumen las variables más relevantes de la base de datos. Estos cuadros permiten organizar la información según los principales ejes del proyecto: uso de redes sociales, rendimiento académico, impacto percibido de las redes y salud mental. Esta clasificación facilita la interpretación de los datos, ya que muestra qué papel cumple cada variable dentro de la investigación. Además, ayuda a conectar la estructura del conjunto de datos con la pregunta principal del trabajo: si existe alguna relación entre el tiempo de uso de redes sociales y el rendimiento académico en estudiantes universitarios.
+
+\begin{table}[H]
+\centering
+\caption{Variables relacionadas con el uso de redes sociales}
+\label{tab:variables_redes}
+\begin{tabular}{p{4cm} p{3cm} p{7cm}}
+\toprule
+\textbf{Variable} & \textbf{Tipo} & \textbf{Descripción dentro del análisis} \\
+\midrule
+horas\_redes & Continua & Mide la cantidad de horas diarias que el estudiante dedica al uso de redes sociales. Es la variable principal para analizar la exposición al uso de redes. \\
+
+cat\_horas\_redes & Ordinal derivada & Agrupa el tiempo de uso de redes en categorías como 0--2 h, 2--4 h, 4--6 h y más de 6 h. Permite comparar grupos de estudiantes según intensidad de uso. \\
+
+plataforma & Categórica nominal & Indica la red social principal utilizada por cada estudiante. Permite observar si el rendimiento varía según la plataforma más usada. \\
+
+momento\_uso & Categórica nominal & Registra el momento del día en que el estudiante usa más las redes sociales, como mañana, tarde o noche. Ayuda a describir los hábitos de uso. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Variables de rendimiento y compromiso académico}
+\label{tab:variables_academicas}
+\begin{tabular}{p{4cm} p{3cm} p{7cm}}
+\toprule
+\textbf{Variable} & \textbf{Tipo} & \textbf{Descripción dentro del análisis} \\
+\midrule
+promedio & Continua & Representa el rendimiento académico del estudiante en una escala de 0 a 5. Es la variable principal de resultado del proyecto. \\
+
+horas\_estudio & Continua & Mide la cantidad de horas diarias que el estudiante dedica al estudio. Permite contrastar el tiempo académico con el tiempo dedicado a redes sociales. \\
+
+asistencia & Porcentual & Indica el porcentaje de asistencia reportado por el estudiante. Funciona como una medida de compromiso académico. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Variables sobre impacto percibido de redes sociales y salud mental}
+\label{tab:variables_impacto_salud}
+\begin{tabular}{p{4cm} p{3cm} p{7cm}}
+\toprule
+\textbf{Variable} & \textbf{Tipo} & \textbf{Descripción dentro del análisis} \\
+\midrule
+distraccion\_acad & Escala 1--5 & Mide el nivel de distracción que el estudiante percibe por el uso de redes sociales durante actividades académicas. Es importante porque puede explicar mejor la relación entre redes y rendimiento. \\
+
+sintomas\_abstine & Categórica / ordinal & Registra síntomas o efectos percibidos cuando el estudiante no utiliza redes sociales. Ayuda a aproximar una posible dependencia al uso de redes. \\
+
+alteracion\_sueno & Escala 1--5 & Mide la alteración del sueño asociada al uso de redes sociales. Permite relacionar el uso de redes con descanso y bienestar. \\
+
+ansiedad & Escala 1--5 & Representa el nivel de ansiedad reportado por el estudiante. Se incluye porque la salud mental puede influir en el rendimiento académico. \\
+
+depresion & Escala 1--5 & Representa el nivel de depresión reportado por el estudiante. Es relevante para interpretar diferencias en el desempeño académico. \\
+
+autoestima & Escala 1--5 & Mide la percepción de autoestima del estudiante. Puede relacionarse con bienestar general y rendimiento académico. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsubsection{Gráficos preliminares}
 

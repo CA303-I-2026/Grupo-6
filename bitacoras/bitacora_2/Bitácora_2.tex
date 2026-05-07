@@ -298,6 +298,66 @@ En este gráfico se introduce la variable de distracción del 1-5 y se relaciona
 
 \subsection{Fichas de resultados}
 
+\section*{Ficha 1}
+
+\subsection*{Nivel descriptivo}
+\begin{itemize}
+    \item \textbf{Titular:} El promedio académico cae después de seis horas diarias en redes
+    \item \textbf{Nombre del hallazgo:} Umbral de inflexión en la relación entre uso de redes y rendimiento académico
+    \item \textbf{Resumen en una oración:} El promedio académico permanece estable hasta las seis horas diarias en redes, luego desciende de forma pronunciada.
+    \item \textbf{Método o análisis que lo produjo:} Gráfico de dispersión con curva de suavizamiento LOESS y banda de confianza al 95 \%, construido sobre las variables horas\_redes (eje X) y promedio (eje Y).
+    \item \textbf{Evidencia:} Figura \ref{fig:grafico1} (Asociación entre el tiempo diario en redes sociales y el promedio académico en estudiantes universitarios.) La curva LOESS se mantiene aproximadamente horizontal entre 0 y 5 horas y desciende visiblemente a partir de las 6–8 horas, con la banda de confianza ensanchándose en el extremo derecho por escasez de observaciones.
+\end{itemize}
+
+\subsection*{Nivel analítico}
+\begin{itemize}
+    \item \textbf{Conexión con la pregunta de investigación:} Hasta ahora esta es la mejor respuesta a la pregunta si existe una relación entre el tiempo en redes y el rendimiento académico. La forma no lineal de la curva dice que la relación no es constante ni proporcional, lo que implica que dosis moderadas de redes sociales no se asocian con un deterioro académico observable en estos datos.
+    \item \textbf{Contraste con la literatura:} Este resultado coincide en parte con la Ficha 1 \cite{leon2023}, que no encontró relación significativa entre redes y rendimiento en una muestra de 46 estudiantes de Finanzas; una posible explicación de esa discrepancia es que su muestra pequeña no capturara suficientes estudiantes con uso muy intensivo como para detectar el efecto que aquí aparece a partir de las seis horas. Contrasta con la Ficha 3 \cite{aljemely2020}, que sí reporta impacto negativo de las redes sobre el rendimiento, aunque en ese estudio el mecanismo operaba a través de la variable de adicción, no del tiempo bruto de uso.
+    \item \textbf{Lo que NO explica este resultado:} Esta curva solo describe una asociación, no una causa, entonces no es posible concluir si son las redes que deterioran el rendimiento de los estudiantes o si los estudiantes con menor rendimiento utilizan más las redes como refugio. Tampoco se contemplan otras variables como las horas de sueño, ansiedad o nivel socioeconómico.
+    \item \textbf{Implicación:} El umbral de seis horas como punto de quiebre justifica estadística y conceptualmente los cortes utilizados en la variable cat\_horas\_redes y orienta al equipo a prestar atención especial al grupo de más de seis horas en los análisis inferenciales de entregas posteriores.
+\end{itemize}
+
+\section*{Ficha 2}
+
+\subsection*{Nivel descriptivo}
+\begin{itemize}
+    \item \textbf{Titular:} Mayor uso de redes coincide con mayor dispersión en el promedio
+    \item \textbf{Nombre del hallazgo:} La variabilidad del promedio académico aumenta con el nivel de uso de redes sociales
+    \item \textbf{Resumen en una oración: } Los estudiantes con más de seis horas diarias en redes presentan la distribución de promedio más heterogénea del conjunto.
+    \item \textbf{Método o análisis que lo produjo:} Boxplot con puntos individuales superpuestos (jitter) y diamante de media grupal, desagregado por la variable categórica cat\_horas\_redes en cuatro grupos: 0–2 h, 2–4 h, 4–6 h y más de 6 h.
+    \item \textbf{Evidencia:} Figura \ref{fig:grafico2} (Distribución del promedio académico según categoría de uso diario de redes sociales.) La caja del grupo de más de 6 h es visiblemente más ancha que las de los grupos anteriores, y sus bigotes se extienden desde valores cercanos a 2.5 hasta el máximo de la escala, mientras que en el grupo de 0–2 h la distribución es más compacta y concentrada alrededor de la mediana.
+\end{itemize}
+
+\subsection*{Nivel analítico}
+\begin{itemize}
+    \item \textbf{Conexión con la pregunta de investigación:} Este hallazgo introduce una dimensión que la pregunta de investigación no contempla pero que resulta útil: la relación entre uso de redes y rendimiento no es homogénea. Entre los estudiantes con uso más intensivo coexisten tanto los de rendimiento más alto como los de rendimiento más bajo del conjunto, lo que indica que el tiempo en redes por sí solo es un predictor insuficiente y que deben existir variables que expliquen por qué algunos estudiantes con uso intensivo mantienen buenos resultados y otros no.
+    \item \textbf{Contraste con la literatura: } Este resultado conecta directamente con el argumento de la Ficha 3 \cite{aljemely2020b}, ya que introduce la adicción como variable para comparar. Esto ya que es posible que dentro del grupo de más de seis horas convivan estudiantes que usan las redes de forma funcional o educativa y mantienen buen rendimiento con estudiantes que presentan patrones de uso compulsivo y muestran rendimiento deteriorado, diferencia que el tiempo bruto no captura. La Ficha 2 \cite{santos2010} también es relevante aquí, pues sugiere que el tipo de uso de la red social importa tanto como la cantidad.
+    
+    \item \textbf{Lo que NO explica este resultado: } El boxplot no permite identificar qué característica distingue a los estudiantes de alto rendimiento con uso intensivo de los de bajo rendimiento con uso igualmente intensivo. Tampoco informa sobre la trayectoria temporal del rendimiento, ya que los datos son de corte transversal y un estudiante podría estar en un período de bajo uso pero históricamente haber tenido uso alto, o viceversa.
+
+    \item \textbf{Implicación:} Se observa una alta variabilidad en el grupo de más de seis horas, por lo que será necesario incorporar variables como distraccion\_acad, ansiedad o sintomas\_abstine para dividir ese grupo y encontrar los factores que diferencian a sus estudiantes con buen y mal rendimiento.
+    
+\end{itemize}
+
+\section*{Ficha 3}
+
+\subsection*{Nivel descriptivo}
+\begin{itemize}
+    \item \textbf{Titular:} La distracción académica predice el promedio mejor que las horas en redes 
+    \item \textbf{Nombre del hallazgo:} El grado de distracción académica durante el uso de redes es más discriminante del promedio que el tiempo bruto de uso
+    \item \textbf{Resumen en una oración: } Los estudiantes con distracción mínima mantienen promedios altos independientemente de cuántas horas pasen en redes.
+    \item \textbf{Método o análisis que lo produjo:} Heatmap de doble entrada con la variable cat\_horas\_redes en el eje horizontal y la escala distraccion\_acad (1–5) en el eje vertical, con el promedio académico medio como variable de relleno codificada mediante un gradiente de color divergente rojo-azul.
+    \item \textbf{Evidencia:} Figura \ref{fig:grafico5} (Promedio académico medio según nivel de uso de redes sociales y grado de distracción durante actividades académicas). La fila de distracción 1 (mínima) muestra promedios de 4.38, 4.25, 4.15 y 4.09 de izquierda a derecha, todos en tono azul, con escasa variación entre columnas. En contraste, las filas de distracción 4 y 5 concentran las celdas de color rojo más intenso del panel, con promedios que descienden hasta 3.74 en la celda de 4–6 h con distracción 4.
+\end{itemize}
+
+\subsection*{Nivel analítico}
+\begin{itemize}
+    \item \textbf{Conexión con la pregunta de investigación:} Este hallazgo permite ver la pregunta de investigación desde otra perspectiva ya que el heatmap sugiere que esa relación entre tiempo en redes y rendimiento está condicionada por la distracción académica. El tiempo en redes afecta el rendimiento cuando va acompañado de una incapacidad para desconectarse durante el estudio. No es el uso de redes en sí lo que se asocia con menor rendimiento, sino el uso que afecta el tiempo de estudio.
+    \item \textbf{Contraste con la literatura: } Este es el hallazgo más novedoso respecto a las fichas bibliográficas revisadas. Ninguna de las tres fichas elaboradas analiza la distracción académica como variable mediadora entre uso y rendimiento; los tres estudios trabajan con tiempo de uso o con una medida de adicción, pero no con la percepción del propio estudiante sobre cuánto lo interrumpen las redes durante el estudio. 
+    \item \textbf{Lo que NO explica este resultado: } El heatmap reporta promedios por celda sin ninguna medida de incertidumbre asociada, y varias celdas tienen tamaños de muestra pequeños. Tampoco es posible determinar si la distracción causa menor rendimiento o si más bien los estudiantes con menor rendimiento son más propensos a distraerse. 
+    \item \textbf{Implicación:} La distracción académica debe incorporarse como variable prioritaria en los modelos estadísticos por implementar en este proyecto. Si su efecto sobre el promedio se mantiene significativo, el equipo podría concluir que no es el tiempo de redes, sino la regulación atencional durante el estudio. 
+\end{itemize}
+
 \subsection{Imagen que cuenta la historia}
 
 Se escoge como gráfico central el Heatmap: Promedio académico por nivel de uso de redes y distracción académica de la figura \ref{fig:grafico5}. Este es el único gráfico que responde a la pregunta de investigación desde dos ángulos, ya que no solo se muestra cuánto tiempo pasa un estudiante en redes sociales, sino también qué tan distraído se siente durante actividades académicas a causa de ellas. Los gráficos \ref{fig:grafico1} y \ref{fig:grafico2} (dispersión y boxplot de horas vs GPA) muestran la relación entre tiempo y promedio, pero no explican por qué podría existir esa relación. El gráfico \ref{fig:grafico3} es útil como control y asociar las horas de estudio con el promedio; asimismo, el gráfico \ref{fig:grafico4} es descriptivo y útil. Sin embargo, el heatmap permite identificar inmediatamente con solo ver el gráfico las celdas de alto riesgo: estudiantes que pasan más de seis horas en redes y reportan distracción máxima concentran los promedios más bajos, mientras que estudiantes con uso alto pero distracción baja mantienen promedios competitivos. 

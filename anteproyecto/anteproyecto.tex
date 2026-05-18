@@ -1,14 +1,131 @@
-\documentclass[12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
-\usepackage{geometry}
-\geometry{margin=2.5cm}
+%----------------------------------------------------------------------------------------
+%    PACKAGES
+%----------------------------------------------------------------------------------------
 
-\title{Anteproyecto}
-\author{}
-\date{}
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\usetheme{SimpleDarkBlue}
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 
-\begin{document}
-\maketitle
+%----------------------------------------------------------------------------------------
+%    TÍTULO
+%----------------------------------------------------------------------------------------
+
+\title{Análisis de la relación entre el uso de redes sociales y el rendimiento académico en estudiantes}
+
+\author{Sebastián Calderón, Luis Diego Elizondo, Jeremy Garcia, Katia Moreno}
+
+\date{\today}
+
+\begin{document}    
+
+%----------------------------------------------------------------------------------------
+%    PRESENTACIÓN
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[plain,noframenumbering]
+    \titlepage
+    \begin{figure}
+    \includegraphics[width=0.2\linewidth]{logoucr.png}
+    \end{figure}
+\end{frame}
+
+%-----------------------------------------------------------------------------------------
+
+\begin{frame}{Pregunta del proyecto}
+\centering
+
+\Large
+\textbf{¿Existe relación entre el uso de redes sociales y el rendimiento académico?}
+
+    \begin{itemize}
+  \item Problemas:
+  \item más
+\end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------------------
+
+\begin{frame}{Datos}
+\begin{block}{Tipo de las variables}
+\centering
+\begin{tabular}{c c}
+\toprule
+\textbf{Variable} & \textbf{Tipo} \\
+\midrule
+Promedio académico (GPA) & Numérica \\ 
+Horas diarias en redes sociales & Numérica \\ 
+Horas diarias de estudio & Numérica \\ 
+Porcentaje de asistencia & Numérica \\ 
+Edad & Numérica \\ 
+Género & Categórica \\ 
+Red social principal & Categórica \\ 
+Uso nocturno de redes & Categórica \\ 
+Zona de residencia (urbano/rural) & Categórica \\ 
+\bottomrule
+\end{tabular}
+\end{block}
+\vspace{2mm}
+\centering
+{\small Variables principales utilizadas en el análisis}
+
+\end{frame}
+
+%-----------------------------------------------------------------------------------------
+
+\begin{frame}{Análisis exploratorio de datos}
+  \begin{columns}
+
+    \begin{column}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{grafico_1_horas_redes_vs_promedio.png}
+      \captionof{(a) Horas en redes sociales vs Promedio académico} % Opcional
+    \end{column}
+    
+    \hspace{0.05\textwidth}
+    
+    \begin{column}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{grafico_3_horas_estudio_vs_promedio.png}
+      \captionof{(b) Horas de estudio vs Promedio académico} 
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%-----------------------------------------------------------------------------------------
+
+\begin{frame}{Análisis exploratorio de datos}
+  \begin{columns}
+
+    \begin{column}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{grafico_2_categoria_redes_vs_promedio.png}
+      \captionof{(c) Distribución del promedio por nivel de uso de redes} % Opcional
+    \end{column}
+    
+    \hspace{0.05\textwidth}
+    
+    \begin{column}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{grafico_4_promedio_por_plataforma.png}
+      \captionof{(d) Promedio académico medido por red social principal} 
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%-----------------------------------------------------------------------------------------
+
+\begin{frame}{Metodología propuesta}
+    comparación entre grupos,
+    técnicas utilizadas: 
+\end{frame}
+
+%-----------------------------------------------------------------------------------------
+
+\begin{frame}{Resultados esperados}
+j
+\end{frame}
 
 \end{document}
+

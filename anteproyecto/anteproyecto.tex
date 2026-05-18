@@ -117,50 +117,112 @@ Zona de residencia (urbano/rural) & Categórica \\
 
 %-----------------------------------------------------------------------------------------
 
-\begin{frame}{Análisis exploratorio de datos}
-  \begin{columns}
 
-    \begin{column}{0.45\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{grafico_5_heatmap_redes_distraccion_promedio.png}
-      \captionof{(e) Uso de redes y distracción académica} % Opcional
-    \end{column}
-    
-    \hspace{0.05\textwidth}
-    
-    \begin{column}{0.45\textwidth}
-      \centering
-      hola 
-    \end{column}
-  \end{columns}
+\begin{frame}{Análisis exploratorio de datos}
+
+\begin{center}
+    \includegraphics[width=0.58\textwidth]{grafico_5_heatmap_redes_distraccion_promedio.png}
+
+    \vspace{0.25cm}
+
+    \textbf{(e) Uso de redes y distracción académica}
+\end{center}
+
 \end{frame}
 
 %-----------------------------------------------------------------------------------------
 
 \begin{frame}{Metodología propuesta}
-    \begin{itemize}
-        \item Prueba t para comparar promedio entre bajo uso y alto uso de redes.
+
+\vspace{0.25cm}
+
+\begin{columns}[T]
+
+\column{0.48\textwidth}
+
+\textbf{Análisis comparativo}
+
+\begin{itemize}
+    \item Prueba t para comparar promedio entre bajo uso y alto uso de redes.
     \item ANOVA para comparar promedio entre varias categorías de uso.
+\end{itemize}
+
+\vspace{0.2cm}
+
+
+\textbf{Modelo de regresión}
+
+\[
+promedio =
+\beta_0 +
+\beta_1 horas\_redes +
+\beta_2 horas\_estudio +
+\beta_3 distraccion\_academica +
+\varepsilon
+\]
+
+\column{0.48\textwidth}
+
+\textbf{Análisis de asociación}
+
+\begin{itemize}
     \item Correlación de Pearson o Spearman entre horas en redes y promedio.
-    \item Regresión lineal múltiple:
-    \[
-    promedio=\beta_0 +\beta_1horas\_redes+\beta_2horas\_estudio+\beta_3distraccion\_academica + \varepsilon
-    \]
-    \item Estas pruebas permiten evaluar asociación, comparar grupos y controlar parcialmente variables académicas como horas de estudio y distracción.
-    \end{itemize} 
+\end{itemize}
+
+
+
+
+\end{columns}
+
+\vspace{0.25cm}
+
+\begin{alertblock}{Alternativa descartada}
+Consideramos clasificar por red social principal, especialmente YouTube por su posible uso académico,
+pero lo descartamos como eje central porque la pregunta principal se responde mejor desde la intensidad de uso,
+no desde la plataforma.
+\end{alertblock}
 
 \end{frame}
 
 %-----------------------------------------------------------------------------------------
 
+%-----------------------------------------------------------------------------------------
+
 \begin{frame}{Resultados esperados}
-    \begin{itemize}
-        \item Diferencias en rendimiento académico entre grupos con distinto uso de redes sociales.
-        \item Mayor dispersión y promedios ligeramente menores en estudiantes con uso elevado.
-        \item Asociación positiva entre horas de estudio y rendimiento académico.
-        \item No necesariamente una relación lineal fuerte, sino una asociación condicionada por la distracción académica y las horas de estudio.
-        \item Consideraremos respondida la pregunta si las pruebas estadísticas y el modelo permiten determinar si el uso de redes sociales, solo o combinado con distracción académica, se asocia significativamente con el promedio académico.
-    \end{itemize}
+
+\small
+
+\begin{columns}[T]
+
+\column{0.52\textwidth}
+
+\textbf{Patrones esperados}
+
+\begin{itemize}
+    \item Diferencias en rendimiento académico entre grupos con distinto uso de redes sociales.
+    \item Mayor dispersión y promedios ligeramente menores en estudiantes con uso elevado.
+    \item Asociación positiva entre horas de estudio y rendimiento académico.
+\end{itemize}
+
+\column{0.42\textwidth}
+
+\begin{block}{Idea central}
+No esperamos necesariamente una relación lineal fuerte, sino una asociación condicionada
+por la distracción académica y las horas de estudio.
+\end{block}
+
+\end{columns}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{Criterio para responder la pregunta}
+Consideraremos respondida la pregunta si las pruebas estadísticas y el modelo permiten determinar
+si el uso de redes sociales, solo o combinado con distracción académica, se asocia significativamente
+con el promedio académico.
+\end{alertblock}
+
 \end{frame}
+
+%-----------------------------------------------------------------------------------------
 
 \end{document}

@@ -12,7 +12,8 @@ library(ggsci)
 library(scales)
 ```
 
-1. Cargar datos
+1.  Cargar datos
+
 ```{r}
 library(tidyverse)
 library(readr)
@@ -34,7 +35,8 @@ df <- read_csv(
 cat("Filas disponibles para graficar:", nrow(df), "\n")
 ```
 
-2. Paleta de colores seleccionada
+2.  Paleta de colores seleccionada
+
 ```{r}
 jama <- pal_jama()(5)
 
@@ -54,7 +56,8 @@ estilo_grupo <- function() {
 }
 ```
 
-3. Grafico 1: Dispersión: horas en redes vs Promedio + LOESS
+3.  Grafico 1: Dispersión: horas en redes vs Promedio + LOESS
+
 ```{r}
 pA <- ggplot(df, aes(x = horas_redes, y = promedio)) +
   geom_jitter(aes(color = plataforma),
@@ -75,7 +78,7 @@ pA <- ggplot(df, aes(x = horas_redes, y = promedio)) +
 pA
 ```
 
-4. Gráfico 2: Boxplot: categoría de uso de redes vs Promedio
+4.  Gráfico 2: Boxplot: categoría de uso de redes vs Promedio
 
 ```{r}
 pB <- ggplot(df %>% filter(!is.na(cat_horas_redes)),
@@ -96,8 +99,7 @@ pB <- ggplot(df %>% filter(!is.na(cat_horas_redes)),
 pB
 ```
 
-
-5. Gráfico 3: Dispersión: horas de estudio vs Promedio (color continuo = horas en redes)
+5.  Gráfico 3: Dispersión: horas de estudio vs Promedio (color continuo = horas en redes)
 
 ```{r}
 df_c <- df %>% filter(!is.na(horas_estudio))
@@ -121,7 +123,7 @@ pC <- ggplot(df_c, aes(x = horas_estudio, y = promedio,
 pC
 ```
 
-6. Gráfico 4: Barras horizontales: promedio medio por plataforma
+6.  Gráfico 4: Barras horizontales: promedio medio por plataforma
 
 ```{r}
 resumen_plat <- df %>%
@@ -157,7 +159,7 @@ pD <- ggplot(resumen_plat,
 pD
 ```
 
-7. Gráfico 5: Heatmap: distracción académica × cat_horas_redes (relleno = promedio medio)
+7.  Gráfico 5: Heatmap: distracción académica × cat_horas_redes (relleno = promedio medio)
 
 ```{r}
 
@@ -199,8 +201,7 @@ pE <- ggplot(heat_df,
 pE
 ```
 
-
-8. Ensamble utilizando cowplot
+8.  Ensamble utilizando cowplot
 
 ```{r}
 fila1 <- plot_grid(pA, pB, ncol = 2,
@@ -229,7 +230,8 @@ panel_final <- plot_grid(
 panel_final
 ```
 
-9. Guardar gráficos
+9.  Guardar gráficos
+
 ```{r}
 # Carpeta con los gráficos
 dir.create("figuras", showWarnings = FALSE)
@@ -299,5 +301,3 @@ ggsave(
 )
 
 ```
-
-

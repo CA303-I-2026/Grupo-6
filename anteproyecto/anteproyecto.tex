@@ -40,8 +40,9 @@
 \textbf{¿Existe relación entre el uso de redes sociales y el rendimiento académico?}
 
     \begin{itemize}
-  \item Problemas:
-  \item más
+  \item Uso de redes sociales: horas diarias dedicadas a plataformas como Facebook, Instagram, YouTube u otras.
+  \item Rendimiento académico: promedio académico reportado en escala 0–5.
+    \item Relación: asociación estadística, no causalidad.
 \end{itemize}
 \end{frame}
 
@@ -58,7 +59,7 @@ Promedio académico (GPA) & Numérica \\
 Horas diarias en redes sociales & Numérica \\ 
 Horas diarias de estudio & Numérica \\ 
 Porcentaje de asistencia & Numérica \\ 
-Edad & Numérica \\ 
+Edad & Numérica \\ Distracción & Numérica
 Género & Categórica \\ 
 Red social principal & Categórica \\ 
 Uso nocturno de redes & Categórica \\ 
@@ -116,9 +117,38 @@ Zona de residencia (urbano/rural) & Categórica \\
 
 %-----------------------------------------------------------------------------------------
 
+\begin{frame}{Análisis exploratorio de datos}
+  \begin{columns}
+
+    \begin{column}{0.45\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{grafico_5_heatmap_redes_distraccion_promedio.png}
+      \captionof{(e) Uso de redes y distracción académica} % Opcional
+    \end{column}
+    
+    \hspace{0.05\textwidth}
+    
+    \begin{column}{0.45\textwidth}
+      \centering
+      hola 
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%-----------------------------------------------------------------------------------------
+
 \begin{frame}{Metodología propuesta}
-    comparación entre grupos,
-    técnicas utilizadas: 
+    \begin{itemize}
+        \item Prueba t para comparar promedio entre bajo uso y alto uso de redes.
+    \item ANOVA para comparar promedio entre varias categorías de uso.
+    \item Correlación de Pearson o Spearman entre horas en redes y promedio.
+    \item Regresión lineal múltiple:
+    \[
+    promedio=\beta_0 +\beta_1horas\_redes+\beta_2horas\_estudio+\beta_3distraccion\_academica + \varepsilon
+    \]
+    \item Estas pruebas permiten evaluar asociación, comparar grupos y controlar parcialmente variables académicas como horas de estudio y distracción.
+    \end{itemize} 
+
 \end{frame}
 
 %-----------------------------------------------------------------------------------------
@@ -128,9 +158,9 @@ Zona de residencia (urbano/rural) & Categórica \\
         \item Diferencias en rendimiento académico entre grupos con distinto uso de redes sociales.
         \item Mayor dispersión y promedios ligeramente menores en estudiantes con uso elevado.
         \item Asociación positiva entre horas de estudio y rendimiento académico.
-        \item Consideraremos respondida la pregunta si se identifican o no se identifican diferencias relevantes  entre los grupos.
+        \item No necesariamente una relación lineal fuerte, sino una asociación condicionada por la distracción académica y las horas de estudio.
+        \item Consideraremos respondida la pregunta si las pruebas estadísticas y el modelo permiten determinar si el uso de redes sociales, solo o combinado con distracción académica, se asocia significativamente con el promedio académico.
     \end{itemize}
 \end{frame}
 
 \end{document}
-

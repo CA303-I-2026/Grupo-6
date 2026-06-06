@@ -1,0 +1,244 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{pdfpages}
+\geometry{margin=2.5cm}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs} 
+\usepackage{tabularx} 
+\usepackage{makecell}
+\usepackage{array}
+\usepackage{float}
+
+\title{\Huge Bitácora 3\\ \Large Análisis de la relación entre el uso de redes sociales y el rendimiento académico en estudiantes}
+\author{Katia Moreno Aspiroz C6A060\\
+Jeremy Garcia Solano C33171\\
+Luis Diego Elizondo Fennell C4E844\\
+Sebastián Calderón Segura C21517}
+
+
+\date{\today}
+
+\begin{document}
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Introducción}
+El uso de redes sociales forma parte del día a día de la mayoría de universitarios. Plataformas como TikTok, Instagram o WhatsApp ocupan un tiempo significativo a lo largo del día, incluso en momentos dedicados al estudio o a pausas durante el mismo.
+\\
+En este contexto, resulta interesante analizar si existe una relación entre el tiempo dedicado a las redes sociales y el rendimiento académico, ya que es razonable pensar que estos hábitos pueden influir en la concentración, la organización del tiempo o las horas de estudio.
+\\
+
+En las bitácoras anteriores realizamos una revisión bibliográfica sobre esta problemática y desarrollamos un análisis exploratorio de la base de datos utilizada en el proyecto. Estos análisis permitieron identificar algunos patrones de interés y plantear nuevas hipótesis sobre los factores que podrían estar asociados al rendimiento académico.
+\\
+En esta tercera bitácora avanzamos hacia una etapa más rigurosa del análisis. Para ello, proponemos distintas metodologías estadísticas que nos permitan evaluar si las diferencias observadas entre grupos de estudiantes son significativas, y determinar si existe evidencia estadística de una asociación entre el uso de redes sociales y el rendimiento académico.
+
+
+\section{Planificación}
+\subsection{Respuesta retroalimentación}
+\subsection{Rastro de decisiones}
+Para esta etapa del proyecto decidimos transformar algunas variables numéricas en variables categóricas para facilitar la comparación entre grupos de estudiantes. Por ejemplo, planteamos dividir a los estudiantes según su nivel de uso de redes sociales (bajo, medio y alto uso) y analizar si existen diferencias en el rendimiento académico entre ellos.
+\\
+También consideramos clasificar a los estudiantes según la red social que más utilizan, especialmente aquellos que utilizan YouTube, ya que puede tener un componente más educativo que otras plataformas. 
+\\
+Sin embargo, finalmente descartamos esta idea porque se alejaba de la pregunta principal de investigación, que está centrada en el tiempo de uso de redes sociales.
+\\
+
+En cuanto al análisis estadístico, inicialmente pensamos en utilizar únicamente correlaciones para estudiar la relación entre las variables. Sin embargo, nos pareció interesante complementar este análisis con pruebas de comparación de medias, ya que permiten observar de forma más clara si existen diferencias entre distintos grupos de estudiantes.
+\\
+Por último, a partir de los resultados obtenidos en la bitácora anterior, decidimos prestar especial atención a la variable de distracción académica. Los gráficos exploratorios sugieren que podría estar relacionada con el rendimiento académico, por lo que consideramos relevante incorporarla en algunos de los análisis propuestos.
+
+
+\subsection{Audiencia del proyecto}
+Esta semana le diría a profesores e investigadores interesados en educación universitaria que los resultados obtenidos en el proyecto sugieren que la relación entre el uso de redes sociales y el rendimiento académico es más compleja de lo que podría parecer inicialmente. Aunque existe cierta evidencia de que los estudiantes con un uso más intensivo de redes sociales pueden presentar diferencias en su desempeño académico, los análisis realizados apuntan a que otros factores, como la distracción durante las actividades de estudio, podrían tener un papel igual o incluso más importante. Esto complica la idea de que el tiempo de uso de redes sociales sea, por sí solo, un buen predictor del rendimiento académico y sugiere que es necesario considerar el contexto y los hábitos de estudio de los estudiantes para comprender mejor esta relación.
+
+
+\section{Construcción del modelo}
+\subsection{Análisis de modelación}
+carga automática, análisis descriptivo, ajuste del modelo, diagnóstico del modelo
+\subsection{Propuesta metodológica}
+métodos seleccionados, programa maqueta, validación de métodos, cuadros y gráficos, análisis fallido
+\subsection{Construcción de fichas de resultados}
+8 fichas y comparación con la literatura
+
+
+\subsection{Ordenamiento de los elementos de reporte}
+A partir de los resultados obtenidos hasta ahora, identificamos cuáles son los aspectos más importantes para responder nuestra pregunta de investigación y cómo podrían organizarse dentro del reporte final.
+
+\subsubsection{Elementos primarios y secundatios del reporte}
+A continuación se identifican los elementos principales y sencudarios del reporte.
+\begin{table}[H]
+\centering
+\caption{Elementos primarios y secundarios del reporte}
+\begin{tabular}{p{6cm} p{6cm}}
+\toprule
+\textbf{Elementos Primarios} & \textbf{Elementos Secundarios} \\
+\midrule
+Uso diario de redes sociales & Horas de sueño \\
+Rendimiento académico & Horas de estudio \\
+Distracción académica & Plataforma principal utilizada \\
+Relación entre uso de redes y rendimiento académico & Variables demográficas \\
+Influencia de la distracción sobre el rendimiento académico & Resultados específicos de otros autores \\
+Resultados obtenidos en el estudio & Limitaciones de la base de datos \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Orden propuesto para el artículo final}
+Con base a los elementos anteriores se propone el siguiente orden para la redacción del artículo final.
+
+\begin{table}[H]
+\centering
+\caption{Orden propuesto para el artículo final}
+\begin{tabular}{p{3cm} p{9cm}}
+\toprule
+\textbf{Sección} & \textbf{Temas a tratar} \\
+\midrule
+Introducción & Uso de redes sociales en estudiantes universitarios (Primario) \\
+Introducción & Relación entre redes sociales y rendimiento académico (Primario) \\
+Introducción & Resultados encontrados por León Luyo (Secundario) \\
+Introducción & Resultados encontrados por Rodelo Moreno y Lizárraga Reyes (Secundario) \\
+Introducción & Papel potencial de la distracción académica (Primario) \\
+\midrule
+Metodología & Descripción de la base de datos (Primario) \\
+Metodología & Variables seleccionadas (Primario) \\
+Metodología & Construcción de grupos de uso de redes sociales (Primario) \\
+Metodología & ANOVA y prueba t (Primario) \\
+Metodología & Correlaciones (Primario) \\
+\midrule
+Resultados & Relación entre uso de redes sociales y promedio académico (Primario) \\
+Resultados & Influencia de la distracción académica (Primario) \\
+Resultados & Comparación con estudios previos (Secundario) \\
+Resultados & Influencia de horas de estudio y sueño (Secundario) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+\subsection{La imagen que cuenta la historia}
+
+\section{Arco narrativo}
+El modelo reveló que la distracción académica parece estar más asociada al rendimiento académico que el tiempo de uso de redes sociales, lo que significa que el impacto de las redes podría depender más de cómo afectan a los hábitos de estudio que de las horas de uso en sí mismas.
+
+
+\section{Parte de escritura}
+En las bitácoras anteriores realizamos una revisión bibliográfica sobre la relación entre el uso de redes sociales y el rendimiento académico, además de un análisis exploratorio de la base de datos utilizada en el proyecto. En esta sección buscamos integrar ambas perspectivas para construir una única narrativa sobre el problema estudiado, relacionando lo que han encontrado otros autores con los patrones observados en nuestros propios datos.
+
+\subsection{Redes sociales y rendimiento académico}
+
+El uso de redes sociales se ha convertido en una actividad habitual para la mayoría de estudiantes universitarios. Plataformas como Instagram, TikTok, YouTube o WhatsApp forman parte de su día a día y se utilizan tanto para comunicarse como para entretenerse, informarse o incluso realizar actividades académicas. Debido a esta presencia constante, se ha tratado de determinar si existe alguna relación entre el tiempo dedicado a estas plataformas y el rendimiento académico.
+\\
+
+Sin embargo, las conclusiones encontradas en la literatura no son siempre las mismas. Algunos estudios sostienen que un uso elevado de redes sociales puede relacionarse con peores resultados académicos. Entre las explicaciones más frecuentes aparecen la reducción del tiempo disponible para estudiar, las interrupciones durante el estudio o la tendencia a posponer tareas importantes debido al uso frecuente de estas plataformas.
+\\
+Por otro lado, también encontramos investigaciones que muestran una visión más matizada. León Luyo et al. (2023), por ejemplo, no encuentran una relación significativa entre ambas variables, mientras que Rodelo Moreno y Lizárraga Reyes (2018) señalan que las redes sociales incluso pueden tener efectos positivos cuando se utilizan con fines académicos. Estos resultados sugieren que el tiempo de uso, por sí solo, podría no ser suficiente para explicar las diferencias observadas en el rendimiento académico.
+\\
+
+Esta falta de consenso fue una de las principales razones por las que decidimos abordar este tema. Más que partir de la idea de que las redes sociales son beneficiosas o perjudiciales, nos interesaba analizar qué ocurría en nuestra muestra y comprobar si los patrones observados coincidían con alguno de los resultados encontrados en la literatura. Además, nos parecía interesante identificar qué otras variables podían estar influyendo en esta relación.
+
+\subsection{Qué muestran nuestros datos}
+
+Una vez revisada la literatura, comenzamos a explorar la información contenida en nuestra base de datos. El conjunto de datos está formado por estudiantes universitarios e incluye variables relacionadas con el uso de redes sociales, rendimiento académico, hábitos de estudio, horas de sueño y nivel de distracción, entre otras.
+\\
+
+Uno de los primeros aspectos que analizamos fue el tiempo de uso diario de redes sociales. Los resultados muestran que se trata de una actividad muy frecuente dentro de la muestra. La mayoría de estudiantes dedica varias horas al día a estas plataformas, aunque existen diferencias importantes entre unos estudiantes y otros.
+\\
+
+[HISTOGRAMA O BOXPLOT DE HORAS DE USO DE REDES SOCIALES]????
+\\
+
+Esta distribución coincide con lo descrito por muchos de los estudios revisados, donde se señala que las redes sociales forman parte de la rutina diaria de la mayoría de estudiantes universitarios. Sin embargo, saber cuántas horas utilizan estas plataformas no permite responder directamente a nuestra pregunta de investigación.
+\\
+Para profundizar en esta cuestión analizamos conjuntamente las horas de uso de redes sociales y el promedio académico de los estudiantes.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{grafico_1_horas_redes_vs_promedio.png}
+    \caption{Asociación entre el tiempo diario en redes sociales y el promedio académico en estudiantes universitarios}
+    \label{fig:redesvsprom}
+\end{figure}
+
+Este fue uno de los resultados que más nos llamó la atención durante el análisis exploratorio. Inicialmente esperábamos encontrar una relación más evidente entre ambas variables. Sin embargo, los datos mostraron una situación bastante más compleja. Aunque algunos estudiantes con muchas horas de uso presentan promedios relativamente bajos, también encontramos estudiantes con niveles de uso similares que mantienen buenos resultados académicos.
+\\
+Si el tiempo de uso fuese el único factor importante, esperaríamos observar una tendencia mucho más clara. No obstante, los datos muestran una gran variabilidad entre estudiantes. Personas con hábitos parecidos respecto al uso de redes sociales pueden presentar desempeños académicos muy diferentes.
+\\
+
+A raíz de estas observaciones empezamos a plantearnos si otras variables de la base de datos podían estar influyendo en la relación entre redes sociales y rendimiento académico. Más que proporcionarnos una respuesta definitiva, el análisis exploratorio nos ayudó a formular nuevas preguntas y a identificar aspectos que merecían una atención más detallada en las siguientes etapas del proyecto.
+
+
+
+\subsection{La distracción académica como posible explicación}
+
+Conforme analizábamos los datos, vimos que las horas de uso de redes sociales no parecían suficientes para explicar las diferencias observadas en el rendimiento académico. Aunque algunos estudiantes con muchas horas de uso presentaban promedios académicos bajos, también encontramos estudiantes con niveles de uso similares que mantenían buenos resultados. Este fue uno de los aspectos que más nos llamó la atención durante el análisis exploratorio.
+\\
+
+Por ello empezamos a fijarnos en otras variables que inicialmente no habíamos considerado tan importantes. Entre ellas, la variable de distracción académica resultó especialmente interesante. Mientras que las horas de uso indican cuánto tiempo pasa un estudiante utilizando redes sociales, la distracción académica intenta reflejar hasta qué punto ese uso interfiere en actividades relacionadas con el estudio, la realización de tareas o la preparación de exámenes.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{grafico_5_heatmap_redes_distraccion_promedio.png}
+    \caption{Promedio académico medio según nivel de uso de redes sociales y grado de distracción durante actividades académicas}
+    \label{fig:heatmap}
+\end{figure}
+
+En los gráficos observamos que los estudiantes con niveles bajos de distracción suelen presentar promedios académicos más altos que aquellos que se consideran más distraídos. Del mismo modo, los niveles elevados de distracción parecen asociarse con peores resultados académicos. Aunque estas observaciones todavía deben ser contrastadas mediante pruebas estadísticas, fueron una de las tendencias más claras que encontramos durante el análisis descriptivo.
+\\
+
+Esta idea también aparece en algunos de los trabajos revisados. Ogunbiyi (2024) señala que las redes sociales pueden aportar beneficios académicos cuando se utilizan de forma adecuada, pero que un uso excesivo puede afectar negativamente a la concentración. De forma parecida, Aljemely (2020) plantea que la adicción a redes sociales y teléfonos inteligentes puede terminar influyendo en el rendimiento académico a través de mecanismos relacionados con la atención y la concentración.
+\\
+
+Lo que observamos en nuestra base de datos parece ir en esa misma dirección. Más que las horas de uso consideradas de forma aislada, podría ser la capacidad de las redes sociales para distraer al estudiante uno de los factores que mejor ayude a explicar las diferencias observadas en el rendimiento académico. Esto permitiría entender por qué algunos estudiantes mantienen buenas calificaciones a pesar de dedicar varias horas al día a las redes sociales, mientras que otros presentan más dificultades académicas con niveles de uso similares.
+\\
+
+Después de observar estos resultados, consideramos que la distracción académica debía ocupar un papel más importante dentro del proyecto. Por ello decidimos incorporarla como una de las variables principales en los análisis posteriores y estudiar no solo su relación individual con el rendimiento académico, sino también cómo interactúa con el uso de redes sociales.
+
+\subsection{Comparación con la literatura}
+
+Después del análisis exploratorio quisimos comparar nuestros resultados con los estudios revisados al inicio del proyecto. Aunque todos ellos analizan la relación entre redes sociales y rendimiento académico, las conclusiones obtenidas no siempre son las mismas.
+\\
+Por un lado, algunos trabajos encuentran relaciones débiles o incluso inexistentes entre ambas variables. Este es el caso de León Luyo et al. (2023), quienes concluyen que no existe una relación significativa entre el uso de redes sociales y el rendimiento académico de los estudiantes analizados. A pesar de ello, los autores también señalan que algunos estudiantes perciben beneficios derivados del uso de estas plataformas, especialmente cuando se utilizan con fines educativos.
+\\
+
+Lo que hemos observado en nuestra muestra encaja bastante bien con esta idea. Durante el análisis exploratorio no encontramos una relación simple ni claramente lineal entre las horas de uso de redes sociales y el promedio académico. La presencia de estudiantes con muchas horas de uso y buenos resultados académicos sugiere que el tiempo dedicado a estas plataformas no determina por sí solo el desempeño académico.
+\\
+Sin embargo, otros autores sí encuentran evidencias de efectos negativos asociados al uso intensivo de redes sociales. Aljemely (2020) relaciona la adicción tecnológica con una disminución del rendimiento académico, mientras que Ogunbiyi (2024) destaca que un uso excesivo puede afectar a la concentración y dificultar el aprendizaje. Este planteamiento también ayuda a interpretar algunos de los patrones que encontramos en nuestros datos, especialmente cuando analizamos la variable de distracción académica.
+\\
+
+También encontramos estudios con resultados más específicos. Rodelo Moreno y Lizárraga Reyes (2018) señalan que las redes sociales pueden incluso presentar asociaciones positivas con el rendimiento académico cuando se utilizan para compartir información, resolver dudas o acceder a contenidos educativos. Esta posibilidad nos parece especialmente interesante porque podría explicar por qué distintos estudios llegan a conclusiones tan diferentes. No todos los estudiantes utilizan las redes sociales de la misma forma y, por tanto, tampoco es razonable esperar que sus efectos sean exactamente iguales.
+\\
+
+Después de revisar la literatura y analizar nuestros datos, la principal conclusión a la que hemos llegado es que la relación entre redes sociales y rendimiento académico parece bastante más compleja de lo que pensábamos al inicio del proyecto. Los resultados no apuntan a una explicación única y probablemente intervienen varios factores al mismo tiempo, como la distracción, los hábitos de estudio, la organización del tiempo o el uso académico que cada estudiante hace de estas plataformas.
+\\
+
+Precisamente por ello, las pruebas estadísticas seleccionadas constituyen una herramienta fundamental para determinar si las tendencias observadas durante el análisis descriptivo corresponden a relaciones estadísticamente significativas o si pueden explicarse por la variabilidad propia de los datos.\\
+
+\subsection{Discusión preliminar}
+escribir para llegar a las páginas que pide explicando los resultados estadísticos y cómo se enlazan con la literatura, igual me pasé escribiendo hasta aquí pero quería que llenase las páginas, modificad lo que veáis:)
+
+
+
+\section{Parte de reflexión}
+actualizar uve 
+
+\section{Diario de aprendizaje}
+Durante esta etapa aprendimos que observar patrones en gráficos o tablas no es suficiente para concluir que existe una relación entre dos variables. A partir de los resultados obtenidos en la bitácora anterior, comprendimos la importancia de utilizar herramientas estadísticas que permitan evaluar si las diferencias observadas pueden atribuirse realmente a un efecto presente en los datos o si podrían deberse al azar.
+\\
+También aprendimos que la forma en que se definen y agrupan las variables puede influir en las conclusiones obtenidas. Esto nos llevó a reflexionar sobre las decisiones metodológicas necesarias antes de aplicar cualquier análisis estadístico. Finalmente, comprendimos mejor la diferencia entre describir un fenómeno y poner a prueba una hipótesis, entendiendo que la inferencia estadística es una herramienta fundamental para responder preguntas de investigación de manera más rigurosa y fundamentada.
+
+
+\section{Log de contribuciones}
+\section{Registro de uso de IA}
+
+
+
+
+
+
+\end{document}

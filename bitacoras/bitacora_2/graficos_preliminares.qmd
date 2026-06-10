@@ -28,6 +28,10 @@ df <- read_csv(
       levels = c("0–2 h", "2–4 h", "4–6 h", ">6 h"),
       ordered = TRUE
     ),
+    plataforma = case_when(
+      plataforma %in% c("Other", "other", "Otro", "otro") ~ "Otro",
+      TRUE ~ as.character(plataforma)
+    ),
     plataforma = factor(plataforma)
   ) %>%
   filter(!is.na(promedio), !is.na(horas_redes))

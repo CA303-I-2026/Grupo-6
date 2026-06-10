@@ -14,7 +14,7 @@ library(scales)
 
 ```{r}
 df <- read_csv(
-  "../../datos/procesados/survey.limpio.csv",
+  "../../datos/procesados/survey_clean.csv",
   show_col_types = FALSE
 ) %>%
   mutate(

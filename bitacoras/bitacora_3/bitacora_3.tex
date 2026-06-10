@@ -29,14 +29,23 @@ Sebastián Calderón Segura C21517}
 \newpage
 
 \section{Introducción}
-El uso de redes sociales forma parte del día a día de la mayoría de universitarios. Plataformas como TikTok, Instagram o WhatsApp ocupan un tiempo significativo a lo largo del día, incluso en momentos dedicados al estudio o a pausas durante el mismo.
-\\
-En este contexto, resulta interesante analizar si existe una relación entre el tiempo dedicado a las redes sociales y el rendimiento académico, ya que es razonable pensar que estos hábitos pueden influir en la concentración, la organización del tiempo o las horas de estudio.
+El uso de redes sociales forma parte del día a día de la mayoría de estudiantes universitarios. Plataformas como TikTok, Instagram, YouTube o WhatsApp ocupan una parte importante del tiempo diario, incluso en momentos relacionados con el estudio, las pausas entre clases o la realización de tareas académicas.
 \\
 
-En las bitácoras anteriores realizamos una revisión bibliográfica sobre esta problemática y desarrollamos un análisis exploratorio de la base de datos utilizada en el proyecto. Estos análisis permitieron identificar algunos patrones de interés y plantear nuevas hipótesis sobre los factores que podrían estar asociados al rendimiento académico.
+En este proyecto nos interesa analizar si existe una relación entre el uso de redes sociales y el rendimiento académico. Sin embargo, a partir de las bitácoras anteriores, comprendimos que esta relación no puede estudiarse únicamente contando cuántas horas pasa un estudiante en redes sociales. El rendimiento académico depende de muchos factores, como las horas de estudio, la asistencia, la organización del tiempo y el nivel de distracción durante las actividades académicas.
 \\
-En esta tercera bitácora avanzamos hacia una etapa más rigurosa del análisis. Para ello, proponemos distintas metodologías estadísticas que nos permitan evaluar si las diferencias observadas entre grupos de estudiantes son significativas, y determinar si existe evidencia estadística de una asociación entre el uso de redes sociales y el rendimiento académico.
+
+En las primeras etapas del proyecto realizamos una revisión bibliográfica y un análisis exploratorio de los datos. Estos avances mostraron que la relación entre redes sociales y rendimiento académico no parece ser simple ni completamente lineal. En algunos casos, estudiantes con muchas horas de uso mantienen buenos promedios, mientras que otros con niveles similares de uso presentan resultados más bajos. Esto nos llevó a pensar que el tiempo de uso por sí solo no explica completamente el fenómeno.
+\\
+
+Por esta razón, en esta tercera bitácora avanzamos hacia una etapa más rigurosa del análisis. El objetivo ya no es solo describir los datos mediante gráficos, sino utilizar herramientas estadísticas que nos permitan evaluar si las diferencias observadas entre grupos son significativas y si existe evidencia de asociación entre las variables principales del proyecto.
+\\
+
+Además, esta bitácora busca darle un enfoque más completo al problema. En lugar de asumir que más horas en redes sociales implican necesariamente un menor rendimiento académico, queremos analizar si variables como la distracción académica, las horas de estudio y la asistencia ayudan a explicar mejor las diferencias entre estudiantes. De esta forma, el proyecto se orienta hacia una interpretación más cuidadosa: el problema no parece ser únicamente el uso de redes sociales, sino la forma en que ese uso puede interferir con los hábitos de estudio y la concentración.
+\\
+
+En esta etapa se propondrán y aplicarán métodos como pruebas de comparación de medias, análisis de correlación y modelos de regresión. Estos métodos permitirán pasar de una exploración inicial a una respuesta estadística más fundamentada de la pregunta de investigación: ¿existe relación entre el uso de redes sociales y el rendimiento académico en estudiantes?
+
 
 
 \section{Planificación}
@@ -44,13 +53,16 @@ En esta tercera bitácora avanzamos hacia una etapa más rigurosa del análisis.
 \subsection{Rastro de decisiones}
 Para esta etapa del proyecto decidimos transformar algunas variables numéricas en variables categóricas para facilitar la comparación entre grupos de estudiantes. Por ejemplo, planteamos dividir a los estudiantes según su nivel de uso de redes sociales (bajo, medio y alto uso) y analizar si existen diferencias en el rendimiento académico entre ellos.
 \\
+
 También consideramos clasificar a los estudiantes según la red social que más utilizan, especialmente aquellos que utilizan YouTube, ya que puede tener un componente más educativo que otras plataformas. 
 \\
+
 Sin embargo, finalmente descartamos esta idea porque se alejaba de la pregunta principal de investigación, que está centrada en el tiempo de uso de redes sociales.
 \\
 
 En cuanto al análisis estadístico, inicialmente pensamos en utilizar únicamente correlaciones para estudiar la relación entre las variables. Sin embargo, nos pareció interesante complementar este análisis con pruebas de comparación de medias, ya que permiten observar de forma más clara si existen diferencias entre distintos grupos de estudiantes.
 \\
+
 Por último, a partir de los resultados obtenidos en la bitácora anterior, decidimos prestar especial atención a la variable de distracción académica. Los gráficos exploratorios sugieren que podría estar relacionada con el rendimiento académico, por lo que consideramos relevante incorporarla en algunos de los análisis propuestos.
 
 
@@ -160,7 +172,7 @@ Para profundizar en esta cuestión analizamos conjuntamente las horas de uso de 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\linewidth]{grafico_1_horas_redes_vs_promedio.png}
+    \includegraphics[width=0.7\linewidth]{figuras/grafico_1_horas_redes_vs_promedio.png}
     \caption{Asociación entre el tiempo diario en redes sociales y el promedio académico en estudiantes universitarios}
     \label{fig:redesvsprom}
 \end{figure}
@@ -183,7 +195,7 @@ Por ello empezamos a fijarnos en otras variables que inicialmente no habíamos c
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\linewidth]{grafico_5_heatmap_redes_distraccion_promedio.png}
+    \includegraphics[width=0.7\linewidth]{figuras/grafico_5_heatmap_redes_distraccion_promedio.png}
     \caption{Promedio académico medio según nivel de uso de redes sociales y grado de distracción durante actividades académicas}
     \label{fig:heatmap}
 \end{figure}

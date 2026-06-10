@@ -1,0 +1,87 @@
+MODELO 1: promedio ~ horas_redes
+
+Call:
+lm(formula = promedio ~ horas_redes, data = datos)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2481 -0.4681 -0.1381  0.7013  1.0590 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  4.25634    0.06428  66.211   <2e-16 ***
+horas_redes -0.03942    0.01315  -2.999   0.0029 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.6515 on 351 degrees of freedom
+Multiple R-squared:  0.02498,	Adjusted R-squared:  0.0222 
+F-statistic: 8.993 on 1 and 351 DF,  p-value: 0.002904
+
+
+
+MODELO 2: promedio ~ horas_redes + horas_estudio + asistencia + distraccion_acad
+
+Call:
+lm(formula = promedio ~ horas_redes + horas_estudio + asistencia + 
+    distraccion_acad, data = datos)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.35987 -0.39182 -0.07635  0.54126  1.20553 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)       3.204857   0.192279  16.668  < 2e-16 ***
+horas_redes      -0.025607   0.012372  -2.070   0.0392 *  
+horas_estudio     0.067838   0.015881   4.272 2.51e-05 ***
+asistencia        0.010722   0.002022   5.303 2.03e-07 ***
+distraccion_acad -0.052704   0.023221  -2.270   0.0238 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.6003 on 348 degrees of freedom
+Multiple R-squared:  0.1794,	Adjusted R-squared:   0.17 
+F-statistic: 19.03 on 4 and 348 DF,  p-value: 3.652e-14
+
+
+
+MODELO 3: promedio ~ horas_redes * distraccion_acad + horas_estudio + asistencia
+
+Call:
+lm(formula = promedio ~ horas_redes * distraccion_acad + horas_estudio + 
+    asistencia, data = datos)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.34494 -0.39252 -0.07643  0.52262  1.19838 
+
+Coefficients:
+                              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                   3.321413   0.211259  15.722  < 2e-16 ***
+horas_redes                  -0.056786   0.026581  -2.136   0.0333 *  
+distraccion_acad             -0.095635   0.039849  -2.400   0.0169 *  
+horas_estudio                 0.068729   0.015878   4.328 1.97e-05 ***
+asistencia                    0.010815   0.002021   5.351 1.59e-07 ***
+horas_redes:distraccion_acad  0.010009   0.007554   1.325   0.1861    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.5996 on 347 degrees of freedom
+Multiple R-squared:  0.1836,	Adjusted R-squared:  0.1718 
+F-statistic: 15.61 on 5 and 347 DF,  p-value: 7.402e-14
+
+
+
+COMPARACION ANOVA ENTRE MODELOS
+Analysis of Variance Table
+
+Model 1: promedio ~ horas_redes
+Model 2: promedio ~ horas_redes + horas_estudio + asistencia + distraccion_acad
+Model 3: promedio ~ horas_redes * distraccion_acad + horas_estudio + asistencia
+  Res.Df    RSS Df Sum of Sq       F   Pr(>F)    
+1    351 148.99                                  
+2    348 125.39  3   23.6045 21.8843 5.29e-13 ***
+3    347 124.76  1    0.6311  1.7554   0.1861    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

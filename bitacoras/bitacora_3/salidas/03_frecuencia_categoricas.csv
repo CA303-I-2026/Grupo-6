@@ -1,0 +1,25 @@
+variable,categoria,n,porcentaje
+cat_horas_redes,0-2 h,98,27.76
+cat_horas_redes,2-4 h,121,34.28
+cat_horas_redes,4-6 h,82,23.23
+cat_horas_redes,>6 h,52,14.73
+distraccion_grupo,Distr. 1,95,26.91
+distraccion_grupo,Distr. 2,62,17.56
+distraccion_grupo,Distr. 3,81,22.95
+distraccion_grupo,Distr. 4,63,17.85
+distraccion_grupo,Distr. 5,52,14.73
+genero,Female,161,45.61
+genero,Male,192,54.39
+grupo_uso,Bajo o moderado,219,62.04
+grupo_uso,Alto,134,37.96
+momento_uso,Afternoon,43,12.18
+momento_uso,Evening,75,21.25
+momento_uso,Morning,6,1.7
+momento_uso,Night,229,64.87
+plataforma,Facebook,116,32.86
+plataforma,Instagram,107,30.31
+plataforma,Other,17,4.82
+plataforma,TikTok,4,1.13
+plataforma,YouTube,109,30.88
+zona_residencia,Rural,53,15.01
+zona_residencia,Urban,300,84.99

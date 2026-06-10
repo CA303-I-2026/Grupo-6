@@ -1,0 +1,354 @@
+promedio,horas_estudio,asistencia,horas_redes,plataforma,momento_uso,distraccion_acad,edad,genero,zona_residencia,nivel_educativo,actividad_fisica,alteracion_sueno,ansiedad,depresion,autoestima,cat_horas_redes,grupo_uso,distraccion_grupo
+3.55,2,80,4,YouTube,Night,5,28,Male,Urban,Tertiary Education,Yes,4,4,5,4,2-4 h,Bajo o moderado,Distr. 5
+3.1,3,60,5,Instagram,Afternoon,3,21,Male,Rural,Tertiary Education,Yes,5,2,1,5,4-6 h,Alto,Distr. 3
+4.5,6,70,2,YouTube,Night,1,17,Female,Rural,HSC / A' Level,Yes,1,2,1,1,0-2 h,Bajo o moderado,Distr. 1
+5,1,80,6,Facebook,Night,1,22,Male,Urban,Tertiary Education,Yes,3,3,3,3,4-6 h,Alto,Distr. 1
+2.7800000000000002,2,85,5,Facebook,Night,4,26,Male,Urban,Tertiary Education,No,4,4,3,4,4-6 h,Alto,Distr. 4
+4,2,95,6,YouTube,Night,2,21,Male,Urban,Tertiary Education,Yes,1,2,3,4,4-6 h,Alto,Distr. 2
+3.9099999999999997,4,95,8,Facebook,Night,4,23,Male,Urban,Tertiary Education,Yes,4,3,4,3,>6 h,Alto,Distr. 4
+3.65,3,98,6,Instagram,Night,2,20,Female,Urban,Tertiary Education,No,3,3,3,3,4-6 h,Alto,Distr. 2
+3,4,97,2.5,Facebook,Night,3,22,Male,Urban,Tertiary Education,No,4,4,4,4,2-4 h,Bajo o moderado,Distr. 3
+3.51,3,100,3,Facebook,Evening,1,23,Male,Rural,Tertiary Education,No,3,5,5,1,2-4 h,Bajo o moderado,Distr. 1
+3,1,60,1.5,Instagram,Night,2,22,Male,Urban,Tertiary Education,Yes,5,3,4,3,0-2 h,Bajo o moderado,Distr. 2
+4,3,90,10,YouTube,Morning,5,22,Female,Urban,Tertiary Education,No,5,4,4,3,>6 h,Alto,Distr. 5
+4.5,5,90,6.5,Instagram,Night,1,19,Male,Rural,HSC / A' Level,Yes,1,1,1,1,>6 h,Alto,Distr. 1
+1.8900000000000001,7,80,3,YouTube,Night,4,25,Male,Urban,Tertiary Education,No,2,2,1,2,2-4 h,Bajo o moderado,Distr. 4
+3.96,0.5,25,2,Instagram,Night,3,22,Female,Urban,Tertiary Education,No,2,3,2,3,0-2 h,Bajo o moderado,Distr. 3
+4,4,90,6.5,Facebook,Evening,1,20,Female,Urban,Tertiary Education,Yes,3,2,3,2,>6 h,Alto,Distr. 1
+2.5,1,10,4,Instagram,Night,2,24,Male,Urban,Tertiary Education,No,2,2,2,2,2-4 h,Bajo o moderado,Distr. 2
+3.5,0,60,2.5,Facebook,Night,4,24,Male,Urban,Tertiary Education,No,2,2,2,2,2-4 h,Bajo o moderado,Distr. 4
+3.5,4,99,2,Facebook,Night,4,27,Male,Urban,Tertiary Education,No,1,1,2,2,0-2 h,Bajo o moderado,Distr. 4
+3.8699999999999997,3,90,2,Facebook,Evening,2,25,Male,Urban,Tertiary Education,Yes,1,1,1,1,0-2 h,Bajo o moderado,Distr. 2
+3.27,2,100,4,Instagram,Morning,3,23,Female,Rural,Tertiary Education,No,4,5,5,5,2-4 h,Bajo o moderado,Distr. 3
+4.56,3,80,6,Facebook,Night,5,23,Male,Urban,Tertiary Education,Yes,3,5,4,5,4-6 h,Alto,Distr. 5
+4,0,90,5,Facebook,Night,1,23,Male,Urban,Tertiary Education,No,3,3,3,3,4-6 h,Alto,Distr. 1
+3.75,2,95,4.5,Facebook,Evening,3,22,Female,Rural,Tertiary Education,No,1,1,5,3,4-6 h,Alto,Distr. 3
+3.25,3,80,5,Instagram,Night,4,21,Female,Urban,Tertiary Education,Yes,3,1,2,3,4-6 h,Alto,Distr. 4
+4,5,96,2,YouTube,Evening,3,22,Female,Urban,Tertiary Education,Yes,3,4,5,3,0-2 h,Bajo o moderado,Distr. 3
+3,2,70,5,Facebook,Night,1,20,Female,Urban,Tertiary Education,Yes,2,4,2,2,4-6 h,Alto,Distr. 1
+3.86,0,100,4.5,YouTube,Night,1,23,Male,Urban,Tertiary Education,No,1,1,1,5,4-6 h,Alto,Distr. 1
+3.64,4,80,8,Facebook,Night,3,22,Female,Urban,Tertiary Education,No,4,3,2,3,>6 h,Alto,Distr. 3
+3.8,0,80,2,Other,Night,5,22,Male,Urban,Tertiary Education,No,3,1,1,3,0-2 h,Bajo o moderado,Distr. 5
+3.65,6,88.8888888888889,3.5,Facebook,Evening,3,23,Female,Urban,Tertiary Education,Yes,3,3,3,3,2-4 h,Bajo o moderado,Distr. 3
+3.7,3,75,2,Instagram,Night,2,20,Female,Urban,Tertiary Education,Yes,2,4,5,4,0-2 h,Bajo o moderado,Distr. 2
+3.16,0.1,25,2,YouTube,Night,4,21,Female,Urban,Tertiary Education,No,5,5,5,1,0-2 h,Bajo o moderado,Distr. 4
+3.96,5,80,2,Facebook,Evening,4,23,Female,Urban,Tertiary Education,No,3,2,5,4,0-2 h,Bajo o moderado,Distr. 4
+3.8299999999999996,2,100,5.5,YouTube,Night,3,22,Male,Urban,Tertiary Education,No,1,3,1,3,4-6 h,Alto,Distr. 3
+4.8,5,80,4,YouTube,Night,1,21,Female,Urban,HSC / A' Level,No,2,2,1,4,2-4 h,Bajo o moderado,Distr. 1
+3.8,4,99,5,Facebook,Night,1,22,Male,Urban,Tertiary Education,Yes,1,1,1,1,4-6 h,Alto,Distr. 1
+4,1,100,3,Facebook,Night,4,24,Male,Urban,Tertiary Education,Yes,3,4,4,4,2-4 h,Bajo o moderado,Distr. 4
+3.5,2,80,2,Facebook,Night,4,21,Male,Urban,HSC / A' Level,No,2,2,1,4,0-2 h,Bajo o moderado,Distr. 4
+3.9,4,99,2,Instagram,Night,5,22,Female,Urban,Tertiary Education,No,1,5,3,5,0-2 h,Bajo o moderado,Distr. 5
+3.96,1,85,12,YouTube,Night,1,23,Male,Urban,Tertiary Education,Yes,1,5,1,1,>6 h,Alto,Distr. 1
+3.8,2,100,3.5,YouTube,Night,5,22,Female,Urban,Tertiary Education,No,3,1,1,1,2-4 h,Bajo o moderado,Distr. 5
+4,2,90,4.5,Facebook,Night,1,21,Male,Urban,Tertiary Education,Yes,4,4,5,3,4-6 h,Alto,Distr. 1
+3.3,6,70,6,Facebook,Night,1,21,Male,Urban,Tertiary Education,No,2,1,3,1,4-6 h,Alto,Distr. 1
+3.8499999999999996,1,90,3,Instagram,Evening,3,23,Female,Urban,Tertiary Education,Yes,3,4,5,4,2-4 h,Bajo o moderado,Distr. 3
+3.56,5,95,5,YouTube,Night,2,22,Female,Urban,HSC / A' Level,No,3,1,2,4,4-6 h,Alto,Distr. 2
+3.88,6,95,5,YouTube,Night,5,22,Male,Urban,HSC / A' Level,No,5,5,5,5,4-6 h,Alto,Distr. 5
+3.25,1,20,10,Other,Night,5,22,Female,Urban,Tertiary Education,No,5,5,5,5,>6 h,Alto,Distr. 5
+3.5,1,7,4,Facebook,Night,3,24,Female,Urban,Tertiary Education,Yes,2,2,3,3,2-4 h,Bajo o moderado,Distr. 3
+3.96,3,98,4.5,YouTube,Night,1,23,Male,Urban,Tertiary Education,Yes,2,3,3,4,4-6 h,Alto,Distr. 1
+3,0,100,4,YouTube,Night,3,23,Female,Urban,Tertiary Education,No,1,1,1,1,2-4 h,Bajo o moderado,Distr. 3
+3.8,2,90,6,Other,Night,5,22,Male,Urban,Tertiary Education,No,5,3,3,3,4-6 h,Alto,Distr. 5
+3.2,0,90,4,Instagram,Night,4,22,Male,Urban,Tertiary Education,Yes,1,3,4,4,2-4 h,Bajo o moderado,Distr. 4
+3.82,1,95,4,Instagram,Night,1,23,Female,Rural,Tertiary Education,No,3,1,3,1,2-4 h,Bajo o moderado,Distr. 1
+3.73,2,90,1,YouTube,Night,3,22,Female,Urban,Tertiary Education,No,3,3,3,2,0-2 h,Bajo o moderado,Distr. 3
+3.75,3,90,5,Facebook,Night,4,22,Female,Urban,Tertiary Education,Yes,4,3,3,3,4-6 h,Alto,Distr. 4
+3.86,0,100,5,YouTube,Evening,4,24,Female,Urban,Tertiary Education,No,5,3,4,3,4-6 h,Alto,Distr. 4
+3.75,3,100,4,YouTube,Night,3,20,Female,Urban,Tertiary Education,No,3,2,2,3,2-4 h,Bajo o moderado,Distr. 3
+3.58,5,99,3,YouTube,Afternoon,2,22,Female,Rural,Tertiary Education,Yes,1,2,4,2,2-4 h,Bajo o moderado,Distr. 2
+3.15,1,30,6,Instagram,Night,1,23,Male,Rural,Tertiary Education,Yes,4,3,1,3,4-6 h,Alto,Distr. 1
+4,5,100,6.5,Instagram,Night,5,21,Female,Rural,Tertiary Education,Yes,5,3,1,2,>6 h,Alto,Distr. 5
+3.8699999999999997,10,100,1,YouTube,Night,2,21,Male,Urban,Tertiary Education,No,2,2,2,2,0-2 h,Bajo o moderado,Distr. 2
+3.86,1,98,2.5,Instagram,Evening,1,21,Female,Urban,Tertiary Education,No,3,4,3,5,2-4 h,Bajo o moderado,Distr. 1
+3.8699999999999997,2,70,6.5,YouTube,Night,2,19,Male,Urban,Tertiary Education,No,3,4,3,3,>6 h,Alto,Distr. 2
+3.5,2,80,4,Instagram,Night,5,21,Female,Urban,Tertiary Education,No,5,3,4,4,2-4 h,Bajo o moderado,Distr. 5
+3.5,0.333333333333333,90,4,YouTube,Night,3,23,Male,Urban,Tertiary Education,No,2,4,4,4,2-4 h,Bajo o moderado,Distr. 3
+3.56,2,70,7,Instagram,Night,2,24,Male,Urban,Tertiary Education,Yes,1,1,2,1,>6 h,Alto,Distr. 2
+3.01,1,75,4.5,Instagram,Evening,3,24,Female,Rural,Tertiary Education,No,3,3,3,5,4-6 h,Alto,Distr. 3
+4.8,8,90,2.5,Instagram,Night,1,20,Female,Urban,Tertiary Education,Yes,3,1,3,5,2-4 h,Bajo o moderado,Distr. 1
+3.34,1,30,2,YouTube,Night,3,25,Male,Urban,Tertiary Education,Yes,3,1,1,1,0-2 h,Bajo o moderado,Distr. 3
+3.57,4,98,9,Facebook,Afternoon,5,23,Male,Urban,Tertiary Education,No,5,5,2,4,>6 h,Alto,Distr. 5
+4.83,5,100,1,YouTube,Night,4,21,Male,Urban,Tertiary Education,No,4,4,4,3,0-2 h,Bajo o moderado,Distr. 4
+3.8299999999999996,4,100,5,Facebook,Evening,5,21,Male,Rural,Tertiary Education,No,3,5,5,3,4-6 h,Alto,Distr. 5
+3.24,1,86,5,Facebook,Night,2,21,Female,Urban,Tertiary Education,No,1,2,3,2,4-6 h,Alto,Distr. 2
+3.6,4,95,2.5,Facebook,Night,1,21,Male,Urban,Tertiary Education,No,2,2,1,3,2-4 h,Bajo o moderado,Distr. 1
+4,8,100,3,Instagram,Night,3,21,Male,Urban,Tertiary Education,No,2,3,4,4,2-4 h,Bajo o moderado,Distr. 3
+3.8299999999999996,3,100,5.5,YouTube,Night,4,21,Female,Urban,Tertiary Education,No,4,1,5,5,4-6 h,Alto,Distr. 4
+4.56,4,75,3,YouTube,Night,2,22,Male,Urban,Tertiary Education,Yes,2,2,1,4,2-4 h,Bajo o moderado,Distr. 2
+3.32,2,80,6,Facebook,Night,1,23,Male,Urban,Tertiary Education,No,1,1,2,2,4-6 h,Alto,Distr. 1
+3.2800000000000002,1,50,8,Instagram,Night,2,22,Male,Urban,Tertiary Education,Yes,3,4,4,3,>6 h,Alto,Distr. 2
+3.8299999999999996,3,91,2,Instagram,Afternoon,1,22,Female,Urban,HSC / A' Level,Yes,1,2,1,5,0-2 h,Bajo o moderado,Distr. 1
+4,3,100,4,YouTube,Afternoon,2,20,Female,Urban,Tertiary Education,Yes,3,3,3,3,2-4 h,Bajo o moderado,Distr. 2
+3.27,1,60,4.5,YouTube,Night,2,24,Female,Urban,Tertiary Education,Yes,3,1,5,3,4-6 h,Alto,Distr. 2
+5,6,90,4,Facebook,Afternoon,2,21,Female,Rural,Tertiary Education,No,2,1,4,5,2-4 h,Bajo o moderado,Distr. 2
+3.3499999999999996,1,60,20,Facebook,Night,5,22,Male,Urban,Tertiary Education,Yes,5,5,5,5,>6 h,Alto,Distr. 5
+3.62,5,10,2,Facebook,Afternoon,1,20,Female,Urban,Tertiary Education,No,1,1,1,5,0-2 h,Bajo o moderado,Distr. 1
+4,4,96,3,Facebook,Night,1,21,Female,Urban,Tertiary Education,No,1,3,3,3,2-4 h,Bajo o moderado,Distr. 1
+3.5,2,55,3.5,Other,Evening,3,20,Male,Urban,Tertiary Education,Yes,3,2,1,1,2-4 h,Bajo o moderado,Distr. 3
+3.58,1,100,10,YouTube,Evening,1,21,Male,Urban,Tertiary Education,No,3,2,2,3,>6 h,Alto,Distr. 1
+3.67,1,90,2,Other,Night,1,21,Male,Urban,HSC / A' Level,Yes,2,1,1,3,0-2 h,Bajo o moderado,Distr. 1
+4.17,3,95,4,Facebook,Evening,3,21,Male,Rural,HSC / A' Level,Yes,4,5,5,3,2-4 h,Bajo o moderado,Distr. 3
+4.58,3,100,8,Facebook,Night,5,19,Male,Rural,HSC / A' Level,Yes,5,3,3,4,>6 h,Alto,Distr. 5
+3.74,4,50,1,YouTube,Night,1,21,Male,Urban,Tertiary Education,No,1,1,1,1,0-2 h,Bajo o moderado,Distr. 1
+4.33,3,78,5,Facebook,Evening,1,21,Male,Urban,Tertiary Education,Yes,1,1,1,2,4-6 h,Alto,Distr. 1
+3.7,5,85,6.5,YouTube,Night,3,20,Female,Urban,Tertiary Education,Yes,3,3,4,3,>6 h,Alto,Distr. 3
+3.77,0,60,2.5,Instagram,Evening,5,20,Male,Urban,HSC / A' Level,No,5,3,1,3,2-4 h,Bajo o moderado,Distr. 5
+4,0,95,2.5,YouTube,Night,2,20,Female,Urban,Tertiary Education,No,1,4,5,4,2-4 h,Bajo o moderado,Distr. 2
+3.3,5,100,4,YouTube,Night,3,22,Female,Urban,Tertiary Education,Yes,3,4,5,2,2-4 h,Bajo o moderado,Distr. 3
+3.3,1,90,4,Instagram,Night,2,22,Male,Urban,Tertiary Education,Yes,2,2,2,3,2-4 h,Bajo o moderado,Distr. 2
+3.9099999999999997,1,98,7.5,Instagram,Evening,4,20,Female,Urban,Tertiary Education,No,3,2,3,3,>6 h,Alto,Distr. 4
+3.67,3,90,7,Facebook,Night,4,22,Female,Urban,Tertiary Education,Yes,4,4,4,4,>6 h,Alto,Distr. 4
+3.9,3,75,8,Facebook,Night,3,22,Male,Urban,Tertiary Education,No,5,2,3,4,>6 h,Alto,Distr. 3
+5,8,80,2,YouTube,Afternoon,5,20,Female,Urban,Tertiary Education,Yes,3,5,5,5,0-2 h,Bajo o moderado,Distr. 5
+5,3,95,7,Facebook,Night,3,24,Male,Rural,Tertiary Education,Yes,1,1,2,2,>6 h,Alto,Distr. 3
+3.64,6,80,2,YouTube,Evening,5,21,Female,Urban,Tertiary Education,Yes,1,4,4,3,0-2 h,Bajo o moderado,Distr. 5
+3.3,5,85,12,Facebook,Night,1,21,Male,Urban,Tertiary Education,No,3,4,5,3,>6 h,Alto,Distr. 1
+3.25,2,90,5,Instagram,Evening,1,25,Female,Urban,HSC / A' Level,Yes,2,1,3,1,4-6 h,Alto,Distr. 1
+2.5,1,95,2,YouTube,Evening,3,23,Male,Rural,HSC / A' Level,No,2,4,4,3,0-2 h,Bajo o moderado,Distr. 3
+4,0,100,2,YouTube,Night,5,21,Male,Urban,Tertiary Education,No,1,5,3,5,0-2 h,Bajo o moderado,Distr. 5
+4,1,90,3,Facebook,Afternoon,2,20,Male,Rural,HSC / A' Level,Yes,3,1,1,5,2-4 h,Bajo o moderado,Distr. 2
+3.71,2,100,8,YouTube,Night,4,21,Male,Urban,Tertiary Education,No,1,3,1,3,>6 h,Alto,Distr. 4
+3.56,1,90,4,YouTube,Night,5,23,Male,Urban,Tertiary Education,Yes,4,4,3,4,2-4 h,Bajo o moderado,Distr. 5
+3.5,0,100,12,Instagram,Night,5,20,Female,Urban,Tertiary Education,No,3,2,1,2,>6 h,Alto,Distr. 5
+3.72,4,95,4,Facebook,Evening,4,24,Male,Rural,Tertiary Education,Yes,2,1,2,2,2-4 h,Bajo o moderado,Distr. 4
+4.17,3,99,0.5,YouTube,Evening,4,20,Female,Urban,Tertiary Education,Yes,5,4,3,5,0-2 h,Bajo o moderado,Distr. 4
+3.75,3,90,2,YouTube,Evening,4,21,Male,Urban,Tertiary Education,Yes,3,3,4,3,0-2 h,Bajo o moderado,Distr. 4
+3.5,6,98,2,Facebook,Evening,3,19,Male,Urban,Tertiary Education,Yes,3,2,2,1,0-2 h,Bajo o moderado,Distr. 3
+3.86,5,80,2,Other,Night,1,21,Male,Urban,Tertiary Education,Yes,1,1,1,1,0-2 h,Bajo o moderado,Distr. 1
+3.92,1,70,3,Facebook,Night,2,22,Male,Urban,Tertiary Education,No,3,2,2,2,2-4 h,Bajo o moderado,Distr. 2
+3.71,3,60,1.5,YouTube,Night,4,27,Male,Urban,Tertiary Education,No,3,3,5,5,0-2 h,Bajo o moderado,Distr. 4
+3.9699999999999998,4,80,3,Facebook,Night,4,22,Female,Urban,HSC / A' Level,Yes,5,2,5,3,2-4 h,Bajo o moderado,Distr. 4
+5,4,70,2.5,Instagram,Evening,2,20,Female,Urban,Tertiary Education,No,3,3,4,3,2-4 h,Bajo o moderado,Distr. 2
+3,2,100,1,Facebook,Evening,3,23,Female,Urban,Tertiary Education,Yes,1,2,3,4,0-2 h,Bajo o moderado,Distr. 3
+5,3,70,6,YouTube,Night,4,23,Male,Urban,Tertiary Education,No,4,3,4,2,4-6 h,Alto,Distr. 4
+3.69,3,90,4.5,Instagram,Night,5,22,Female,Urban,Tertiary Education,No,2,3,4,4,4-6 h,Alto,Distr. 5
+4.58,3,70,1,Facebook,Morning,2,20,Male,Urban,Tertiary Education,Yes,1,2,2,2,0-2 h,Bajo o moderado,Distr. 2
+3.9499999999999997,1,100,3.5,Facebook,Night,3,23,Female,Urban,Tertiary Education,No,1,1,2,1,2-4 h,Bajo o moderado,Distr. 3
+4,4,95,2,Facebook,Night,3,23,Male,Urban,Tertiary Education,Yes,2,1,1,3,0-2 h,Bajo o moderado,Distr. 3
+3.63,2,80,3,Instagram,Night,2,23,Male,Urban,Tertiary Education,Yes,4,2,2,2,2-4 h,Bajo o moderado,Distr. 2
+3.8499999999999996,4,85,2,YouTube,Afternoon,1,22,Male,Rural,Tertiary Education,No,4,4,2,3,0-2 h,Bajo o moderado,Distr. 1
+4.58,3,90,7.5,Instagram,Afternoon,2,20,Male,Urban,Tertiary Education,No,3,3,5,3,>6 h,Alto,Distr. 2
+5,1,95,3,Facebook,Night,4,21,Male,Urban,Tertiary Education,Yes,2,2,3,3,2-4 h,Bajo o moderado,Distr. 4
+3.5,3,100,4,Instagram,Night,3,20,Female,Urban,Tertiary Education,Yes,3,4,3,3,2-4 h,Bajo o moderado,Distr. 3
+3.82,3,70,4.33333333333333,Facebook,Night,2,24,Female,Urban,Tertiary Education,Yes,3,1,4,4,4-6 h,Alto,Distr. 2
+5,1,80,2,Instagram,Afternoon,3,20,Male,Urban,Tertiary Education,Yes,1,3,2,5,0-2 h,Bajo o moderado,Distr. 3
+3.4099999999999997,2,80,1,YouTube,Night,1,23,Male,Urban,Tertiary Education,Yes,3,1,1,1,0-2 h,Bajo o moderado,Distr. 1
+5,5,95,2,YouTube,Night,1,21,Female,Urban,Tertiary Education,No,1,1,4,3,0-2 h,Bajo o moderado,Distr. 1
+3.8,5,90,3,YouTube,Night,3,21,Male,Rural,Tertiary Education,Yes,4,3,3,3,2-4 h,Bajo o moderado,Distr. 3
+4.75,8,80,5,YouTube,Night,1,21,Male,Urban,HSC / A' Level,Yes,4,2,2,2,4-6 h,Alto,Distr. 1
+3.5,2,70,4.5,Facebook,Night,2,21,Male,Urban,Tertiary Education,No,4,3,5,5,4-6 h,Alto,Distr. 2
+4.17,2,100,2,Instagram,Night,3,20,Male,Urban,Tertiary Education,Yes,4,3,3,3,0-2 h,Bajo o moderado,Distr. 3
+3.7800000000000002,10,100,0.166666666666667,Other,Night,3,24,Female,Urban,Tertiary Education,Yes,3,3,3,3,0-2 h,Bajo o moderado,Distr. 3
+5,2,80,1,YouTube,Night,3,24,Male,Urban,Tertiary Education,No,5,3,2,3,0-2 h,Bajo o moderado,Distr. 3
+3,2,75,1,Facebook,Night,3,22,Male,Urban,Tertiary Education,No,2,5,5,3,0-2 h,Bajo o moderado,Distr. 3
+3.46,0.166666666666667,100,8,Instagram,Night,5,25,Male,Urban,Tertiary Education,No,5,5,5,5,>6 h,Alto,Distr. 5
+4,0,98,12,Instagram,Night,3,22,Female,Urban,HSC / A' Level,Yes,4,3,3,3,>6 h,Alto,Distr. 3
+3.9,3,99,2,Facebook,Night,4,29,Female,Urban,Tertiary Education,No,1,3,3,4,0-2 h,Bajo o moderado,Distr. 4
+3.4,6,70,0,YouTube,Evening,1,23,Male,Urban,Tertiary Education,Yes,2,3,3,2,0-2 h,Bajo o moderado,Distr. 1
+3.65,5,90,6,Facebook,Night,3,27,Female,Rural,Tertiary Education,Yes,3,1,1,3,4-6 h,Alto,Distr. 3
+3.7800000000000002,3,99,10,YouTube,Evening,2,27,Female,Urban,Tertiary Education,Yes,1,1,1,2,>6 h,Alto,Distr. 2
+3.63,2,80,12,TikTok,Night,3,26,Female,Urban,Tertiary Education,No,4,4,5,3,>6 h,Alto,Distr. 3
+3.79,1,100,1.5,Other,Night,1,23,Male,Rural,Tertiary Education,Yes,4,5,2,3,0-2 h,Bajo o moderado,Distr. 1
+3,1,12,3,Facebook,Evening,1,29,Male,Urban,HSC / A' Level,Yes,3,2,3,3,2-4 h,Bajo o moderado,Distr. 1
+3,4,60,2,Facebook,Night,1,22,Male,Rural,HSC / A' Level,Yes,1,1,2,3,0-2 h,Bajo o moderado,Distr. 1
+3.4,5,40,5,Facebook,Night,5,23,Male,Urban,Tertiary Education,Yes,2,4,4,3,4-6 h,Alto,Distr. 5
+3.9,0,70,2,Facebook,Night,5,23,Male,Urban,Tertiary Education,Yes,3,4,4,3,0-2 h,Bajo o moderado,Distr. 5
+4,0,60,5,Instagram,Night,2,23,Male,Urban,Tertiary Education,No,2,2,1,2,4-6 h,Alto,Distr. 2
+4,3,100,7.5,YouTube,Night,2,22,Female,Urban,Tertiary Education,No,3,4,4,3,>6 h,Alto,Distr. 2
+3.25,2,80,4,Facebook,Night,2,23,Male,Rural,Tertiary Education,Yes,3,3,2,2,2-4 h,Bajo o moderado,Distr. 2
+3.4899999999999998,2,90,5,Facebook,Night,4,21,Female,Urban,Tertiary Education,No,4,5,5,3,4-6 h,Alto,Distr. 4
+3.94,6,95,4,Facebook,Afternoon,4,22,Male,Urban,Tertiary Education,Yes,3,4,4,4,2-4 h,Bajo o moderado,Distr. 4
+3.75,4,98,1.5,Instagram,Night,1,22,Female,Urban,Tertiary Education,No,1,2,1,3,0-2 h,Bajo o moderado,Distr. 1
+3,3,80,2,Facebook,Evening,5,22,Female,Urban,Tertiary Education,Yes,1,5,5,1,0-2 h,Bajo o moderado,Distr. 5
+3.5,4,77.5,5.5,Facebook,Night,4,22,Male,Urban,Tertiary Education,No,5,4,5,3,4-6 h,Alto,Distr. 4
+3.5,3,100,4,Instagram,Night,3,21,Male,Rural,Tertiary Education,No,2,4,3,4,2-4 h,Bajo o moderado,Distr. 3
+3.7,1,80,5,Facebook,Night,5,22,Male,Urban,Tertiary Education,Yes,4,5,5,5,4-6 h,Alto,Distr. 5
+3.5,2,70,4,Facebook,Night,4,23,Male,Urban,Tertiary Education,Yes,3,4,3,4,2-4 h,Bajo o moderado,Distr. 4
+3.9,8,100,2,YouTube,Afternoon,2,21,Female,Urban,Tertiary Education,Yes,5,1,2,1,0-2 h,Bajo o moderado,Distr. 2
+3.4499999999999997,1,70,3.5,Instagram,Night,2,21,Female,Urban,Tertiary Education,Yes,4,1,1,3,2-4 h,Bajo o moderado,Distr. 2
+3.72,3,85,2,YouTube,Evening,3,22,Female,Urban,Tertiary Education,No,3,3,3,2,0-2 h,Bajo o moderado,Distr. 3
+3.9,3,100,4.5,YouTube,Night,3,22,Female,Urban,Tertiary Education,No,5,2,2,2,4-6 h,Alto,Distr. 3
+3.75,0,70,3,YouTube,Night,3,21,Male,Urban,HSC / A' Level,Yes,3,3,1,1,2-4 h,Bajo o moderado,Distr. 3
+3.63,3,75,8,Facebook,Night,4,24,Male,Urban,Tertiary Education,No,4,5,4,3,>6 h,Alto,Distr. 4
+3.88,4,98,2.5,YouTube,Evening,4,23,Female,Urban,Tertiary Education,No,2,2,2,1,2-4 h,Bajo o moderado,Distr. 4
+3.67,2,99,3.66666666666667,Facebook,Night,2,20,Female,Urban,Tertiary Education,No,2,2,3,3,2-4 h,Bajo o moderado,Distr. 2
+3.94,2,100,6,YouTube,Night,3,21,Female,Urban,Tertiary Education,Yes,3,3,3,2,4-6 h,Alto,Distr. 3
+3.68,1,95,6,Instagram,Night,4,22,Female,Rural,Tertiary Education,Yes,2,5,5,5,4-6 h,Alto,Distr. 4
+3.75,2,80,4,Facebook,Night,4,21,Male,Urban,Tertiary Education,No,2,3,4,4,2-4 h,Bajo o moderado,Distr. 4
+3.6,1,65,6.5,YouTube,Night,1,21,Male,Urban,Tertiary Education,No,4,4,1,4,>6 h,Alto,Distr. 1
+3.03,2,75,6,YouTube,Night,4,22,Female,Urban,Tertiary Education,No,5,3,4,4,4-6 h,Alto,Distr. 4
+3.66,3,90,4,Facebook,Night,4,22,Male,Urban,Tertiary Education,Yes,4,4,4,3,2-4 h,Bajo o moderado,Distr. 4
+3.21,3,85,3,Facebook,Night,1,24,Male,Rural,Tertiary Education,No,4,3,3,3,2-4 h,Bajo o moderado,Distr. 1
+3.92,0,80,2.33333333333333,Facebook,Evening,1,23,Male,Urban,Tertiary Education,Yes,1,1,2,4,2-4 h,Bajo o moderado,Distr. 1
+5,5,100,2,TikTok,Evening,1,21,Female,Urban,HSC / A' Level,No,1,1,1,5,0-2 h,Bajo o moderado,Distr. 1
+3.3,0,97,3,Instagram,Evening,3,22,Female,Urban,Tertiary Education,No,3,3,3,3,2-4 h,Bajo o moderado,Distr. 3
+3.25,5,80,8,Instagram,Night,5,23,Female,Urban,Tertiary Education,Yes,3,3,5,3,>6 h,Alto,Distr. 5
+3.3,0,70,8,Instagram,Night,2,23,Male,Urban,Tertiary Education,Yes,3,2,1,5,>6 h,Alto,Distr. 2
+3.18,0,70,6,Instagram,Night,4,23,Male,Urban,Tertiary Education,No,4,3,3,3,4-6 h,Alto,Distr. 4
+4,1,80,3,YouTube,Morning,5,19,Female,Urban,HSC / A' Level,Yes,5,5,5,5,2-4 h,Bajo o moderado,Distr. 5
+3.75,3,80,8,YouTube,Night,3,22,Male,Urban,Tertiary Education,No,4,5,5,3,>6 h,Alto,Distr. 3
+3.9,5,100,1.66666666666667,YouTube,Night,4,21,Male,Rural,Tertiary Education,No,1,3,1,1,0-2 h,Bajo o moderado,Distr. 4
+4.75,2,100,2,Instagram,Afternoon,4,19,Female,Urban,Tertiary Education,Yes,4,3,3,5,0-2 h,Bajo o moderado,Distr. 4
+4.75,2,97.5,4.5,Instagram,Night,4,20,Male,Urban,HSC / A' Level,Yes,3,4,2,4,4-6 h,Alto,Distr. 4
+4,4,95,3.5,YouTube,Evening,1,19,Male,Urban,Tertiary Education,Yes,3,3,2,3,2-4 h,Bajo o moderado,Distr. 1
+3.69,6,80,2.5,YouTube,Night,5,25,Male,Urban,Tertiary Education,Yes,5,5,5,5,2-4 h,Bajo o moderado,Distr. 5
+5,6,99,2,YouTube,Night,2,21,Female,Urban,Tertiary Education,No,1,1,1,1,0-2 h,Bajo o moderado,Distr. 2
+4.94,4,90,7,Facebook,Evening,4,19,Female,Urban,Tertiary Education,Yes,2,2,5,1,>6 h,Alto,Distr. 4
+5,4,98,8,YouTube,Night,2,19,Male,Urban,Tertiary Education,No,2,1,1,3,>6 h,Alto,Distr. 2
+4.75,2,80,6,Instagram,Night,5,21,Female,Urban,Tertiary Education,Yes,5,4,1,2,4-6 h,Alto,Distr. 5
+2.9,4,78,2,YouTube,Night,5,22,Male,Rural,Tertiary Education,Yes,5,5,3,4,0-2 h,Bajo o moderado,Distr. 5
+3.2,2,60,3,Facebook,Night,5,23,Female,Urban,Tertiary Education,No,3,1,1,3,2-4 h,Bajo o moderado,Distr. 5
+5,10,90,2,Other,Evening,1,19,Female,Urban,Tertiary Education,Yes,1,1,1,1,0-2 h,Bajo o moderado,Distr. 1
+3.4,5,85,6,Instagram,Night,2,23,Female,Rural,Tertiary Education,No,3,1,1,2,4-6 h,Alto,Distr. 2
+3,2,70,5,Instagram,Evening,4,22,Female,Rural,Tertiary Education,No,3,4,4,4,4-6 h,Alto,Distr. 4
+3.79,2,70,4,TikTok,Night,4,22,Female,Urban,Tertiary Education,No,5,5,5,5,2-4 h,Bajo o moderado,Distr. 4
+3.1,2,95,5,YouTube,Night,5,30,Female,Urban,Tertiary Education,Yes,4,2,3,3,4-6 h,Alto,Distr. 5
+3.2,2,100,5,YouTube,Night,4,29,Female,Urban,Tertiary Education,Yes,2,3,2,4,4-6 h,Alto,Distr. 4
+3.1,0,60,5,Facebook,Night,4,23,Male,Rural,Tertiary Education,No,3,3,4,5,4-6 h,Alto,Distr. 4
+3.73,0.5,80,3.5,Facebook,Night,4,22,Male,Urban,Tertiary Education,Yes,4,1,1,5,2-4 h,Bajo o moderado,Distr. 4
+3.17,0,90,15,Facebook,Morning,5,37,Male,Urban,Tertiary Education,Yes,3,2,3,3,>6 h,Alto,Distr. 5
+3.5,2,60,3,Facebook,Afternoon,1,23,Female,Rural,Tertiary Education,No,2,2,2,4,2-4 h,Bajo o moderado,Distr. 1
+4,2,90,3,Facebook,Night,1,21,Male,Urban,Tertiary Education,Yes,2,1,3,3,2-4 h,Bajo o moderado,Distr. 1
+3.9499999999999997,1,95,5,Instagram,Evening,2,22,Female,Urban,Tertiary Education,No,1,1,2,3,4-6 h,Alto,Distr. 2
+3.2600000000000002,3,92.5,2,Instagram,Night,5,22,Female,Urban,HSC / A' Level,Yes,2,2,1,3,0-2 h,Bajo o moderado,Distr. 5
+5,8,100,6,YouTube,Night,3,21,Male,Rural,Tertiary Education,No,5,5,2,2,4-6 h,Alto,Distr. 3
+4.5,8,100,3,Facebook,Night,5,24,Male,Urban,HSC / A' Level,Yes,4,3,2,2,2-4 h,Bajo o moderado,Distr. 5
+3.4,4,90,2,YouTube,Night,4,23,Male,Urban,Tertiary Education,Yes,4,1,1,4,0-2 h,Bajo o moderado,Distr. 4
+3.5,1,80,16,Instagram,Afternoon,5,23,Female,Urban,Tertiary Education,No,1,3,3,5,>6 h,Alto,Distr. 5
+4,1,80,6,Instagram,Evening,3,22,Male,Urban,HSC / A' Level,Yes,4,1,1,2,4-6 h,Alto,Distr. 3
+4.92,0,75,2,Instagram,Night,1,20,Male,Urban,HSC / A' Level,Yes,4,1,1,1,0-2 h,Bajo o moderado,Distr. 1
+5,4,100,4,Instagram,Night,2,19,Female,Urban,Tertiary Education,No,3,1,1,2,2-4 h,Bajo o moderado,Distr. 2
+4.58,3,100,9,Instagram,Night,3,20,Female,Urban,Tertiary Education,No,1,1,1,4,>6 h,Alto,Distr. 3
+5,4,99,2,YouTube,Afternoon,1,19,Male,Rural,Tertiary Education,Yes,1,5,5,1,0-2 h,Bajo o moderado,Distr. 1
+5,4,80,3,Instagram,Afternoon,3,19,Male,Urban,HSC / A' Level,Yes,3,1,2,2,2-4 h,Bajo o moderado,Distr. 3
+4.25,2,100,3,YouTube,Evening,1,20,Female,Urban,Tertiary Education,Yes,1,1,1,1,2-4 h,Bajo o moderado,Distr. 1
+4,2,90,4,Instagram,Afternoon,3,21,Female,Urban,Tertiary Education,No,3,4,2,3,2-4 h,Bajo o moderado,Distr. 3
+3.9699999999999998,1,99,3,YouTube,Night,3,24,Male,Urban,Tertiary Education,No,3,3,3,3,2-4 h,Bajo o moderado,Distr. 3
+3.16,1,90,12,Instagram,Night,1,21,Male,Rural,HSC / A' Level,Yes,3,4,1,5,>6 h,Alto,Distr. 1
+4,3,100,5.5,Facebook,Afternoon,1,22,Male,Urban,Tertiary Education,No,4,5,5,4,4-6 h,Alto,Distr. 1
+4,0,98,8,Facebook,Night,4,19,Female,Urban,Tertiary Education,No,5,5,3,3,>6 h,Alto,Distr. 4
+3.96,10,100,15,Instagram,Night,1,21,Female,Urban,Tertiary Education,No,3,4,2,2,>6 h,Alto,Distr. 1
+5,4,100,1,Facebook,Evening,1,22,Male,Urban,Tertiary Education,Yes,1,1,3,5,0-2 h,Bajo o moderado,Distr. 1
+5,2,100,1,YouTube,Night,3,20,Female,Urban,Tertiary Education,No,1,1,1,1,0-2 h,Bajo o moderado,Distr. 3
+5,7,95,4.21910066006601,Other,Afternoon,3,21,Male,Urban,Tertiary Education,Yes,3,3,3,3,4-6 h,Alto,Distr. 3
+4.08,1,95,3,YouTube,Afternoon,1,20,Female,Urban,Tertiary Education,No,1,1,2,1,2-4 h,Bajo o moderado,Distr. 1
+3.58,3,85,5,Facebook,Evening,2,19,Male,Urban,Tertiary Education,Yes,3,5,3,4,4-6 h,Alto,Distr. 2
+5,6,95,5,Instagram,Afternoon,5,19,Female,Urban,Tertiary Education,No,3,4,1,3,4-6 h,Alto,Distr. 5
+4.58,4,95,4,YouTube,Night,2,22,Male,Urban,Tertiary Education,No,1,2,5,1,2-4 h,Bajo o moderado,Distr. 2
+4.17,6,96,2.5,Facebook,Afternoon,2,23,Female,Urban,Tertiary Education,No,5,1,2,3,2-4 h,Bajo o moderado,Distr. 2
+4.92,3,80,8,Instagram,Night,5,20,Female,Urban,Tertiary Education,No,1,3,5,2,>6 h,Alto,Distr. 5
+5,3,100,1,Other,Night,2,19,Male,Urban,Tertiary Education,Yes,1,1,1,3,0-2 h,Bajo o moderado,Distr. 2
+5,4,99,3,Facebook,Evening,2,19,Female,Rural,Tertiary Education,Yes,2,3,4,3,2-4 h,Bajo o moderado,Distr. 2
+5,2,100,2,Facebook,Evening,2,20,Male,Urban,Tertiary Education,No,3,2,3,3,0-2 h,Bajo o moderado,Distr. 2
+4.83,2,98,3.5,Facebook,Night,3,19,Female,Urban,Tertiary Education,No,2,3,3,4,2-4 h,Bajo o moderado,Distr. 3
+5,2,100,1,YouTube,Night,1,18,Female,Rural,Tertiary Education,No,2,2,5,3,0-2 h,Bajo o moderado,Distr. 1
+5,3,100,6,Other,Evening,1,19,Female,Urban,Tertiary Education,No,3,1,4,5,4-6 h,Alto,Distr. 1
+5,12,99,3,Facebook,Afternoon,3,18,Female,Urban,Tertiary Education,Yes,5,3,4,3,2-4 h,Bajo o moderado,Distr. 3
+5,5,95,7,Instagram,Evening,3,19,Female,Urban,Tertiary Education,No,1,2,2,4,>6 h,Alto,Distr. 3
+5,5,99,3,TikTok,Night,5,19,Female,Urban,Tertiary Education,Yes,3,1,3,3,2-4 h,Bajo o moderado,Distr. 5
+4.67,4,70,3.5,Instagram,Evening,1,19,Female,Urban,Tertiary Education,No,3,2,4,4,2-4 h,Bajo o moderado,Distr. 1
+3.75,3,90,6,Instagram,Night,2,20,Female,Urban,Tertiary Education,Yes,3,2,3,3,4-6 h,Alto,Distr. 2
+4.55,3,95,5,YouTube,Night,1,21,Female,Urban,HSC / A' Level,Yes,2,2,2,2,4-6 h,Alto,Distr. 1
+4.67,4,75,2.5,Facebook,Afternoon,3,19,Male,Urban,HSC / A' Level,Yes,4,4,5,3,2-4 h,Bajo o moderado,Distr. 3
+4.8,1,80,7,Instagram,Night,4,21,Male,Urban,HSC / A' Level,No,3,4,3,4,>6 h,Alto,Distr. 4
+3.67,2,98,6,Instagram,Evening,4,20,Female,Urban,Tertiary Education,Yes,3,3,4,3,4-6 h,Alto,Distr. 4
+5,4,80,3,YouTube,Night,3,18,Male,Urban,HSC / A' Level,No,1,2,4,3,2-4 h,Bajo o moderado,Distr. 3
+4.58,3,90,0.5,Instagram,Night,2,20,Female,Urban,Tertiary Education,No,3,3,2,4,0-2 h,Bajo o moderado,Distr. 2
+4.75,3,95,4.5,Instagram,Night,3,21,Female,Urban,Tertiary Education,Yes,3,3,3,4,4-6 h,Alto,Distr. 3
+5,5,80,3,Instagram,Night,2,20,Male,Urban,Tertiary Education,Yes,2,2,2,2,2-4 h,Bajo o moderado,Distr. 2
+5,1,99,2.5,Other,Evening,1,21,Female,Urban,Tertiary Education,No,4,2,1,1,2-4 h,Bajo o moderado,Distr. 1
+5,4,90,6,Instagram,Night,1,20,Male,Urban,Tertiary Education,Yes,2,1,4,4,4-6 h,Alto,Distr. 1
+5,3,80,2,Instagram,Night,1,20,Female,Urban,HSC / A' Level,Yes,4,3,3,2,0-2 h,Bajo o moderado,Distr. 1
+4.92,9,99,3,Instagram,Afternoon,1,20,Female,Rural,Tertiary Education,No,3,1,1,1,2-4 h,Bajo o moderado,Distr. 1
+4.08,2,90,4,Instagram,Night,1,21,Female,Urban,Tertiary Education,No,1,1,4,2,2-4 h,Bajo o moderado,Distr. 1
+5,2,80,3,YouTube,Afternoon,1,19,Male,Urban,Tertiary Education,Yes,1,3,4,1,2-4 h,Bajo o moderado,Distr. 1
+4.67,4,90,3.5,Facebook,Night,5,22,Male,Urban,Tertiary Education,Yes,3,3,3,2,2-4 h,Bajo o moderado,Distr. 5
+4.83,6,85,3,YouTube,Night,4,20,Male,Urban,Tertiary Education,Yes,1,3,2,3,2-4 h,Bajo o moderado,Distr. 4
+5,4,90,4.5,YouTube,Evening,1,19,Female,Urban,HSC / A' Level,Yes,3,3,4,4,4-6 h,Alto,Distr. 1
+5,4,90,6.5,Facebook,Afternoon,4,20,Male,Urban,Tertiary Education,Yes,5,4,5,3,>6 h,Alto,Distr. 4
+5,3,70,3.5,Facebook,Evening,4,19,Male,Urban,Tertiary Education,Yes,3,2,4,3,2-4 h,Bajo o moderado,Distr. 4
+4.75,5,100,4,YouTube,Night,1,18,Female,Urban,Tertiary Education,No,2,1,3,3,2-4 h,Bajo o moderado,Distr. 1
+4.67,2,80,3,Instagram,Afternoon,1,18,Female,Urban,Tertiary Education,No,3,2,2,3,2-4 h,Bajo o moderado,Distr. 1
+4.25,2,99,2,YouTube,Afternoon,1,19,Male,Rural,Tertiary Education,No,3,2,1,2,0-2 h,Bajo o moderado,Distr. 1
+5,1,100,5,Facebook,Night,3,20,Male,Urban,Tertiary Education,Yes,3,3,3,3,4-6 h,Alto,Distr. 3
+4.9,3,95,2,Facebook,Night,1,24,Male,Urban,HSC / A' Level,Yes,3,2,3,2,0-2 h,Bajo o moderado,Distr. 1
+5,1,100,2,Instagram,Evening,3,20,Male,Urban,Tertiary Education,Yes,3,3,3,3,0-2 h,Bajo o moderado,Distr. 3
+5,7,100,3,YouTube,Night,1,19,Male,Urban,Tertiary Education,Yes,2,2,5,3,2-4 h,Bajo o moderado,Distr. 1
+4.5,3,95,1.5,Instagram,Afternoon,1,19,Female,Urban,Tertiary Education,No,1,1,1,1,0-2 h,Bajo o moderado,Distr. 1
+5,3,100,7,Facebook,Night,5,19,Male,Rural,Tertiary Education,No,4,4,3,4,>6 h,Alto,Distr. 5
+5,5,80,3,YouTube,Evening,2,20,Male,Urban,HSC / A' Level,No,3,2,2,2,2-4 h,Bajo o moderado,Distr. 2
+4.31,1,92.5,2,Facebook,Night,5,21,Male,Urban,Tertiary Education,Yes,5,3,3,1,0-2 h,Bajo o moderado,Distr. 5
+4,3,98,2,YouTube,Evening,4,21,Female,Urban,Tertiary Education,No,3,2,3,4,0-2 h,Bajo o moderado,Distr. 4
+4,6,90,3,Instagram,Night,3,20,Female,Urban,Tertiary Education,No,3,3,3,3,2-4 h,Bajo o moderado,Distr. 3
+5,3,100,5,YouTube,Night,1,18,Male,Rural,HSC / A' Level,No,2,1,4,3,4-6 h,Alto,Distr. 1
+4.64,3,85,5,Instagram,Night,1,29,Male,Rural,HSC / A' Level,No,2,1,4,3,4-6 h,Alto,Distr. 1
+5,0,100,0.0166666666666667,Instagram,Night,2,20,Female,Urban,Tertiary Education,No,1,2,2,2,0-2 h,Bajo o moderado,Distr. 2
+5,6,90,5,Facebook,Evening,4,19,Female,Rural,Tertiary Education,Yes,3,4,4,4,4-6 h,Alto,Distr. 4
+5,2,72.5,3.66666666666667,YouTube,Evening,2,22,Female,Urban,Tertiary Education,Yes,4,1,3,3,2-4 h,Bajo o moderado,Distr. 2
+4.25,7,100,3,YouTube,Night,3,20,Female,Rural,HSC / A' Level,No,3,3,1,3,2-4 h,Bajo o moderado,Distr. 3
+4.07,3,80,2.5,Instagram,Night,5,19,Male,Urban,HSC / A' Level,Yes,3,1,2,4,2-4 h,Bajo o moderado,Distr. 5
+5,5,87,5,Facebook,Evening,2,20,Male,Urban,Tertiary Education,Yes,3,4,3,3,4-6 h,Alto,Distr. 2
+3.2800000000000002,6,80,2,Instagram,Night,1,22,Female,Urban,SSC / O' Level,Yes,1,2,3,3,0-2 h,Bajo o moderado,Distr. 1
+3.92,2,80,1,Instagram,Night,3,21,Female,Urban,HSC / A' Level,No,1,4,4,3,0-2 h,Bajo o moderado,Distr. 3
+4,6,100,2,Instagram,Night,3,20,Female,Urban,Tertiary Education,No,3,1,3,2,0-2 h,Bajo o moderado,Distr. 3
+4.22,4,100,2,Instagram,Night,5,19,Female,Rural,Tertiary Education,Yes,1,5,5,5,0-2 h,Bajo o moderado,Distr. 5
+5,3,89,1,Facebook,Night,3,18,Female,Urban,Tertiary Education,Yes,3,3,4,3,0-2 h,Bajo o moderado,Distr. 3
+4.83,1,95,4.5,Facebook,Night,5,20,Male,Urban,Tertiary Education,Yes,5,2,3,3,4-6 h,Alto,Distr. 5
+5,6,90,2.5,Facebook,Evening,3,19,Male,Urban,Tertiary Education,Yes,5,5,5,1,2-4 h,Bajo o moderado,Distr. 3
+4.78,7,92,3,Instagram,Night,2,19,Female,Urban,HSC / A' Level,No,1,3,3,3,2-4 h,Bajo o moderado,Distr. 2
+4.83,5,80,8,Instagram,Night,2,20,Male,Urban,Tertiary Education,Yes,2,3,1,3,>6 h,Alto,Distr. 2
+5,2,98,2,Instagram,Night,4,20,Female,Rural,Tertiary Education,Yes,2,1,3,3,0-2 h,Bajo o moderado,Distr. 4
+5,3,95,4,Instagram,Evening,3,20,Female,Urban,Tertiary Education,No,3,3,1,3,2-4 h,Bajo o moderado,Distr. 3
+5,4,99,1.5,Instagram,Afternoon,1,20,Female,Urban,Tertiary Education,No,3,3,1,3,0-2 h,Bajo o moderado,Distr. 1
+5,4,100,1,Facebook,Evening,1,22,Male,Urban,Tertiary Education,Yes,1,1,3,5,0-2 h,Bajo o moderado,Distr. 1
+4.83,4,75,3.5,Facebook,Night,4,21,Male,Rural,Tertiary Education,Yes,3,3,4,3,2-4 h,Bajo o moderado,Distr. 4
+5,2,90,2,YouTube,Evening,3,19,Male,Urban,HSC / A' Level,No,1,1,1,3,0-2 h,Bajo o moderado,Distr. 3
+5,4,70,3,Facebook,Night,3,19,Male,Urban,Tertiary Education,Yes,3,3,3,3,2-4 h,Bajo o moderado,Distr. 3
+4.42,6,95,2,Facebook,Afternoon,2,20,Male,Urban,Tertiary Education,No,2,3,3,3,0-2 h,Bajo o moderado,Distr. 2
+4.22,2,90,2,Instagram,Night,2,21,Male,Rural,HSC / A' Level,No,2,2,1,4,0-2 h,Bajo o moderado,Distr. 2
+3.92,5,95,1.5,Instagram,Evening,1,20,Male,Urban,HSC / A' Level,Yes,4,1,2,1,0-2 h,Bajo o moderado,Distr. 1
+5,8,90,1.5,YouTube,Afternoon,1,19,Female,Urban,Tertiary Education,Yes,3,1,3,3,0-2 h,Bajo o moderado,Distr. 1
+4.42,4,100,2,YouTube,Evening,5,20,Female,Rural,Tertiary Education,Yes,5,5,4,5,0-2 h,Bajo o moderado,Distr. 5
+5,2,100,6,Instagram,Night,3,20,Female,Urban,Tertiary Education,No,4,4,4,4,4-6 h,Alto,Distr. 3
+4.5,5,97,6.5,Instagram,Night,1,20,Male,Urban,HSC / A' Level,Yes,1,3,2,3,>6 h,Alto,Distr. 1
+4.75,4,95,2,Facebook,Night,1,20,Female,Urban,Tertiary Education,Yes,3,3,3,4,0-2 h,Bajo o moderado,Distr. 1
+4,7,80,1.5,Facebook,Evening,2,21,Female,Urban,Tertiary Education,Yes,1,2,2,3,0-2 h,Bajo o moderado,Distr. 2
+4.42,3,85,4,YouTube,Evening,1,20,Male,Urban,Tertiary Education,Yes,3,3,3,3,2-4 h,Bajo o moderado,Distr. 1
+4.56,2,100,1,YouTube,Evening,5,19,Female,Urban,Tertiary Education,Yes,5,5,5,5,0-2 h,Bajo o moderado,Distr. 5
+4.42,3,100,3.5,Instagram,Evening,4,19,Female,Urban,HSC / A' Level,No,5,5,3,1,2-4 h,Bajo o moderado,Distr. 4
+4,3,100,3,Other,Night,1,20,Male,Rural,Tertiary Education,Yes,3,2,2,2,2-4 h,Bajo o moderado,Distr. 1
+5,3,80,2,Other,Night,3,20,Male,Urban,Tertiary Education,No,3,4,5,4,0-2 h,Bajo o moderado,Distr. 3
+3.92,2,95,3,YouTube,Night,1,20,Female,Rural,Tertiary Education,No,1,2,1,1,2-4 h,Bajo o moderado,Distr. 1
+5,5,100,4,YouTube,Night,1,20,Female,Urban,Tertiary Education,Yes,3,3,3,2,2-4 h,Bajo o moderado,Distr. 1
+4.08,2,80,3,Facebook,Night,3,22,Male,Urban,Tertiary Education,No,3,2,2,2,2-4 h,Bajo o moderado,Distr. 3
+3.8299999999999996,3,95,5,YouTube,Evening,4,20,Male,Urban,Tertiary Education,No,5,2,3,2,4-6 h,Alto,Distr. 4
+5,4,90,2,Facebook,Night,3,19,Male,Urban,Tertiary Education,Yes,3,1,1,1,0-2 h,Bajo o moderado,Distr. 3
+4.5,4,95,1,Facebook,Afternoon,1,20,Female,Urban,Tertiary Education,No,1,1,1,1,0-2 h,Bajo o moderado,Distr. 1
+4.92,4,70,4.5,Instagram,Evening,3,19,Male,Urban,Tertiary Education,Yes,4,2,3,3,4-6 h,Alto,Distr. 3
+5,6,100,8,Facebook,Night,3,21,Female,Urban,Tertiary Education,No,1,1,1,3,>6 h,Alto,Distr. 3
+4.33,5,95,5,YouTube,Night,1,20,Male,Urban,Tertiary Education,Yes,3,1,1,5,4-6 h,Alto,Distr. 1
+4.33,5,95,6,Instagram,Night,2,20,Male,Urban,Tertiary Education,Yes,4,1,1,4,4-6 h,Alto,Distr. 2
+5,7,75,3.5,Instagram,Night,1,19,Male,Urban,HSC / A' Level,Yes,3,3,3,3,2-4 h,Bajo o moderado,Distr. 1
+3.75,2,100,4,Facebook,Night,2,22,Male,Urban,HSC / A' Level,Yes,3,3,2,5,2-4 h,Bajo o moderado,Distr. 2
+5,3,90,3,YouTube,Afternoon,4,19,Female,Urban,Tertiary Education,No,1,2,5,3,2-4 h,Bajo o moderado,Distr. 4
+3.75,3,85,5,YouTube,Night,4,23,Male,Urban,Tertiary Education,No,2,5,2,3,4-6 h,Alto,Distr. 4
+4.42,4,80,5,YouTube,Afternoon,4,19,Male,Urban,Tertiary Education,Yes,3,2,3,3,4-6 h,Alto,Distr. 4
+4.930000000000001,3,80,3,Facebook,Night,3,24,Male,Urban,HSC / A' Level,Yes,3,1,1,3,2-4 h,Bajo o moderado,Distr. 3
+5,7,80,3.5,Instagram,Night,3,19,Male,Urban,HSC / A' Level,Yes,5,3,1,4,2-4 h,Bajo o moderado,Distr. 3
+5,4,99,0.5,YouTube,Morning,3,21,Male,Urban,Tertiary Education,Yes,1,1,1,1,0-2 h,Bajo o moderado,Distr. 3
+3.9299999999999997,6,70,4,YouTube,Afternoon,4,19,Female,Urban,HSC / A' Level,Yes,2,2,2,1,2-4 h,Bajo o moderado,Distr. 4
+4.42,3,100,5,Instagram,Night,5,20,Male,Urban,Tertiary Education,No,3,3,3,2,4-6 h,Alto,Distr. 5
+5,5,80,1,Instagram,Night,2,19,Male,Urban,HSC / A' Level,Yes,3,3,2,3,0-2 h,Bajo o moderado,Distr. 2
+5,5,100,4,YouTube,Afternoon,1,20,Female,Urban,HSC / A' Level,No,2,1,1,3,2-4 h,Bajo o moderado,Distr. 1
+5,4,90,4,Instagram,Night,1,20,Male,Urban,HSC / A' Level,Yes,5,3,5,3,2-4 h,Bajo o moderado,Distr. 1
+5,3,80,3,Instagram,Afternoon,5,21,Male,Urban,Tertiary Education,No,1,1,1,3,2-4 h,Bajo o moderado,Distr. 5
+4.75,1,95,8,Instagram,Night,5,21,Male,Urban,HSC / A' Level,No,4,3,5,4,>6 h,Alto,Distr. 5
+5,2,100,2,Other,Night,1,19,Male,Urban,HSC / A' Level,Yes,1,1,1,1,0-2 h,Bajo o moderado,Distr. 1
+3.67,4,100,3,Facebook,Evening,2,19,Female,Urban,HSC / A' Level,No,2,2,2,2,2-4 h,Bajo o moderado,Distr. 2
+5,3,90,5,Instagram,Night,3,21,Male,Urban,Tertiary Education,No,2,2,4,3,4-6 h,Alto,Distr. 3
+4.42,4,95,2,YouTube,Evening,1,21,Male,Urban,Tertiary Education,Yes,1,3,3,2,0-2 h,Bajo o moderado,Distr. 1
+5,3,85,7.5,Facebook,Afternoon,1,20,Male,Urban,Tertiary Education,No,2,4,3,1,>6 h,Alto,Distr. 1
+4,5,80,1.5,Other,Evening,1,23,Female,Urban,Tertiary Education,Yes,1,1,1,1,0-2 h,Bajo o moderado,Distr. 1
+3.67,1,50,3,Facebook,Night,1,20,Male,Urban,HSC / A' Level,No,3,1,1,1,2-4 h,Bajo o moderado,Distr. 1

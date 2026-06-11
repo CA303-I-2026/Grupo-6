@@ -72,9 +72,47 @@ Esta semana le diría a profesores e investigadores interesados en educación un
 
 \section{Construcción del modelo}
 \subsection{Análisis de modelación}
-carga automática, análisis descriptivo, ajuste del modelo, diagnóstico del modelo
+
+En esta parte del proyecto se pasó del análisis descriptivo a una etapa de modelación. El objetivo fue usar pruebas estadísticas para revisar si existe una relación entre el uso de redes sociales y el rendimiento académico. Para esto se trabajó con la base limpia ubicada en la carpeta \texttt{datos/procesados/survey\_clean.csv}.
+
+Primero, el código realiza una carga automática de los datos. Esto significa que el archivo de R busca la carpeta principal del proyecto y luego lee la base de datos sin que el usuario tenga que cargarla manualmente. También se crean las carpetas necesarias para guardar las figuras y las tablas de salida de la Bitácora 3. Esto permite que el análisis sea reproducible y que cualquier integrante del grupo pueda correr el mismo código desde el proyecto.
+
+Luego, se revisan las variables necesarias para el análisis. La variable principal de resultado es el promedio académico. La variable principal explicativa es el número de horas diarias en redes sociales. También se utilizan otras variables importantes, como la distracción académica, las horas de estudio y la asistencia. Estas variables fueron seleccionadas porque ayudan a entender mejor el rendimiento académico y no analizar solo el tiempo en redes de forma aislada.
+
+El análisis descriptivo completo no se incluye en este archivo, ya que corresponde al archivo \texttt{02\_descriptivo.R}. Sin embargo, en este código sí se hace una revisión mínima para asegurar que las variables necesarias estén disponibles y en el formato correcto. Por ejemplo, se revisa que el promedio sea numérico y que las categorías de uso de redes estén ordenadas correctamente.
+
+Después se aplican varias pruebas estadísticas. Se usa una prueba t para comparar el promedio académico entre estudiantes con bajo o moderado uso de redes y estudiantes con uso alto. También se usa ANOVA para comparar el promedio entre varias categorías de uso de redes sociales. Además, se aplica la prueba de Kruskal-Wallis como alternativa no paramétrica, en caso de que los supuestos del ANOVA no se cumplan completamente.
+
+También se calculan correlaciones de Pearson y Spearman. Estas pruebas permiten revisar si existe asociación entre variables numéricas, como horas en redes sociales y promedio académico, horas de estudio y promedio, asistencia y promedio, o distracción académica y promedio. Pearson se usa para relaciones lineales y Spearman se usa cuando la relación puede no ser lineal o cuando hay muchos valores repetidos.
+
+Finalmente, se ajusta un modelo con las variables principales del proyecto. Este modelo permite analizar la relación entre el promedio académico, las horas en redes sociales, la distracción académica, las horas de estudio y la asistencia. También se incluye una interacción entre horas en redes y distracción académica para revisar si el efecto de las redes cambia según el nivel de distracción.
+
+El diagnóstico del modelo se utiliza para revisar si los resultados son confiables. Para esto se observan los residuos del modelo, el gráfico Q-Q, la distancia de Cook y el VIF. Estos elementos permiten evaluar si hay patrones extraños, problemas fuertes de normalidad, valores muy influyentes o multicolinealidad entre variables. El diagnóstico no responde directamente la pregunta de investigación, pero ayuda a saber si el modelo puede interpretarse con cuidado.
+
+En resumen, este código permite cargar los datos, preparar las variables, aplicar pruebas estadísticas, ajustar el modelo seleccionado, revisar sus diagnósticos y guardar las tablas y figuras necesarias para la Bitácora 3.
+
 \subsection{Propuesta metodológica}
-métodos seleccionados, programa maqueta, validación de métodos, cuadros y gráficos, análisis fallido
+
+La metodología de esta bitácora se basa en comparar grupos, medir asociaciones y ajustar un modelo que ayude a responder la pregunta de investigación. La pregunta principal sigue siendo: ¿existe relación entre el uso de redes sociales y el rendimiento académico en estudiantes?
+
+El primer método seleccionado fue la prueba t. Esta prueba se utiliza para comparar el promedio académico entre dos grupos: estudiantes con bajo o moderado uso de redes sociales y estudiantes con alto uso. Se eligió porque permite ver si existe una diferencia clara entre dos grupos de estudiantes.
+
+El segundo método fue el ANOVA. Esta prueba permite comparar el promedio académico entre varias categorías de uso de redes sociales, por ejemplo 0--2 horas, 2--4 horas, 4--6 horas y más de 6 horas. Se eligió porque nuestra variable de horas en redes fue agrupada en varios niveles y se necesita saber si alguno de esos grupos presenta un promedio diferente.
+
+También se utilizó Kruskal-Wallis como prueba alternativa. Esta prueba cumple una función parecida al ANOVA, pero no exige los mismos supuestos de normalidad. Por eso se usa como respaldo si los datos no cumplen completamente las condiciones necesarias para aplicar ANOVA.
+
+Además, se calcularon correlaciones de Pearson y Spearman. Estas pruebas permiten medir si dos variables se mueven juntas. Por ejemplo, ayudan a revisar si al aumentar las horas en redes sociales cambia el promedio académico, o si al aumentar las horas de estudio también aumenta el promedio. Se incluyeron ambas correlaciones porque Pearson revisa relaciones lineales y Spearman permite trabajar mejor cuando los datos no siguen una relación lineal clara.
+
+Como parte de la modelación, se ajustó un modelo que incluye horas en redes sociales, distracción académica, horas de estudio y asistencia. Este modelo se usa porque el rendimiento académico no depende de una sola variable. Además, se incluyó una interacción entre horas en redes y distracción académica, ya que en la Bitácora 2 observamos que la distracción podía ser importante para entender mejor la relación entre redes sociales y rendimiento.
+
+El programa maqueta fue desarrollado en R. En este archivo se probaron las funciones necesarias, se revisaron las variables, se corrieron las pruebas estadísticas y se guardaron los resultados en archivos CSV. También se generaron gráficos para apoyar la interpretación de los resultados. Este proceso permite que el análisis sea ordenado, repetible y fácil de revisar.
+
+La validación de los métodos se hizo mediante pruebas y diagnósticos. En el caso del ANOVA, se revisaron supuestos como la normalidad de los residuos y la igualdad de varianzas. En el caso del modelo, se revisaron gráficos de residuos, normalidad aproximada, valores influyentes y multicolinealidad. Esto permite saber si los resultados pueden interpretarse de forma razonable.
+
+Los cuadros generados por el código resumen los principales resultados de las pruebas estadísticas, las correlaciones, los coeficientes del modelo y los diagnósticos. Las figuras permiten visualizar los patrones más importantes, como la relación entre horas en redes y promedio, la comparación entre grupos de uso y los diagnósticos del modelo.
+
+Finalmente, se documentó un análisis fallido. Inicialmente, se consideró usar la red social principal como eje central del análisis, especialmente YouTube, porque podría tener un uso académico. Sin embargo, esta idea se descartó porque la plataforma no indica si el uso fue académico o recreativo. Además, algunas categorías tenían pocos estudiantes, lo que podía producir comparaciones poco confiables. Por esta razón, se decidió dejar la plataforma como una variable secundaria y centrar el análisis en la intensidad de uso, la distracción académica, las horas de estudio y la asistencia.
+
 \subsection{Construcción de fichas de resultados}
 8 fichas y comparación con la literatura
 
@@ -82,8 +120,9 @@ métodos seleccionados, programa maqueta, validación de métodos, cuadros y gr�
 \subsection{Ordenamiento de los elementos de reporte}
 A partir de los resultados obtenidos hasta ahora, identificamos cuáles son los aspectos más importantes para responder nuestra pregunta de investigación y cómo podrían organizarse dentro del reporte final.
 
-\subsubsection{Elementos primarios y secundatios del reporte}
-A continuación se identifican los elementos principales y sencudarios del reporte.
+\subsubsection{Elementos primarios y secundarios del reporte}
+A continuación se identifican los elementos principales y secundarios del reporte.
+
 \begin{table}[H]
 \centering
 \caption{Elementos primarios y secundarios del reporte}
@@ -97,6 +136,12 @@ Distracción académica & Plataforma principal utilizada \\
 Relación entre uso de redes y rendimiento académico & Variables demográficas \\
 Influencia de la distracción sobre el rendimiento académico & Resultados específicos de otros autores \\
 Resultados obtenidos en el estudio & Limitaciones de la base de datos \\
+Prueba t para comparar grupos de uso & Uso nocturno de redes sociales \\
+ANOVA para comparar categorías de uso de redes & Comparaciones descriptivas por plataforma \\
+Prueba de Kruskal-Wallis como alternativa no paramétrica & Variables de bienestar emocional \\
+Correlaciones de Pearson y Spearman & Tamaños de muestra por grupo \\
+Modelo seleccionado de rendimiento académico & Figuras exploratorias de la Bitácora 2 \\
+Diagnósticos del modelo seleccionado & Advertencias sobre asociación y no causalidad \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -116,17 +161,34 @@ Introducción & Relación entre redes sociales y rendimiento académico (Primari
 Introducción & Resultados encontrados por León Luyo (Secundario) \\
 Introducción & Resultados encontrados por Rodelo Moreno y Lizárraga Reyes (Secundario) \\
 Introducción & Papel potencial de la distracción académica (Primario) \\
+Introducción & Importancia de estudiar la relación como asociación y no como causalidad (Primario) \\
 \midrule
 Metodología & Descripción de la base de datos (Primario) \\
 Metodología & Variables seleccionadas (Primario) \\
 Metodología & Construcción de grupos de uso de redes sociales (Primario) \\
 Metodología & ANOVA y prueba t (Primario) \\
-Metodología & Correlaciones (Primario) \\
+Metodología & Correlaciones de Pearson y Spearman (Primario) \\
+Metodología & Prueba de Kruskal-Wallis como respaldo no paramétrico (Primario) \\
+Metodología & Ajuste del modelo seleccionado con horas en redes, distracción académica, horas de estudio y asistencia (Primario) \\
+Metodología & Diagnósticos del modelo seleccionado: residuos, normalidad, valores influyentes y multicolinealidad (Primario) \\
+Metodología & Análisis fallido basado en la clasificación por red social principal (Secundario) \\
 \midrule
 Resultados & Relación entre uso de redes sociales y promedio académico (Primario) \\
+Resultados & Diferencias de promedio entre grupos de uso de redes sociales (Primario) \\
+Resultados & Resultado de la prueba t entre bajo/moderado uso y alto uso (Primario) \\
+Resultados & Resultado del ANOVA entre categorías de uso de redes (Primario) \\
+Resultados & Resultado de Kruskal-Wallis como comparación no paramétrica (Primario) \\
+Resultados & Correlaciones entre promedio académico, horas en redes, horas de estudio, asistencia y distracción académica (Primario) \\
 Resultados & Influencia de la distracción académica (Primario) \\
+Resultados & Resultados del modelo seleccionado (Primario) \\
+Resultados & Diagnósticos del modelo seleccionado (Primario) \\
 Resultados & Comparación con estudios previos (Secundario) \\
 Resultados & Influencia de horas de estudio y sueño (Secundario) \\
+\midrule
+Discusión & Interpretación general de los resultados obtenidos (Primario) \\
+Discusión & Comparación entre lo esperado según la literatura y lo encontrado en la muestra (Primario) \\
+Discusión & Alcances y limitaciones del análisis (Primario) \\
+Discusión & Posibles variables no observadas que podrían influir en el rendimiento académico (Secundario) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -247,10 +309,5 @@ También aprendimos que la forma en que se definen y agrupan las variables puede
 
 \section{Log de contribuciones}
 \section{Registro de uso de IA}
-
-
-
-
-
 
 \end{document}

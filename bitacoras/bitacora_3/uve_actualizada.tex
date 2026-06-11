@@ -1,0 +1,183 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper,landscape,left=0cm,right=0cm,top=0.2cm,bottom=0cm]{geometry}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\definecolor{azulUVE}{RGB}{0,120,180}
+\definecolor{naranjaUVE}{RGB}{220,90,20}
+
+\begin{document}
+\thispagestyle{empty}
+\centering
+
+\resizebox{\paperwidth}{!}{%
+\begin{tikzpicture}[x=1cm,y=1cm]
+
+% Caja total del dibujo
+\path[use as bounding box] (0,0) rectangle (27,18);
+
+%------------------ TITULO ------------------
+\node[align=center] at (13.5,17.1) {
+    {\LARGE\bfseries\textcolor{azulUVE}{V de Gowin para estadística}}\\[0.18cm]
+    {\normalsize\bfseries Tema: Análisis de la relación entre el uso de redes sociales y el rendimiento académico en estudiantes universitarios}
+};
+
+%------------------ ENCABEZADOS ------------------
+\node[anchor=west, align=left] at (0.7,15.6) {
+    {\large\bfseries\textcolor{azulUVE}{PARTE CONCEPTUAL}}\\[0.05cm]
+    \textbf{Pienso sobre el tema}
+};
+
+\node[anchor=west, align=left] at (19.6,15.6) {
+    {\large\bfseries\textcolor{azulUVE}{PARTE METODOLÓGICA}}\\[0.05cm]
+    \textbf{Actúo sobre el tema}
+};
+
+%------------------ LINEAS DE LA V ------------------
+\draw[line width=1pt] (7.6,14.6) -- (13.5,3.0);
+\draw[line width=1pt] (19.4,14.6) -- (13.5,3.0);
+
+%------------------ 1 PREGUNTA ------------------
+\node[
+    text width=6.9cm,
+    align=center,
+    font=\small
+] at (13.5,13.8) {
+    {\fontsize{22}{22}\selectfont\bfseries\textcolor{azulUVE}{1}}\\
+    {\large\bfseries Pregunta clave}\\[0.04cm]
+    {\color{naranjaUVE}\bfseries ¿Qué queremos conocer?}\\[0.16cm]
+    ¿Existe una relación entre el uso de redes sociales y el rendimiento académico en estudiantes universitarios, considerando la distracción académica, las horas de estudio y la asistencia?
+};
+
+%------------------ 2 OBJETO ------------------
+\node[
+    text width=8.9cm,
+    align=center,
+    font=\small
+] at (13.5,1.95) {
+    {\fontsize{22}{22}\selectfont\bfseries\textcolor{azulUVE}{2}}\\
+    {\large\bfseries Objeto de estudio}\\[0.04cm]
+    {\color{naranjaUVE}\bfseries ¿Qué fenómeno estudiamos?}\\[0.16cm]
+    La asociación entre el tiempo diario en redes sociales y el promedio académico de estudiantes universitarios, tomando en cuenta factores académicos como distracción, horas de estudio y asistencia.
+};
+
+%------------------ LADO IZQUIERDO ------------------
+
+% 3 Conceptos
+\node[
+    anchor=north west,
+    text width=7.25cm,
+    align=left,
+    font=\fontsize{8.4}{10.1}\selectfont
+] at (0.7,15) {
+    {\fontsize{22}{22}\selectfont\bfseries\textcolor{azulUVE}{3}} {\large\bfseries Conceptos relacionados}\\
+    {\color{naranjaUVE}\bfseries ¿Cuáles son los conceptos clave?}\\[0.16cm]
+    \textbf{Redes sociales:} plataformas digitales usadas para comunicación, entretenimiento, información o apoyo académico.\\[0.12cm]
+    \textbf{Rendimiento académico:} resultado académico del estudiante, medido mediante el promedio reportado.\\[0.12cm]
+    \textbf{Distracción académica:} grado en que el uso de redes puede interrumpir el estudio, tareas o clases.\\[0.12cm]
+    \textbf{Hábitos académicos:} horas de estudio y asistencia, variables que ayudan a explicar el desempeño.
+};
+
+% 5 Principios
+\node[
+    anchor=north west,
+    text width=8.15cm,
+    align=left,
+    font=\fontsize{8.4}{10.1}\selectfont
+] at (0.7,9.5) {
+    {\fontsize{22}{22}\selectfont\bfseries\textcolor{azulUVE}{5}} {\large\bfseries Principios}\\
+    {\color{naranjaUVE}\bfseries ¿Cómo sucede el fenómeno?}\\[0.16cm]
+    \textbf{Asociación, no causalidad:} los datos permiten observar relaciones estadísticas, pero no demostrar causa directa.\\[0.12cm]
+    \textbf{Multifactorialidad:} el rendimiento académico depende de varias variables al mismo tiempo, no solo de las redes sociales.\\[0.12cm]
+    \textbf{Uso contextual:} el efecto del uso de redes puede depender de si interfiere o no con las actividades académicas.
+};
+
+% 7 Teorias
+\node[
+    anchor=north west,
+    text width=6.45cm,
+    align=left,
+    font=\fontsize{8.4}{10.1}\selectfont
+] at (0.7,5.5) {
+    {\fontsize{22}{22}\selectfont\bfseries\textcolor{azulUVE}{7}} {\large\bfseries Teorías}\\
+    {\color{naranjaUVE}\bfseries ¿Por qué sucede?}\\[0.16cm]
+    \textbf{Desplazamiento del tiempo:} más horas en redes pueden reducir tiempo de estudio o descanso.\\[0.12cm]
+    \textbf{Atención limitada:} las interrupciones digitales pueden afectar la concentración.\\[0.12cm]
+    \textbf{Uso académico de redes:} algunas plataformas también pueden apoyar el aprendizaje, por lo que el efecto no siempre es negativo.
+};
+
+%------------------ LADO DERECHO ------------------
+
+% 4 Procedimiento
+\node[
+    anchor=north west,
+    text width=7.15cm,
+    align=left,
+    font=\fontsize{8.2}{9.8}\selectfont
+] at (19.6,15) {
+    {\fontsize{22}{22}\selectfont\bfseries\textcolor{azulUVE}{4}} {\large\bfseries Procedimiento}\\
+    {\color{naranjaUVE}\bfseries ¿Qué hicimos para observar el fenómeno?}\\[0.16cm]
+    1. Cargar automáticamente la base limpia del proyecto.\\[0.05cm]
+    2. Preparar variables: promedio, horas en redes, distracción, estudio y asistencia.\\[0.05cm]
+    3. Realizar análisis descriptivo y gráficos exploratorios.\\[0.05cm]
+    4. Aplicar prueba t, ANOVA, Kruskal-Wallis y correlaciones.\\[0.05cm]
+    5. Ajustar un modelo con horas en redes, distracción, estudio y asistencia.\\[0.05cm]
+    6. Revisar diagnósticos del modelo e interpretar resultados.
+};
+
+% 6 Registro
+\node[
+    anchor=north west,
+    text width=7.15cm,
+    align=left,
+    font=\fontsize{8.2}{9.8}\selectfont
+] at (19.6,9.45) {
+    {\fontsize{22}{22}\selectfont\bfseries\textcolor{azulUVE}{6}} {\large\bfseries Registro y transformación de datos}\\
+    {\color{naranjaUVE}\bfseries ¿Qué medimos directamente?}\\[0.16cm]
+    \textbf{Fuente:} Student Social Media, Academic Performance Dataset (Kaggle).\\[0.07cm]
+    \textbf{Unidad de análisis:} estudiantes universitarios.\\[0.07cm]
+    \textbf{Variable respuesta:} promedio académico.\\[0.07cm]
+    \textbf{Variables explicativas:} horas en redes, distracción académica, horas de estudio y asistencia.\\[0.07cm]
+    \textbf{Transformaciones:} limpieza, recodificación, creación de categorías de uso, tablas, gráficos, pruebas estadísticas y modelo.
+};
+
+% 8 Conclusiones
+\node[
+    anchor=north west,
+    text width=7.15cm,
+    align=left,
+    font=\fontsize{8.15}{9.7}\selectfont
+] at (19.6,3.95) {
+    {\fontsize{22}{22}\selectfont\bfseries\textcolor{azulUVE}{8}} {\large\bfseries Conclusiones preliminares}\\
+    {\color{naranjaUVE}\bfseries ¿Qué podemos afirmar?}\\[0.16cm]
+    1. Sí hay evidencia de asociación entre uso de redes sociales y rendimiento académico.\\[0.05cm]
+    2. La relación es moderada y no debe interpretarse como causalidad.\\[0.05cm]
+    3. Las horas en redes y la distracción se asocian negativamente con el promedio.\\[0.05cm]
+    4. Las horas de estudio y la asistencia se asocian positivamente con el promedio.\\[0.05cm]
+    5. El rendimiento académico depende de varios factores al mismo tiempo.
+};
+
+%------------------ REFERENCIAS ------------------
+\node[
+    anchor=west,
+    text width=23cm,
+    align=left,
+    font=\footnotesize
+] at (0.7,0.00001) {
+\textbf{Referencias:}
+Kaplan y Haenlein (2010); Chadwick (1979); APA (s.f.); León Luyo et al. (2023); Santos (2010); Aljemely (2020); Ramírez Jaime et al. (2023); Rodelo Moreno y Lizárraga Reyes (2018); Miranda-Rosero et al. (2023).
+};
+
+\end{tikzpicture}%
+}
+
+\end{document}
+

@@ -131,7 +131,285 @@ Los cuadros generados por el código resumen los principales resultados de las p
 Finalmente, se documentó un análisis fallido. Inicialmente, se consideró usar la red social principal como eje central del análisis, especialmente YouTube, porque podría tener un uso académico. Sin embargo, esta idea se descartó porque la plataforma no indica si el uso fue académico o recreativo. Además, algunas categorías tenían pocos estudiantes, lo que podía producir comparaciones poco confiables. Por esta razón, se decidió dejar la plataforma como una variable secundaria y centrar el análisis en la intensidad de uso, la distracción académica, las horas de estudio y la asistencia.
 
 \subsection{Construcción de fichas de resultados}
-8 fichas y comparación con la literatura
+
+A continuación se presentan las fichas de resultados principales obtenidas durante la etapa de modelación. Cada ficha se organiza en dos niveles: primero se describe qué se encontró y luego se interpreta qué significa ese resultado para la pregunta de investigación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\linewidth]{figuras/figura_06_predicciones_modelo_interaccion.png}
+    \caption{Promedio académico predicho según horas en redes sociales y distracción académica}
+    \label{fig:predicciones-modelo}
+\end{figure}
+
+\subsubsection*{Ficha 1. Prueba t: bajo/moderado uso vs alto uso}
+
+\textbf{Nivel descriptivo: qué encontramos}
+
+\textbf{Titular:} El uso alto muestra menor promedio.
+
+\textbf{Nombre del hallazgo/resultado:} Comparación del promedio académico entre estudiantes con bajo/moderado uso y alto uso de redes sociales.
+
+\textbf{Resumen en una oración:} Los estudiantes con mayor uso tienden a mostrar promedios ligeramente menores.
+
+\textbf{Método o análisis que lo produjo:} Prueba t para dos grupos independientes.
+
+\textbf{Evidencia:} Archivo \texttt{09\_prueba\_t\_grupo\_uso.csv} y comparación entre grupos de uso de redes sociales.
+
+\textbf{Nivel analítico: qué significa}
+
+\textbf{Conexión con la pregunta de investigación:} Este resultado ayuda a responder si el rendimiento académico cambia entre estudiantes con distinto nivel de uso de redes sociales. La prueba permite revisar si la diferencia observada entre grupos es estadísticamente relevante y no solo una diferencia visual.
+
+\textbf{Contraste con la literatura:} Esta ficha se puede comparar con los estudios que plantean que un uso elevado de redes puede relacionarse con menor rendimiento académico. Coincide parcialmente con esa idea, pero el resultado debe interpretarse con cuidado porque el uso de redes no explica todo el promedio.
+
+\textbf{Lo que NO explica este resultado:} No explica si las redes sociales causan un menor promedio. Tampoco explica si el uso fue académico, recreativo o social.
+
+\textbf{Implicación para el siguiente paso:} Fue necesario complementar esta prueba con ANOVA, correlaciones y un modelo que incluyera otras variables académicas.
+
+\subsubsection*{Ficha 2. ANOVA: comparación entre cuatro categorías}
+
+\textbf{Nivel descriptivo: qué encontramos}
+
+\textbf{Titular:} Los grupos no son iguales.
+
+\textbf{Nombre del hallazgo/resultado:} Comparación del promedio académico entre cuatro categorías de uso de redes sociales.
+
+\textbf{Resumen en una oración:} El promedio cambia entre categorías, pero con diferencias moderadas.
+
+\textbf{Método o análisis que lo produjo:} ANOVA de una vía.
+
+\textbf{Evidencia:} Archivo \texttt{10\_anova\_cat\_horas\_redes.csv} y Figura \ref{fig:boxplot-redes}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\linewidth]{figuras/figura_02_boxplot_uso_redes.png}
+    \caption{Distribución del promedio académico por nivel de uso de redes sociales}
+    \label{fig:boxplot-redes}
+\end{figure}
+
+\textbf{Nivel analítico: qué significa}
+
+\textbf{Conexión con la pregunta de investigación:} El ANOVA permite evaluar si existen diferencias en el rendimiento académico según el nivel de uso diario de redes sociales. Este análisis es útil porque no reduce el uso de redes a solo dos grupos, sino que permite comparar varios niveles.
+
+\textbf{Contraste con la literatura:} Este resultado se relaciona con la literatura que muestra resultados mixtos. Las diferencias existen, pero no parecen lo suficientemente grandes como para afirmar que el tiempo en redes explique por sí solo el rendimiento académico.
+
+\textbf{Lo que NO explica este resultado:} No indica qué grupo específico causa la diferencia ni explica por qué algunos estudiantes con alto uso mantienen buenos promedios.
+
+\textbf{Implicación para el siguiente paso:} Se necesitó aplicar una prueba no paramétrica como Kruskal-Wallis y luego un modelo con más variables.
+
+\subsubsection*{Ficha 3. Kruskal-Wallis: respaldo no paramétrico}
+
+\textbf{Nivel descriptivo: qué encontramos}
+
+\textbf{Titular:} El respaldo confirma la comparación.
+
+\textbf{Nombre del hallazgo/resultado:} Comparación no paramétrica entre categorías de uso de redes sociales.
+
+\textbf{Resumen en una oración:} Kruskal-Wallis permitió validar la comparación sin exigir normalidad estricta.
+
+\textbf{Método o análisis que lo produjo:} Prueba de Kruskal-Wallis.
+
+\textbf{Evidencia:} Archivo \texttt{11\_kruskal\_cat\_horas\_redes.csv}.
+
+\textbf{Nivel analítico: qué significa}
+
+\textbf{Conexión con la pregunta de investigación:} Esta prueba refuerza el análisis porque permite comparar los grupos de uso de redes sociales aun cuando los supuestos del ANOVA no se cumplan completamente. Esto hace que la respuesta a la pregunta de investigación sea más prudente.
+
+\textbf{Contraste con la literatura:} Esta ficha no se compara directamente con un autor específico, sino que fortalece la validez del análisis estadístico usado para contrastar los patrones observados.
+
+\textbf{Lo que NO explica este resultado:} No mide el tamaño exacto del efecto ni indica causalidad. Solo permite evaluar si existen diferencias entre los grupos.
+
+\textbf{Implicación para el siguiente paso:} Ayudó a decidir que las conclusiones debían apoyarse en más de una prueba y no solo en el ANOVA.
+
+\subsubsection*{Ficha 4. Pearson: horas en redes vs promedio}
+
+\textbf{Nivel descriptivo: qué encontramos}
+
+\textbf{Titular:} Más redes, menor promedio.
+
+\textbf{Nombre del hallazgo/resultado:} Asociación lineal entre horas diarias en redes sociales y promedio académico.
+
+\textbf{Resumen en una oración:} Las horas en redes se asocian negativamente con el promedio académico.
+
+\textbf{Método o análisis que lo produjo:} Correlación de Pearson.
+
+\textbf{Evidencia:} Archivo \texttt{08\_correlaciones\_horas\_redes\_promedio.csv} y Figura \ref{fig:redes-promedio}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figuras/figura_01_horas_redes_vs_promedio.png}
+    \caption{Horas en redes sociales y promedio académico}
+    \label{fig:redes-promedio}
+\end{figure}
+
+\textbf{Nivel analítico: qué significa}
+
+\textbf{Conexión con la pregunta de investigación:} Esta ficha conecta directamente con la pregunta principal, porque analiza si el tiempo en redes sociales se relaciona con el rendimiento académico. La tendencia observada es negativa, aunque no totalmente fuerte.
+
+\textbf{Contraste con la literatura:} Esta ficha coincide parcialmente con autores que señalan que el uso elevado de redes puede afectar el rendimiento. Sin embargo, también coincide con estudios de resultados mixtos, porque la relación no es perfecta ni explica todos los casos.
+
+\textbf{Lo que NO explica este resultado:} No explica el tipo de uso de redes sociales ni si el estudiante usa esas plataformas para estudiar, entretenerse o comunicarse.
+
+\textbf{Implicación para el siguiente paso:} Fue necesario incluir variables como distracción académica, horas de estudio y asistencia.
+
+\subsubsection*{Ficha 5. Spearman: horas en redes vs promedio}
+
+\textbf{Nivel descriptivo: qué encontramos}
+
+\textbf{Titular:} La relación no es perfectamente lineal.
+
+\textbf{Nombre del hallazgo/resultado:} Asociación monotónica entre horas en redes sociales y promedio académico.
+
+\textbf{Resumen en una oración:} Spearman confirma que la relación no depende solo de linealidad.
+
+\textbf{Método o análisis que lo produjo:} Correlación de Spearman.
+
+\textbf{Evidencia:} Archivo \texttt{08\_correlaciones\_horas\_redes\_promedio.csv}.
+
+\textbf{Nivel analítico: qué significa}
+
+\textbf{Conexión con la pregunta de investigación:} Esta prueba ayuda a revisar la relación entre redes sociales y rendimiento sin asumir que la relación debe ser completamente lineal. Esto es importante porque los gráficos mostraron una relación irregular.
+
+\textbf{Contraste con la literatura:} Esta ficha se relaciona con los estudios que muestran resultados no concluyentes. El uso de redes puede tener relación con el promedio, pero esa relación no se comporta igual para todos los estudiantes.
+
+\textbf{Lo que NO explica este resultado:} No explica diferencias individuales, como organización del tiempo, dificultad de los cursos o motivación académica.
+
+\textbf{Implicación para el siguiente paso:} Confirmó que era necesario construir una interpretación más completa y no basarse únicamente en una correlación simple.
+
+\subsubsection*{Ficha 6. Pearson: horas de estudio vs promedio}
+
+\textbf{Nivel descriptivo: qué encontramos}
+
+\textbf{Titular:} Estudiar más ayuda al promedio.
+
+\textbf{Nombre del hallazgo/resultado:} Asociación entre horas de estudio y promedio académico.
+
+\textbf{Resumen en una oración:} Más horas de estudio se asocian con mejores promedios académicos.
+
+\textbf{Método o análisis que lo produjo:} Correlación de Pearson y modelo de regresión.
+
+\textbf{Evidencia:} Figura \ref{fig:estudio-promedio} y coeficiente positivo de \texttt{horas\_estudio} en el modelo seleccionado.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figuras/figura_03_horas_estudio_vs_promedio.png}
+    \caption{Horas de estudio y promedio académico}
+    \label{fig:estudio-promedio}
+\end{figure}
+
+\textbf{Nivel analítico: qué significa}
+
+\textbf{Conexión con la pregunta de investigación:} Este resultado muestra que el rendimiento académico no debe explicarse únicamente por el uso de redes sociales. Las horas de estudio también tienen un papel importante en el promedio.
+
+\textbf{Contraste con la literatura:} Este resultado coincide con la idea general de que el rendimiento académico es multifactorial. No contradice la literatura sobre redes sociales, sino que ayuda a explicar por qué el tiempo en redes no es suficiente para entender el rendimiento.
+
+\textbf{Lo que NO explica este resultado:} No mide la calidad del estudio. Un estudiante puede estudiar muchas horas, pero con baja concentración o poca organización.
+
+\textbf{Implicación para el siguiente paso:} Se incorporó esta variable dentro del modelo seleccionado para controlar parcialmente los hábitos académicos.
+
+\subsubsection*{Ficha 7. Distracción académica vs promedio}
+
+\textbf{Nivel descriptivo: qué encontramos}
+
+\textbf{Titular:} La distracción sí importa.
+
+\textbf{Nombre del hallazgo/resultado:} Asociación entre distracción académica y promedio académico.
+
+\textbf{Resumen en una oración:} Mayor distracción académica se relaciona con menor promedio académico.
+
+\textbf{Método o análisis que lo produjo:} Correlación y modelo de regresión.
+
+\textbf{Evidencia:} Figura \ref{fig:heatmap-redes-distraccion} y coeficiente negativo de \texttt{distraccion\_acad} en el modelo seleccionado.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\linewidth]{figuras/figura_05_heatmap_redes_distraccion.png}
+    \caption{Promedio académico por nivel de uso de redes y distracción}
+    \label{fig:heatmap-redes-distraccion}
+\end{figure}
+
+\textbf{Nivel analítico: qué significa}
+
+\textbf{Conexión con la pregunta de investigación:} Esta ficha es una de las más importantes, porque muestra que no solo importa cuánto tiempo se usan las redes sociales, sino también si ese uso interrumpe el estudio. Esto permite entender mejor la relación entre redes y rendimiento.
+
+\textbf{Contraste con la literatura:} Esta ficha coincide con autores que señalan que el uso de redes puede afectar la concentración. También ayuda a explicar por qué algunos estudios no encuentran una relación directa entre tiempo en redes y rendimiento.
+
+\textbf{Lo que NO explica este resultado:} No demuestra que la distracción sea causada únicamente por redes sociales. La distracción también puede venir de otros factores personales, familiares o académicos.
+
+\textbf{Implicación para el siguiente paso:} La distracción académica se mantuvo como variable principal dentro del modelo final.
+
+\subsubsection*{Ficha 8. Diagnóstico del modelo}
+
+\textbf{Nivel descriptivo: qué encontramos}
+
+\textbf{Titular:} El modelo requiere cautela.
+
+\textbf{Nombre del hallazgo/resultado:} Revisión gráfica de los supuestos y valores influyentes del modelo.
+
+\textbf{Resumen en una oración:} Los diagnósticos permiten interpretar el modelo con precaución razonable.
+
+\textbf{Método o análisis que lo produjo:} Gráficos de residuos, QQ plot, histograma de residuos y distancia de Cook.
+
+\textbf{Evidencia:} Figuras \ref{fig:diagnostico-residuos} y \ref{fig:diagnostico-qq}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figuras/diagnostico_01_residuales_vs_ajustados.png}
+    \caption{Diagnóstico del modelo: residuales frente a valores ajustados}
+    \label{fig:diagnostico-residuos}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figuras/diagnostico_02_qqplot_residuales.png}
+    \caption{Diagnóstico del modelo: QQ plot de residuales estandarizados}
+    \label{fig:diagnostico-qq}
+\end{figure}
+
+\textbf{Nivel analítico: qué significa}
+
+\textbf{Conexión con la pregunta de investigación:} El diagnóstico no responde directamente si existe relación entre redes sociales y rendimiento, pero permite saber si el modelo usado para responder la pregunta puede interpretarse de forma razonable.
+
+\textbf{Contraste con la literatura:} Esta ficha no se contrasta directamente con literatura teórica, porque corresponde a la validación estadística del modelo.
+
+\textbf{Lo que NO explica este resultado:} No explica el comportamiento académico de los estudiantes. Solo revisa si el modelo presenta problemas importantes.
+
+\textbf{Implicación para el siguiente paso:} Los resultados del modelo deben presentarse como asociaciones estadísticas y no como conclusiones causales definitivas.
+
+\subsubsection*{Ficha 9. Modelo seleccionado}
+
+\textbf{Nivel descriptivo: qué encontramos}
+
+\textbf{Titular:} El rendimiento tiene varios factores.
+
+\textbf{Nombre del hallazgo/resultado:} Modelo con horas en redes, distracción académica, horas de estudio y asistencia.
+
+\textbf{Resumen en una oración:} El modelo fue significativo, pero explicó una parte moderada del rendimiento.
+
+\textbf{Método o análisis que lo produjo:} Modelo de regresión lineal múltiple con interacción.
+
+\textbf{Evidencia:} Archivos \texttt{15\_coeficientes\_modelo\_3.csv}, \texttt{16\_resumen\_modelos.txt} y \texttt{21\_metricas\_modelo\_seleccionado.csv}.
+
+\textbf{Nivel analítico: qué significa}
+
+\textbf{Conexión con la pregunta de investigación:} El modelo permite responder que sí existe asociación entre uso de redes sociales y rendimiento académico. Las horas en redes sociales tienen una relación negativa con el promedio, mientras que las horas de estudio y la asistencia tienen relación positiva. Además, la distracción académica también se relaciona negativamente con el rendimiento.
+
+\textbf{Contraste con la literatura:} Esta es la ficha principal para comparar con la literatura. El resultado coincide parcialmente con estudios que señalan efectos negativos del uso excesivo de redes, pero también coincide con estudios que muestran relaciones mixtas. Esto ocurre porque el modelo muestra que las redes sociales no explican todo el rendimiento académico. El resultado más importante es que el rendimiento depende de varios factores al mismo tiempo.
+
+\textbf{Lo que NO explica este resultado:} El modelo no explica toda la variabilidad del promedio académico. Su $R^2$ ajustado fue aproximadamente $0.172$, por lo que explica cerca del 17\% del rendimiento. Tampoco permite afirmar causalidad.
+
+\textbf{Implicación para el siguiente paso:} En el reporte final, los resultados deben presentarse como evidencia de una relación moderada y multifactorial entre redes sociales, distracción y hábitos académicos.
+
+\subsubsection*{Comparación explícita con la literatura}
+
+El resultado principal del modelo coincide parcialmente con la literatura revisada. Algunos autores señalan que el uso excesivo de redes sociales puede relacionarse con menor rendimiento académico, especialmente cuando afecta la concentración o reduce el tiempo de estudio. En nuestro caso, las horas en redes sociales y la distracción académica presentaron una relación negativa con el promedio, lo cual coincide con esa interpretación.
+
+Sin embargo, nuestros resultados también muestran que la relación no es completamente directa ni fuerte. El modelo explicó solo una parte moderada del rendimiento académico y variables como las horas de estudio y la asistencia también fueron importantes. Esto se parece a los estudios que plantean que no siempre existe una relación clara entre redes sociales y rendimiento, porque depende del contexto, del tipo de uso y de los hábitos del estudiante.
+
+Por tanto, la principal implicación es que no podemos concluir que las redes sociales, por sí solas, expliquen el rendimiento académico. Más bien, los resultados sugieren que el problema debe entenderse como multifactorial. El uso de redes sociales importa, pero su interpretación debe hacerse junto con la distracción académica, las horas de estudio y la asistencia.
+```
+
+
+
 
 
 \subsection{Ordenamiento de los elementos de reporte}

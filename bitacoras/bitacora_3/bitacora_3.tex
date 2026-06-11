@@ -11,7 +11,6 @@
 \usepackage{makecell}
 \usepackage{array}
 \usepackage{float}
-\usepackage{amsmath}
 
 \title{\Huge Bitácora 3\\ \Large Análisis de la relación entre el uso de redes sociales y el rendimiento académico en estudiantes}
 \author{Katia Moreno Aspiroz C6A060\\
@@ -75,307 +74,59 @@ Esta semana le diría a profesores e investigadores interesados en educación un
 \subsection{Análisis de modelación}
 
 En esta parte del proyecto se pasó del análisis descriptivo a una etapa de modelación. El objetivo fue usar pruebas estadísticas para revisar si existe una relación entre el uso de redes sociales y el rendimiento académico. Para esto se trabajó con la base limpia ubicada en la carpeta \texttt{datos/procesados/survey\_clean.csv}.
+\\
 
 Primero, el código realiza una carga automática de los datos. Esto significa que el archivo de R busca la carpeta principal del proyecto y luego lee la base de datos sin que el usuario tenga que cargarla manualmente. También se crean las carpetas necesarias para guardar las figuras y las tablas de salida de la Bitácora 3. Esto permite que el análisis sea reproducible y que cualquier integrante del grupo pueda correr el mismo código desde el proyecto.
+\\
 
 Luego, se revisan las variables necesarias para el análisis. La variable principal de resultado es el promedio académico. La variable principal explicativa es el número de horas diarias en redes sociales. También se utilizan otras variables importantes, como la distracción académica, las horas de estudio y la asistencia. Estas variables fueron seleccionadas porque ayudan a entender mejor el rendimiento académico y no analizar solo el tiempo en redes de forma aislada.
+\\
 
 El análisis descriptivo completo no se incluye en este archivo, ya que corresponde al archivo \texttt{02\_descriptivo.R}. Sin embargo, en este código sí se hace una revisión mínima para asegurar que las variables necesarias estén disponibles y en el formato correcto. Por ejemplo, se revisa que el promedio sea numérico y que las categorías de uso de redes estén ordenadas correctamente.
+\\
 
 Después se aplican varias pruebas estadísticas. Se usa una prueba t para comparar el promedio académico entre estudiantes con bajo o moderado uso de redes y estudiantes con uso alto. También se usa ANOVA para comparar el promedio entre varias categorías de uso de redes sociales. Además, se aplica la prueba de Kruskal-Wallis como alternativa no paramétrica, en caso de que los supuestos del ANOVA no se cumplan completamente.
+\\
 
 También se calculan correlaciones de Pearson y Spearman. Estas pruebas permiten revisar si existe asociación entre variables numéricas, como horas en redes sociales y promedio académico, horas de estudio y promedio, asistencia y promedio, o distracción académica y promedio. Pearson se usa para relaciones lineales y Spearman se usa cuando la relación puede no ser lineal o cuando hay muchos valores repetidos.
+\\
 
 Finalmente, se ajusta un modelo con las variables principales del proyecto. Este modelo permite analizar la relación entre el promedio académico, las horas en redes sociales, la distracción académica, las horas de estudio y la asistencia. También se incluye una interacción entre horas en redes y distracción académica para revisar si el efecto de las redes cambia según el nivel de distracción.
-
-Dado que el modelo incluye una interacción, el efecto de las horas en redes sobre el promedio no es un valor único sino que depende del nivel de distracción de cada estudiante. Por eso, se calculan intervalos de confianza al 95\% para ese efecto en cada uno de los cinco niveles de distracción académica. Esto permite saber no solo si el efecto es positivo o negativo, sino también si es suficientemente grande como para descartarse del azar. Los resultados se guardan en la tabla \texttt{22\_ic\_efecto\_marginal\_horas\_redes.csv} y se visualizan en la Figura 7, donde cada punto representa el efecto estimado y las barras verticales representan el rango de valores plausibles. Los niveles donde la barra no cruza el cero corresponden a los grupos en que el efecto negativo de las redes es estadísticamente detectable.
+\\
 
 El diagnóstico del modelo se utiliza para revisar si los resultados son confiables. Para esto se observan los residuos del modelo, el gráfico Q-Q, la distancia de Cook y el VIF. Estos elementos permiten evaluar si hay patrones extraños, problemas fuertes de normalidad, valores muy influyentes o multicolinealidad entre variables. El diagnóstico no responde directamente la pregunta de investigación, pero ayuda a saber si el modelo puede interpretarse con cuidado.
+\\
 
 En resumen, este código permite cargar los datos, preparar las variables, aplicar pruebas estadísticas, ajustar el modelo seleccionado, revisar sus diagnósticos y guardar las tablas y figuras necesarias para la Bitácora 3.
 
 \subsection{Propuesta metodológica}
 
-\subsubsection{Formulación de métodos y conexión con la pregunta de investigación}
+La metodología de esta bitácora se basa en comparar grupos, medir asociaciones y ajustar un modelo que ayude a responder la pregunta de investigación. La pregunta principal sigue siendo: ¿existe relación entre el uso de redes sociales y el rendimiento académico en estudiantes?
+\\
 
-La pregunta de investigación es: \textit{¿existe una relación entre el uso de redes sociales y el rendimiento académico de los estudiantes universitarios, y en qué medida esa relación está moderada por la distracción académica autoreportada?}
+El primer método seleccionado fue la prueba t. Esta prueba se utiliza para comparar el promedio académico entre dos grupos: estudiantes con bajo o moderado uso de redes sociales y estudiantes con alto uso. Se eligió porque permite ver si existe una diferencia clara entre dos grupos de estudiantes.
+\\
 
-Los métodos se organizan en tres capas de complejidad creciente. Cada una responde una versión más matizada de la misma pregunta.
+El segundo método fue el ANOVA. Esta prueba permite comparar el promedio académico entre varias categorías de uso de redes sociales, por ejemplo 0--2 horas, 2--4 horas, 4--6 horas y más de 6 horas. Se eligió porque nuestra variable de horas en redes fue agrupada en varios niveles y se necesita saber si alguno de esos grupos presenta un promedio diferente.
+\\
 
-\paragraph{Capa 1 - Asociación bivariada (correlación)}
+También se utilizó Kruskal-Wallis como prueba alternativa. Esta prueba cumple una función parecida al ANOVA, pero no exige los mismos supuestos de normalidad. Por eso se usa como respaldo si los datos no cumplen completamente las condiciones necesarias para aplicar ANOVA.
+\\
 
-Cuantifica si existe asociación entre \(X_1 = \text{horas\_redes}\) e \(Y = \text{promedio}\), sin condicionamiento.
+Además, se calcularon correlaciones de Pearson y Spearman. Estas pruebas permiten medir si dos variables se mueven juntas. Por ejemplo, ayudan a revisar si al aumentar las horas en redes sociales cambia el promedio académico, o si al aumentar las horas de estudio también aumenta el promedio. Se incluyeron ambas correlaciones porque Pearson revisa relaciones lineales y Spearman permite trabajar mejor cuando los datos no siguen una relación lineal clara.
+\\
 
-\textit{Correlación de Pearson:}
-\[
-r = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i - \bar{x})^2 \cdot \sum_{i=1}^{n}(y_i - \bar{y})^2}}
-\]
-Hipótesis: \(H_0: \rho = 0\) vs. \(H_1: \rho \neq 0\). El estadístico de prueba es \(t = r\sqrt{(n-2)/(1-r^2)} \sim t_{n-2}\) bajo \(H_0\).
+Como parte de la modelación, se ajustó un modelo que incluye horas en redes sociales, distracción académica, horas de estudio y asistencia. Este modelo se usa porque el rendimiento académico no depende de una sola variable. Además, se incluyó una interacción entre horas en redes y distracción académica, ya que en la Bitácora 2 observamos que la distracción podía ser importante para entender mejor la relación entre redes sociales y rendimiento.
+\\
 
-\textit{Correlación de Spearman:} misma fórmula aplicada a los rangos de \(x\) e \(y\). Es preferible cuando la relación es monótona pero no lineal, o cuando hay valores extremos influyentes. Se usa como verificación de robustez dado que la curva LOESS muestra cierta curvatura.
+El programa maqueta fue desarrollado en R. En este archivo se probaron las funciones necesarias, se revisaron las variables, se corrieron las pruebas estadísticas y se guardaron los resultados en archivos CSV. También se generaron gráficos para apoyar la interpretación de los resultados. Este proceso permite que el análisis sea ordenado, repetible y fácil de revisar.
+\\
 
-¿Por qué estas y no otras? Una correlación de Kendall también habría sido válida, pero Pearson y Spearman son más estándar en el área, tienen interpretación directa como ``fuerza de asociación'', y sus \(p\)-valores son comparables con los del modelo de regresión.
+La validación de los métodos se hizo mediante pruebas y diagnósticos. En el caso del ANOVA, se revisaron supuestos como la normalidad de los residuos y la igualdad de varianzas. En el caso del modelo, se revisaron gráficos de residuos, normalidad aproximada, valores influyentes y multicolinealidad. Esto permite saber si los resultados pueden interpretarse de forma razonable.
+\\
 
-\textbf{Resultado obtenido:} \(r_{\text{Pearson}} = -0.158\) (\(p = 0.0029\)), \(\rho_{\text{Spearman}} = -0.155\) (\(p = 0.0035\)). La asociación negativa es débil pero estadísticamente robusta en ambos métodos.
-
-\paragraph{Capa 2 - Comparación de grupos (pruebas de hipótesis)}
-
-Responde si la diferencia de promedio entre usuarios con distinto nivel de uso es detectablemente distinta de cero. Esto es útil para el trabajo porque comunica la pregunta de forma intuitiva: \textit{¿tienen mejor promedio quienes usan menos redes?}
-
-\textit{Prueba t de Welch} para dos grupos (\(G_1\): horas\_redes \(\leq 4\), \(G_2\): horas\_redes \(> 4\)):
-\[
-t = \frac{\bar{Y}_1 - \bar{Y}_2}{\sqrt{s_1^2/n_1 + s_2^2/n_2}}, \quad \nu \approx \frac{(s_1^2/n_1 + s_2^2/n_2)^2}{\frac{(s_1^2/n_1)^2}{n_1-1} + \frac{(s_2^2/n_2)^2}{n_2-1}}
-\]
-Se usa la variante de Welch (en lugar de la \(t\) estándar de Student) porque no asume varianzas iguales entre grupos, supuesto que no está garantizado aquí. El punto de corte de 4 h se eligió cerca del promedio observado de horas en redes para balancear los grupos.
-
-\textit{ANOVA de un factor} con cuatro categorías (0–2 h, 2–4 h, 4–6 h, \(>6\) h):
-\[
-F = \frac{\text{SCE}/(k-1)}{\text{SCD}/(n-k)}, \quad \text{SCE} = \sum_{j=1}^{k} n_j(\bar{Y}_j - \bar{Y})^2, \quad \text{SCD} = \sum_{j=1}^{k}\sum_{i=1}^{n_j}(Y_{ij} - \bar{Y}_j)^2
-\]
-El ANOVA extiende la prueba \(t\) a más de dos grupos pero asume normalidad y homocedasticidad dentro de cada grupo.
-
-\textit{Kruskal-Wallis} como alternativa no paramétrica al ANOVA:
-\[
-H = \frac{12}{n(n+1)} \sum_{j=1}^{k} \frac{R_j^2}{n_j} - 3(n+1)
-\]
-donde \(R_j\) es la suma de rangos del grupo \(j\). Se incluye porque el promedio académico está acotado en \([0, 5]\) y la distribución dentro de cada categoría podría desviarse de la normalidad. La concordancia entre ANOVA y Kruskal-Wallis refuerza la validez de los resultados.
-
-¿Por qué estas pruebas y no simplemente la regresión? Porque son más fáciles de interpretar para una audiencia no técnica y proporcionan una respuesta directa a ``¿hay diferencia de grupo?''. Sin embargo, al discretizar \texttt{horas\_redes} se pierde información continua, lo que explica que ni el ANOVA (\(p = 0.217\)) ni Kruskal-Wallis (\(p = 0.109\)) alcanzaran significancia aunque la correlación sí la alcanzó.
-
-\paragraph{Capa 3 - Regresión lineal múltiple con interacción (método central)}
-
-Este es el método principal para responder la pregunta completa. La regresión controla por variables de confusión y estima el efecto neto de las redes sobre el promedio.
-
-Se ajustaron tres modelos en progresión:
-
-\textit{Modelo 1 (simple):}
-\[
-Y_i = \beta_0 + \beta_1 X_{1i} + \varepsilon_i
-\]
-donde \(Y_i = \text{promedio}_i\) y \(X_1 = \text{horas\_redes}\). Cuantifica la asociación bruta pero es susceptible a confusión: un estudiante puede tener muchas horas en redes y buen promedio simplemente porque estudia muchas horas.
-
-\textit{Modelo 2 (ajustado):}
-\[
-Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \beta_4 X_{4i} + \varepsilon_i
-\]
-con \(X_2 = \text{horas\_estudio}\), \(X_3 = \text{asistencia}\), \(X_4 = \text{distraccion\_acad}\). Controla por las principales variables académicas. El coeficiente \(\hat\beta_1\) ya es el efecto parcial de las redes manteniendo las demás constantes.
-
-\textit{Modelo 3 (interacción - modelo de análisis):}
-\[
-Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{4i} + \beta_3 (X_{1i} \cdot X_{4i}) + \beta_4 X_{2i} + \beta_5 X_{3i} + \varepsilon_i
-\]
-El término \(\beta_3 (X_1 \cdot X_4)\) captura la moderación: si \(\hat\beta_3 \neq 0\), la pendiente de \texttt{horas\_redes} depende del nivel de \texttt{distraccion\_acad}. Formalmente, el efecto marginal de \(X_1\) sobre \(Y\) es:
-\[
-\frac{\partial \hat{Y}}{\partial X_1} = \hat\beta_1 + \hat\beta_3 X_4
-\]
-lo que significa que para cada nivel de distracción \(d\), la pendiente esperada es \(\hat\beta_1 + \hat\beta_3 \cdot d\). Con \(\hat\beta_1 = -0.057\) y \(\hat\beta_3 = 0.010\), la pendiente para distracción baja (\(d=1\)) es \(-0.057 + 0.010 \cdot 1 = -0.047\) y para distracción alta (\(d=5\)) es \(-0.057 + 0.010 \cdot 5 = -0.007\).
-
-¿Por qué regresión lineal y no regresión beta, Tobit, o un modelo de efectos fijos? La regresión beta fue evaluada y descartada (ver punto 5). La regresión Tobit sería adecuada si hubiera censura en el promedio, pero los valores extremos observados (0 y 5) no son censura sino valores reales. Un modelo de efectos fijos requeriría medidas repetidas por individuo, que no están disponibles en este diseño transversal. La regresión lineal es la opción más parsimoniosa, interpretable y robusta dado el tamaño muestral (\(n = 353\)).
-
-\subsubsection{Programa maqueta y afinación de parámetros}
-
-El proceso de exploración y ajuste se documentó directamente en \texttt{03\_modelacion.R}.
-
-\subsubsection{Validación exhaustiva}
-
-\paragraph{Pruebas de hipótesis}
-
-\begin{table}[H]
-\centering
-\caption{Resumen de pruebas de hipótesis realizadas.}
-\begin{tabular}{lccc}
-\toprule
-Prueba & Estadístico & \(p\)-valor & Conclusión \\
-\midrule
-Correlación de Pearson & \(r = -0.158\) & \(0.0029\) & Se rechaza \(H_0: \rho = 0\) \\
-Correlación de Spearman & \(\rho = -0.155\) & \(0.0035\) & Se rechaza \(H_0: \rho = 0\) \\
-Prueba \(t\) de Welch & \(t(289.9) = 1.957\) & \(0.051\) & No se rechaza \(H_0\) al 5\% \\
-ANOVA (4 categorías) & \(F(3, 349) = 1.488\) & \(0.217\) & No se rechaza \(H_0\) \\
-Kruskal-Wallis & \(H(3) = 6.057\) & \(0.109\) & No se rechaza \(H_0\) \\
-Prueba \(F\) global (M3) & \(F(5, 347) = 15.61\) & \(< 0.001\) & El modelo M3 es globalmente significativo \\
-Prueba \(F\): M1 \(\rightarrow\) M2 & \(F(3, 348) = 21.88\) & \(< 0.001\) & M2 mejora significativamente sobre M1 \\
-Prueba \(F\): M2 \(\rightarrow\) M3 & \(F(1, 347) = 1.755\) & \(0.186\) & La interacción no mejora el ajuste \\
-\bottomrule
-\end{tabular}
-\label{tab:pruebas_hipotesis}
-\end{table}
-
-La aparente contradicción entre la no significancia de la prueba \(t\)/ANOVA y la significancia de las correlaciones y la regresión tiene una explicación directa: al discretizar \texttt{horas\_redes} en categorías se pierde información continua. La regresión y la correlación aprovechan toda la variación de la variable continua.
-
-\paragraph{Verificación de supuestos del modelo}
-
-\textit{Normalidad de residuales.} Shapiro-Wilk: \(W = 0.973\), \(p = 3.1 \times 10^{-6}\). La prueba rechaza normalidad, pero con \(n = 353\) esta prueba detecta desviaciones muy pequeñas de la normalidad teórica. El QQ plot muestra colas ligeramente pesadas pero el cuerpo central sigue bien la recta teórica. Por el Teorema Central del Límite, la distribución de los estimadores \(\hat\beta\) es aproximadamente normal para este tamaño muestral, por lo que la inferencia es válida.
-
-\textit{Linealidad y homocedasticidad.} El gráfico de residuales vs. ajustados (Diagnóstico 1) no muestra patrones sistemáticos severos: la curva LOESS oscila cerca de cero. Hay una leve tendencia descendente en la zona de valores ajustados altos (\(\approx 4.5\)), coherente con el efecto de la cota superior \(Y \leq 5\). No hay evidencia visual de heterocedasticidad (expansión en abanico de la nube).
-
-\textit{Multicolinealidad.} VIF del Modelo 3:
-
-\begin{table}[H]
-\centering
-\caption{Factores de Inflación de Varianza (VIF) para el Modelo 3.}
-\begin{tabular}{lcc}
-\toprule
-Variable & VIF & Interpretación \\
-\midrule
-\texttt{horas\_redes} & 4.83 & Aceptable; elevado por la interacción \\
-\texttt{distraccion\_acad} & 3.06 & Aceptable \\
-\texttt{horas\_estudio} & 1.08 & Sin problema \\
-\texttt{asistencia} & 1.04 & Sin problema \\
-\texttt{horas\_redes:distraccion\_acad} & 7.71 & Elevado, pero inherente a cualquier interacción no centrada \\
-\bottomrule
-\end{tabular}
-\label{tab:vif_modelo3}
-\end{table}
-
-El VIF de 7.71 para el término de interacción es el valor esperado cuando los predictores no están centrados antes de construir el producto. Esto infla el error estándar de \(\hat\beta_3\) (de 0.0076 a aproximadamente \(0.0076 \times \sqrt{7.71/1} \approx 0.021\) si estuvieran sin colinealidad), lo que contribuye a la no significancia del término. Se recomienda re-estimar el modelo con variables centradas como análisis de sensibilidad.
-
-\textit{Observaciones influyentes.} Distancia de Cook: una observación (índice \(\approx 12\)) alcanza \(D \approx 0.049\), superando el umbral \(4/n = 0.011\). Las demás observaciones quedan bien por debajo. El valor de 0.049 es moderado (el umbral de preocupación estricto es \(D > 1\)), pero justifica verificar esa observación.
-
-\paragraph{Métricas de ajuste del modelo seleccionado}
-
-\begin{table}[H]
-\centering
-\caption{Métricas de ajuste del Modelo 3.}
-\begin{tabular}{lcc}
-\toprule
-Métrica & Valor & Interpretación \\
-\midrule
-\(R^2\) & 0.184 & El modelo explica el 18.4\% de la varianza del promedio \\
-\(R^2_{\text{adj}}\) & 0.172 & Penalizado por el número de predictores \\
-\(\sigma\) (error estándar residual) & 0.600 & Error típico en la escala del promedio \\
-RMSE & 0.594 & Error cuadrático medio de predicción \\
-MAE & 0.495 & Error absoluto medio de predicción \\
-AIC & 648.6 & Para comparación entre modelos \\
-BIC & 675.7 & Penaliza más fuertemente la complejidad que AIC \\
-\bottomrule
-\end{tabular}
-\label{tab:metricas_modelo3}
-\end{table}
-
-El \(R^2\) de 18.4\% indica que hay variabilidad importante del promedio académico que no está capturada por las variables incluidas. Esto es esperable en datos de encuesta transversal: factores como motivación intrínseca, calidad del sueño, método de estudio y contexto socioeconómico no fueron modelados explícitamente. No obstante, el objetivo no es predecir el promedio individual sino estimar el efecto parcial de las redes sociales, para lo cual el modelo es adecuado.
-
-\paragraph{Intervalos de confianza al 95\% para el efecto marginal de horas en redes}
-
-Dado el término de interacción, el efecto de \texttt{horas\_redes} sobre el promedio no es único: depende del nivel de distracción de cada estudiante. Para cada nivel \(d\), el efecto marginal es \(\hat\beta_1 + \hat\beta_3 \cdot d\), y su error estándar se calcula con la varianza de esa combinación lineal usando la matriz de varianza-covarianza del modelo.
-
-\begin{table}[H]
-\centering
-\caption{Efecto marginal de horas en redes sobre el promedio según nivel de distracción.}
-\begin{tabular}{cccccc}
-\toprule
-Distracción (\(d\)) & Efecto por hora & EE & IC 95\% inferior & IC 95\% superior & Significativo \\
-\midrule
-1 (mínima) & \(-0.0468\) & \(0.0202\) & \(-0.0865\) & \(-0.0070\) & Sí \\
-2 & \(-0.0368\) & \(0.0150\) & \(-0.0662\) & \(-0.0074\) & Sí \\
-3 (media) & \(-0.0268\) & \(0.0124\) & \(-0.0511\) & \(-0.0024\) & Sí \\
-4 & \(-0.0168\) & \(0.0141\) & \(-0.0444\) & \(+0.0109\) & No \\
-5 (máxima) & \(-0.0067\) & \(0.0189\) & \(-0.0438\) & \(+0.0303\) & No \\
-\bottomrule
-\end{tabular}
-\label{tab:efecto_marginal_detallado}
-\end{table}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figuras/figura_07_efecto_marginal_horas_redes.png}
-    \caption{Efecto marginal de horas en redes sobre el promedio con intervalos de confianza al 95\%, según nivel de distracción.}
-    \label{fig:efecto_marginal}
-\end{figure}
-
-La tabla y la Figura~\ref{fig:efecto_marginal} muestran un patrón claro: el efecto negativo de las redes sobre el promedio es estadísticamente significativo para estudiantes con distracción baja o media (niveles 1, 2 y 3), pero deja de serlo para quienes reportan distracción alta (niveles 4 y 5). En estos últimos, el intervalo de confianza cruza el cero, lo que indica que el efecto es incierto en esa subpoblación.
-
-Un estudiante con distracción mínima (nivel 1) que pasa una hora adicional diaria en redes tiene un promedio predicho 0.047 puntos menor, con un rango de \(-0.086\) a \(-0.007\). Para un estudiante con distracción máxima (nivel 5), ese mismo cambio se asocia con apenas \(-0.007\) puntos y el intervalo es tan amplio (\([-0.044, +0.030]\)) que no permite descartar que el efecto sea nulo o incluso positivo. Esto no significa que las redes sean inofensivas para los más distraídos, sino que la muestra no tiene suficiente potencia para detectar el efecto en ese subgrupo.
-
-\begin{table}[H]
-\centering
-\caption{Intervalos de confianza para predictores fijos del Modelo 3.}
-\begin{tabular}{lcc}
-\toprule
-Predictor & \(\hat\beta\) & IC 95\% \\
-\midrule
-Horas de estudio & \(+0.069\) & \([+0.037, +0.100]\) \\
-Asistencia & \(+0.011\) & \([+0.007, +0.015]\) \\
-\bottomrule
-\end{tabular}
-\label{tab:ic_predictores_fijos}
-\end{table}
-
-\subsubsection{Cuadros, gráficos y algoritmos de respaldo}
-
-Los resultados se respaldan con los siguientes elementos producidos por el script:
-
-\begin{itemize}
-    \item \textbf{Tablas de coeficientes} con estimaciones, errores estándar, estadísticos \(t\), \(p\)-valores e IC 95\% para los tres modelos (\texttt{13\_}, \texttt{14\_}, \texttt{15\_coeficientes\_*.csv}).
-    \item \textbf{Tabla comparativa de modelos} con \(R^2\), \(\sigma\), AIC, BIC y prueba \(F\) secuencial (\texttt{12\_comparacion\_modelos.csv}, \texttt{16\_resumen\_modelos.txt}).
-    \item \textbf{Tabla de efectos marginales con IC} por nivel de distracción (\texttt{23\_ic\_efecto\_marginal\_horas\_redes.csv}).
-    \item \textbf{Figura 1 - Horas en redes vs. promedio académico (LOESS).} 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\linewidth]{figuras/figura_01_horas_redes_vs_promedio.png}
-    \end{figure}
-    
-    La curva de tendencia muestra que el promedio se mantiene relativamente estable (alrededor de 4.0–4.3) hasta aproximadamente 6 horas diarias, a partir de donde desciende de forma marcada. La alta variabilidad en la franja 0–5 horas es coherente con la dispersión de colores por plataforma, lo que sugiere que la plataforma por sí sola no explica diferencias importantes.
-    \item \textbf{Figura 2 - Boxplot por categoría de uso.}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\linewidth]{figuras/figura_02_boxplot_uso_redes.png}
-    \end{figure}
-    
-    Las medianas son similares entre los grupos 0–2 h, 2–4 h y 4–6 h (alrededor de 4.0), mientras que el grupo \(>6\) h muestra una mediana ligeramente inferior (\(\sim3.9\)) y mayor presencia de valores bajos. El descenso no es dramático en términos absolutos pero sí consistente.
-    \item \textbf{Figura 3 - Horas de estudio vs. promedio.}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\linewidth]{figuras/figura_03_horas_estudio_vs_promedio.png}
-    \end{figure}
-    
-    La regresión lineal muestra una pendiente positiva clara: más horas de estudio se asocian a mayor promedio. Los puntos de color más rojo (muchas horas en redes) no se concentran consistentemente en la parte baja del gráfico, lo que anticipa que el efecto de las redes puede ser moderado por otras variables.
-    \item \textbf{Figura 4 - Promedio por plataforma.}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\linewidth]{figuras/figura_04_promedio_por_plataforma.png}
-    \end{figure}
-    
-    Las diferencias entre plataformas son pequeñas (rango \(\approx 4.0\)–\(4.3\)). TikTok aparece con el promedio más alto pero con \(n=4\), lo que hace que esta estimación sea muy inestable. Facebook y YouTube concentran la mayoría de observaciones.
-    \item \textbf{Figura 5 - Heatmap de uso de redes \(\times\) distracción.}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\linewidth]{figuras/figura_05_heatmap_redes_distraccion.png}
-    \end{figure}
-    
-    El patrón más consistente es que en niveles de distracción baja (Distr. 1 y 2), el promedio decrece conforme aumentan las horas en redes. En niveles altos de distracción (Distr. 4 y 5), el patrón es menos monótono, con algunas celdas de promedio relativamente alto asociadas a uso moderado o alto de redes. Esta heterogeneidad motivó incluir el término de interacción en el modelo.
-    \item \textbf{Figura 6 - Predicciones del Modelo 3} 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\linewidth]{figuras/figura_06_predicciones_modelo_interaccion.png}
-    \end{figure}
-    
-    Sintetiza el hallazgo principal mostrando pendientes diferenciadas por nivel de distracción.
-    \item \textbf{Figura 7 - Efecto marginal con IC}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\linewidth]{figuras/figura_07_efecto_marginal_horas_redes.png}
-    \end{figure}
-    
-    Muestra para qué niveles de distracción el efecto de las redes es estadísticamente significativo. Las barras que no cruzan el cero (niveles 1–3) indican efectos detectables; las que sí lo cruzan (niveles 4–5) indican incertidumbre.
-    \item \textbf{Diagnósticos 1–4}: residuales vs. ajustados, QQ plot, histograma de residuales y distancia de Cook.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\linewidth]{figuras/diagnostico_01_residuales_vs_ajustados.png}
-    \end{figure}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\linewidth]{figuras/diagnostico_02_qqplot_residuales.png}
-    \end{figure}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\linewidth]{figuras/diagnostico_03_histograma_residuales.png}
-    \end{figure}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\linewidth]{figuras/diagnostico_04_distancia_cook.png}
-    \end{figure}
-\end{itemize}
+Los cuadros generados por el código resumen los principales resultados de las pruebas estadísticas, las correlaciones, los coeficientes del modelo y los diagnósticos. Las figuras permiten visualizar los patrones más importantes, como la relación entre horas en redes y promedio, la comparación entre grupos de uso y los diagnósticos del modelo.
+\\
 
 Finalmente, se documentó un análisis fallido. Inicialmente, se consideró usar la red social principal como eje central del análisis, especialmente YouTube, porque podría tener un uso académico. Sin embargo, esta idea se descartó porque la plataforma no indica si el uso fue académico o recreativo. Además, algunas categorías tenían pocos estudiantes, lo que podía producir comparaciones poco confiables. Por esta razón, se decidió dejar la plataforma como una variable secundaria y centrar el análisis en la intensidad de uso, la distracción académica, las horas de estudio y la asistencia.
 
@@ -476,6 +227,10 @@ Desde la Bitácora 2, nuestra comprensión del problema cambió bastante. Al ini
 
 Si este gráfico fuera la portada del artículo, contaría la historia de un problema que no puede reducirse a la idea de que ``más redes sociales significan peores notas''. Más bien, mostraría que el rendimiento académico depende de varios factores que actúan al mismo tiempo. La historia principal sería que el uso de redes sociales debe analizarse junto con el contexto académico del estudiante. Por eso, esta imagen representa bien el avance de la Bitácora 3: pasamos de describir patrones a construir una explicación estadística más completa.
 
+\section{Arco narrativo del proyecto}
+
+El modelo reveló que el uso de redes sociales se relaciona negativamente con el promedio académico, pero que las horas de estudio y la asistencia también tienen un papel importante, lo que significa que el rendimiento académico debe entenderse como un fenómeno multifactorial y no como consecuencia directa de una sola variable.
+
 \section{Parte de escritura}
 En las bitácoras anteriores realizamos una revisión bibliográfica sobre la relación entre el uso de redes sociales y el rendimiento académico, además de un análisis exploratorio de la base de datos utilizada en el proyecto. En esta sección buscamos integrar ambas perspectivas para construir una única narrativa sobre el problema estudiado, relacionando lo que han encontrado otros autores con los patrones observados en nuestros propios datos.
 
@@ -497,17 +252,15 @@ Esta falta de consenso fue una de las principales razones por las que decidimos 
 Una vez revisada la literatura, comenzamos a explorar la información contenida en nuestra base de datos. El conjunto de datos está formado por estudiantes universitarios e incluye variables relacionadas con el uso de redes sociales, rendimiento académico, hábitos de estudio, horas de sueño y nivel de distracción, entre otras.
 \\
 
-Uno de los primeros aspectos que analizamos fue el tiempo de uso diario de redes sociales. Los resultados muestran que se trata de una actividad muy frecuente dentro de la muestra. La mayoría de estudiantes dedica varias horas al día a estas plataformas, aunque existen diferencias importantes entre unos estudiantes y otros.
-\\
-
-[HISTOGRAMA O BOXPLOT DE HORAS DE USO DE REDES SOCIALES]????
+Uno de los primeros aspectos que analizamos fue el tiempo de uso diario de redes sociales. Los resultados muestran que se trata de una actividad muy frecuente dentro de la muestra. La mayoría de estudiantes dedica varias horas al día a estas plataformas, aunque existen diferencias importantes entre unos estudiantes y otros. Para esta parte se utilizó la distribución de las horas de uso de redes sociales y la comparación por categorías de uso. Esto permitió observar que el tiempo en redes no se distribuye igual entre todos los estudiantes y que existen grupos con bajo, medio y alto uso diario.
 \\
 
 Esta distribución coincide con lo descrito por muchos de los estudios revisados, donde se señala que las redes sociales forman parte de la rutina diaria de la mayoría de estudiantes universitarios. Sin embargo, saber cuántas horas utilizan estas plataformas no permite responder directamente a nuestra pregunta de investigación.
 \\
+
 Para profundizar en esta cuestión analizamos conjuntamente las horas de uso de redes sociales y el promedio académico de los estudiantes.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figuras/grafico_1_horas_redes_vs_promedio.png}
     \caption{Asociación entre el tiempo diario en redes sociales y el promedio académico en estudiantes universitarios}
@@ -516,6 +269,7 @@ Para profundizar en esta cuestión analizamos conjuntamente las horas de uso de 
 
 Este fue uno de los resultados que más nos llamó la atención durante el análisis exploratorio. Inicialmente esperábamos encontrar una relación más evidente entre ambas variables. Sin embargo, los datos mostraron una situación bastante más compleja. Aunque algunos estudiantes con muchas horas de uso presentan promedios relativamente bajos, también encontramos estudiantes con niveles de uso similares que mantienen buenos resultados académicos.
 \\
+
 Si el tiempo de uso fuese el único factor importante, esperaríamos observar una tendencia mucho más clara. No obstante, los datos muestran una gran variabilidad entre estudiantes. Personas con hábitos parecidos respecto al uso de redes sociales pueden presentar desempeños académicos muy diferentes.
 \\
 
@@ -530,7 +284,7 @@ Conforme analizábamos los datos, vimos que las horas de uso de redes sociales n
 
 Por ello empezamos a fijarnos en otras variables que inicialmente no habíamos considerado tan importantes. Entre ellas, la variable de distracción académica resultó especialmente interesante. Mientras que las horas de uso indican cuánto tiempo pasa un estudiante utilizando redes sociales, la distracción académica intenta reflejar hasta qué punto ese uso interfiere en actividades relacionadas con el estudio, la realización de tareas o la preparación de exámenes.
 
-\begin{figure} [h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figuras/grafico_5_heatmap_redes_distraccion_promedio.png}
     \caption{Promedio académico medio según nivel de uso de redes sociales y grado de distracción durante actividades académicas}
@@ -569,9 +323,41 @@ Después de revisar la literatura y analizar nuestros datos, la principal conclu
 Precisamente por ello, las pruebas estadísticas seleccionadas constituyen una herramienta fundamental para determinar si las tendencias observadas durante el análisis descriptivo corresponden a relaciones estadísticamente significativas o si pueden explicarse por la variabilidad propia de los datos.\\
 
 \subsection{Discusión preliminar}
-escribir para llegar a las páginas que pide explicando los resultados estadísticos y cómo se enlazan con la literatura, igual me pasé escribiendo hasta aquí pero quería que llenase las páginas, modificad lo que veáis:)
 
+A partir de los análisis realizados, podemos decir que la relación entre el uso de redes sociales y el rendimiento académico existe, pero no es una relación simple. Al inicio del proyecto pensábamos que el tiempo diario en redes sociales podía explicar de forma clara las diferencias en el promedio académico. Sin embargo, los resultados muestran que esta explicación es incompleta. Hay estudiantes que usan redes sociales durante varias horas al día y aun así mantienen buenos promedios, mientras que otros con niveles parecidos de uso presentan resultados más bajos.
+\\
 
+El modelo ajustado ayuda a entender mejor esta situación. Las horas en redes sociales presentan una relación negativa con el promedio académico. Esto significa que, dentro de la muestra, los estudiantes que pasan más tiempo en redes tienden a tener promedios ligeramente menores. No obstante, esta relación no debe interpretarse como causalidad. Es decir, no podemos afirmar que las redes sociales causen directamente una disminución en el rendimiento académico, sino que ambas variables aparecen asociadas en los datos.
+\\
+
+También se observó que la distracción académica tiene una relación negativa con el promedio. Este resultado es importante porque apoya una de las ideas principales que surgió durante el análisis exploratorio: no solo importa cuánto tiempo se usan las redes sociales, sino también si ese uso interrumpe el estudio. Un estudiante puede pasar varias horas en redes, pero si logra organizar su tiempo y no se distrae durante sus actividades académicas, su rendimiento no necesariamente será bajo.
+\\
+
+Por otro lado, las horas de estudio y la asistencia muestran una relación positiva con el promedio académico. Esto coincide con lo esperado, ya que estudiar más horas y asistir con mayor frecuencia a clases son hábitos que suelen estar relacionados con un mejor desempeño académico. Estos resultados también muestran que el rendimiento no depende de una sola variable, sino de varios factores que actúan al mismo tiempo.
+\\
+
+Uno de los resultados que debe interpretarse con cuidado es la interacción entre horas en redes sociales y distracción académica. Aunque inicialmente esperábamos que la distracción modificara claramente la relación entre redes sociales y promedio, el modelo no mostró evidencia suficiente para afirmar esto. En otras palabras, las horas en redes y la distracción académica se relacionan individualmente con el rendimiento, pero no se pudo comprobar que el efecto de una dependa directamente de la otra.
+\\
+
+Este resultado no debilita el proyecto, sino que ayuda a precisar mejor la interpretación. La distracción académica sigue siendo una variable importante, pero no necesariamente funciona como una condición que cambia el efecto de las horas en redes. Más bien, parece ser otro factor que se suma a la explicación del rendimiento académico. Esto refuerza la idea de que el fenómeno es multifactorial.
+\\
+
+Al comparar estos resultados con la literatura revisada, encontramos puntos en común con distintos autores. Por una parte, nuestros resultados coinciden parcialmente con los estudios que señalan efectos negativos del uso excesivo de redes sociales, especialmente cuando este uso se relaciona con distracción o falta de concentración. Por otra parte, también coinciden con los estudios que no encuentran una relación completamente clara entre tiempo de uso y rendimiento, ya que en nuestros datos la relación no es fuerte ni suficiente para explicar todo el promedio académico.
+\\
+
+Esto permite entender por qué la literatura presenta resultados diferentes. No todos los estudios miden las mismas variables, no todos los estudiantes usan las redes de la misma manera y no todos los contextos académicos son iguales. En algunos casos, las redes pueden funcionar como una distracción; en otros, pueden servir como apoyo para estudiar, comunicarse o buscar información. Por eso, analizar solo el número de horas puede ser limitado.
+\\
+
+Una limitación importante de nuestro análisis es que los datos provienen de respuestas de encuesta. Esto significa que variables como horas en redes, distracción, estudio y asistencia dependen de lo que cada estudiante reportó. Por lo tanto, puede haber errores de memoria, diferencias en la forma de interpretar las preguntas o respuestas poco precisas. Además, la base no incluye todos los factores que pueden afectar el rendimiento académico, como situación familiar, dificultad de los cursos, carga académica, salud mental detallada o calidad real del tiempo de estudio.
+\\
+
+Otra limitación es que el análisis es transversal. Esto quiere decir que observamos la información en un solo momento, pero no seguimos a los estudiantes durante un periodo largo de tiempo. Por esta razón, no podemos saber si el uso de redes sociales ocurrió antes de los cambios en el promedio académico o si estudiantes con menor rendimiento tienden a usar más redes por otras razones. Por eso, nuestras conclusiones deben entenderse como asociaciones y no como relaciones de causa y efecto.
+\\
+
+A pesar de estas limitaciones, los resultados son útiles porque permiten responder la pregunta de investigación de forma más clara. Sí existe evidencia de una relación entre el uso de redes sociales y el rendimiento académico, pero esta relación es moderada y debe interpretarse junto con otras variables. El promedio académico parece estar relacionado no solo con las horas en redes, sino también con la distracción, las horas de estudio y la asistencia.
+\\
+
+En conclusión, el proyecto muestra que el problema no puede resumirse en la idea de que ``más redes sociales significan peores notas''. La evidencia sugiere una interpretación más cuidadosa: el rendimiento académico depende de la forma en que los estudiantes organizan su tiempo, controlan la distracción y mantienen hábitos académicos como estudiar y asistir a clases. Por esta razón, el análisis de redes sociales debe considerar no solo la cantidad de uso, sino también el contexto en que ese uso ocurre.
 
 \section{Parte de reflexión}
 actualizar uve 
@@ -579,6 +365,7 @@ actualizar uve
 \section{Diario de aprendizaje}
 Durante esta etapa aprendimos que observar patrones en gráficos o tablas no es suficiente para concluir que existe una relación entre dos variables. A partir de los resultados obtenidos en la bitácora anterior, comprendimos la importancia de utilizar herramientas estadísticas que permitan evaluar si las diferencias observadas pueden atribuirse realmente a un efecto presente en los datos o si podrían deberse al azar.
 \\
+
 También aprendimos que la forma en que se definen y agrupan las variables puede influir en las conclusiones obtenidas. Esto nos llevó a reflexionar sobre las decisiones metodológicas necesarias antes de aplicar cualquier análisis estadístico. Finalmente, comprendimos mejor la diferencia entre describir un fenómeno y poner a prueba una hipótesis, entendiendo que la inferencia estadística es una herramienta fundamental para responder preguntas de investigación de manera más rigurosa y fundamentada.
 
 

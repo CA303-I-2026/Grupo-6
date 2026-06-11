@@ -11,7 +11,10 @@
 \usepackage{makecell}
 \usepackage{array}
 \usepackage{float}
-\usepackage{amsmath}
+\usepackage[most]{tcolorbox}
+\usepackage[style=numeric]{biblatex}
+\addbibresource{referencias.bib}
+\usepackage{url}
 
 \title{\Huge Bitácora 3\\ \Large Análisis de la relación entre el uso de redes sociales y el rendimiento académico en estudiantes}
 \author{Katia Moreno Aspiroz C6A060\\
@@ -50,17 +53,10 @@ En esta etapa se propondrán y aplicarán métodos como pruebas de comparación 
 
 
 \section{Planificación}
-\subsection{Respuesta retroalimentación}
+\subsection{Respuesta a la retroalimentación}
+Durante la exposición de avance, se nos recomendó explorar con mayor profundidad los modelos estadísticos que podían utilizarse para responder la pregunta de investigación. En respuesta a esta observación, ampliamos la propuesta metodológica incorporando una comparación entre distintos métodos, incluyendo pruebas t, ANOVA, Kruskal-Wallis, correlaciones y modelos de regresión.
 
-A partir de la retroalimentación recibida en la Bitácora 2, realizamos varios ajustes como la incorporación de gráficos más claros, con títulos, numeración e interpretación, además de cuadros de resultados que ayudan a resumir las pruebas estadísticas y los modelos utilizados. También mejoramos la parte metodológica. En la entrega anterior no se explicaban con suficiente detalle los métodos que se iban a utilizar ni la forma en que estos ayudaban a responder la pregunta de investigación. Por esta razón, en esta bitácora se incluyeron pruebas como la prueba t, ANOVA, Kruskal-Wallis, correlaciones y un modelo de regresión lineal múltiple. Además, se explicó para qué sirve cada método, qué variable analiza y cómo se conecta con la relación entre redes sociales y rendimiento académico.
-\\
-
-Otro cambio importante fue la construcción del programa maqueta en R. En la Bitácora 2 todavía no estaba completamente desarrollada la etapa de modelación, por lo que en esta nueva entrega se creó un código más ordenado para cargar automáticamente los datos, preparar las variables, generar tablas, producir gráficos, ajustar el modelo y revisar diagnósticos. 
-\\
-
-También se mejoraron las fichas de resultados. En la entrega anterior algunas fichas eran más descriptivas que analíticas, por lo que ahora se intentó interpretar mejor cada hallazgo. Además, se incluyó una comparación explícita con la literatura revisada, especialmente en relación con la idea de que las redes sociales pueden afectar el rendimiento, pero no explican todo el fenómeno.
-
-
+Asimismo, justificamos la selección del modelo final mediante métricas de ajuste, pruebas de significancia y diagnósticos del modelo. Esto permitió fundamentar mejor las decisiones metodológicas tomadas y fortalecer la interpretación de los resultados obtenidos.
 \subsection{Rastro de decisiones}
 Para esta etapa del proyecto decidimos transformar algunas variables numéricas en variables categóricas para facilitar la comparación entre grupos de estudiantes. Por ejemplo, planteamos dividir a los estudiantes según su nivel de uso de redes sociales (bajo, medio y alto uso) y analizar si existen diferencias en el rendimiento académico entre ellos.
 \\
@@ -105,16 +101,12 @@ También se calculan correlaciones de Pearson y Spearman. Estas pruebas permiten
 Finalmente, se ajusta un modelo con las variables principales del proyecto. Este modelo permite analizar la relación entre el promedio académico, las horas en redes sociales, la distracción académica, las horas de estudio y la asistencia. También se incluye una interacción entre horas en redes y distracción académica para revisar si el efecto de las redes cambia según el nivel de distracción.
 \\
 
-Dado que el modelo incluye una interacción, el efecto de las horas en redes sobre el promedio no es un valor único sino que depende del nivel de distracción de cada estudiante. Por eso, se calculan intervalos de confianza al 95\% para ese efecto en cada uno de los cinco niveles de distracción académica. Esto permite saber no solo si el efecto es positivo o negativo, sino también si es suficientemente grande como para descartarse del azar. Los resultados se guardan en la tabla \texttt{22\_ic\_efecto\_marginal\_horas\_redes.csv} y se visualizan en la Figura 7, donde cada punto representa el efecto estimado y las barras verticales representan el rango de valores plausibles. Los niveles donde la barra no cruza el cero corresponden a los grupos en que el efecto negativo de las redes es estadísticamente detectable.
-\\
-
 El diagnóstico del modelo se utiliza para revisar si los resultados son confiables. Para esto se observan los residuos del modelo, el gráfico Q-Q, la distancia de Cook y el VIF. Estos elementos permiten evaluar si hay patrones extraños, problemas fuertes de normalidad, valores muy influyentes o multicolinealidad entre variables. El diagnóstico no responde directamente la pregunta de investigación, pero ayuda a saber si el modelo puede interpretarse con cuidado.
 \\
 
 En resumen, este código permite cargar los datos, preparar las variables, aplicar pruebas estadísticas, ajustar el modelo seleccionado, revisar sus diagnósticos y guardar las tablas y figuras necesarias para la Bitácora 3.
 
 \subsection{Propuesta metodológica}
-
 \subsubsection{Formulación de métodos y conexión con la pregunta de investigación}
 
 La pregunta de investigación es: \textit{¿existe una relación entre el uso de redes sociales y el rendimiento académico de los estudiantes universitarios, y en qué medida esa relación está moderada por la distracción académica autoreportada?}
@@ -368,7 +360,7 @@ Los resultados se respaldan con los siguientes elementos producidos por el scrip
         \includegraphics[width=0.7\linewidth]{figuras/figura_06_predicciones_modelo_interaccion.png}
     \end{figure}
     
-    Sintetiza el hallazgo principal mostrando pendientes diferenciadas por nivel de distracción.
+    Sintetiza las predicciones del modelo para distintos niveles de distracción académica.
     \item \textbf{Figura 7 - Efecto marginal con IC}
     \begin{figure}[H]
         \centering
@@ -398,6 +390,7 @@ Los resultados se respaldan con los siguientes elementos producidos por el scrip
 
 Finalmente, se documentó un análisis fallido. Inicialmente, se consideró usar la red social principal como eje central del análisis, especialmente YouTube, porque podría tener un uso académico. Sin embargo, esta idea se descartó porque la plataforma no indica si el uso fue académico o recreativo. Además, algunas categorías tenían pocos estudiantes, lo que podía producir comparaciones poco confiables. Por esta razón, se decidió dejar la plataforma como una variable secundaria y centrar el análisis en la intensidad de uso, la distracción académica, las horas de estudio y la asistencia.
 
+
 \subsection{Construcción de fichas de resultados}
 
 A continuación se presentan las fichas de resultados principales obtenidas durante la etapa de modelación. Cada ficha se organiza en dos niveles: primero se describe qué se encontró y luego se interpreta qué significa ese resultado para la pregunta de investigación.
@@ -409,7 +402,10 @@ A continuación se presentan las fichas de resultados principales obtenidas dura
     \label{fig:predicciones-modelo}
 \end{figure}
 
-\subsubsection*{Ficha 1. Prueba t: bajo/moderado uso vs alto uso}
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!black,
+title=Ficha 1. Prueba t: bajo/moderado uso vs alto uso]
 
 \textbf{Nivel descriptivo: qué encontramos}
 
@@ -425,23 +421,27 @@ A continuación se presentan las fichas de resultados principales obtenidas dura
 
 \textbf{Nivel analítico: qué significa}
 
-\textbf{Conexión con la pregunta de investigación:} Este resultado ayuda a responder si el rendimiento académico cambia entre estudiantes con distinto nivel de uso de redes sociales. La prueba permite revisar si la diferencia observada entre grupos es estadísticamente relevante y no solo una diferencia visual.
+\textbf{Conexión con la pregunta de investigación:} Este resultado ayuda a responder si el rendimiento académico cambia entre estudiantes con distinto nivel de uso de redes sociales. Aunque se observó una diferencia en la dirección esperada, la evidencia estadística fue insuficiente para concluir que exista una diferencia significativa entre ambos grupos.
 
-\textbf{Contraste con la literatura:} Esta ficha se puede comparar con los estudios que plantean que un uso elevado de redes puede relacionarse con menor rendimiento académico. Coincide parcialmente con esa idea, pero el resultado debe interpretarse con cuidado porque el uso de redes no explica todo el promedio.
+\textbf{Contraste con la literatura:} Esta ficha puede compararse con estudios que sugieren una relación negativa entre el uso intensivo de redes sociales y el rendimiento académico. Nuestros resultados apuntan en esa dirección, pero la evidencia no fue lo suficientemente fuerte para confirmarla con este método.
 
-\textbf{Lo que NO explica este resultado:} No explica si las redes sociales causan un menor promedio. Tampoco explica si el uso fue académico, recreativo o social.
+\textbf{Lo que NO explica este resultado:} No explica si las redes sociales causan un menor promedio ni distingue entre usos académicos, recreativos o sociales.
 
-\textbf{Implicación para el siguiente paso:} Fue necesario complementar esta prueba con ANOVA, correlaciones y un modelo que incluyera otras variables académicas.
+\textbf{Implicación para el siguiente paso:} Fue necesario complementar este análisis con correlaciones y modelos de regresión que aprovecharan la información continua de las horas de uso.
+\end{tcolorbox}
 
-\subsubsection*{Ficha 2. ANOVA: comparación entre cuatro categorías}
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!black,
+title=Ficha 2. ANOVA: comparación entre cuatro categorías]
 
 \textbf{Nivel descriptivo: qué encontramos}
 
-\textbf{Titular:} Los grupos no son iguales.
+\textbf{Titular:} No se detectaron diferencias claras entre categorías.
 
 \textbf{Nombre del hallazgo/resultado:} Comparación del promedio académico entre cuatro categorías de uso de redes sociales.
 
-\textbf{Resumen en una oración:} El promedio cambia entre categorías, pero con diferencias moderadas.
+\textbf{Resumen en una oración:} Las diferencias observadas entre categorías no fueron estadísticamente significativas.
 
 \textbf{Método o análisis que lo produjo:} ANOVA de una vía.
 
@@ -456,23 +456,28 @@ A continuación se presentan las fichas de resultados principales obtenidas dura
 
 \textbf{Nivel analítico: qué significa}
 
-\textbf{Conexión con la pregunta de investigación:} El ANOVA permite evaluar si existen diferencias en el rendimiento académico según el nivel de uso diario de redes sociales. Este análisis es útil porque no reduce el uso de redes a solo dos grupos, sino que permite comparar varios niveles.
+\textbf{Conexión con la pregunta de investigación:} El ANOVA permitió evaluar si el rendimiento académico cambia según distintos niveles de uso diario de redes sociales. Aunque se observaron algunas diferencias descriptivas entre grupos, estas no fueron suficientemente grandes para concluir que existan diferencias significativas en la población.
 
-\textbf{Contraste con la literatura:} Este resultado se relaciona con la literatura que muestra resultados mixtos. Las diferencias existen, pero no parecen lo suficientemente grandes como para afirmar que el tiempo en redes explique por sí solo el rendimiento académico.
+\textbf{Contraste con la literatura:} Este resultado es consistente con investigaciones que encuentran relaciones débiles o poco concluyentes entre el tiempo de uso de redes sociales y el rendimiento académico. Sugiere que otros factores pueden ser más importantes para explicar las diferencias observadas.
 
-\textbf{Lo que NO explica este resultado:} No indica qué grupo específico causa la diferencia ni explica por qué algunos estudiantes con alto uso mantienen buenos promedios.
+\textbf{Lo que NO explica este resultado:} No identifica qué factores adicionales influyen en el rendimiento académico ni permite establecer relaciones causales.
 
 \textbf{Implicación para el siguiente paso:} Se necesitó aplicar una prueba no paramétrica como Kruskal-Wallis y luego un modelo con más variables.
+\end{tcolorbox}
 
-\subsubsection*{Ficha 3. Kruskal-Wallis: respaldo no paramétrico}
+
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!black,
+title=Ficha 3. Kruskal-Wallis: respaldo no paramétrico]
 
 \textbf{Nivel descriptivo: qué encontramos}
 
-\textbf{Titular:} El respaldo confirma la comparación.
+\textbf{Titular:} La evidencia sigue siendo insuficiente.
 
 \textbf{Nombre del hallazgo/resultado:} Comparación no paramétrica entre categorías de uso de redes sociales.
 
-\textbf{Resumen en una oración:} Kruskal-Wallis permitió validar la comparación sin exigir normalidad estricta.
+\textbf{Resumen en una oración:} La prueba no paramétrica tampoco encontró diferencias significativas entre categorías.
 
 \textbf{Método o análisis que lo produjo:} Prueba de Kruskal-Wallis.
 
@@ -480,15 +485,20 @@ A continuación se presentan las fichas de resultados principales obtenidas dura
 
 \textbf{Nivel analítico: qué significa}
 
-\textbf{Conexión con la pregunta de investigación:} Esta prueba refuerza el análisis porque permite comparar los grupos de uso de redes sociales aun cuando los supuestos del ANOVA no se cumplan completamente. Esto hace que la respuesta a la pregunta de investigación sea más prudente.
+\textbf{Conexión con la pregunta de investigación:} Esta prueba permitió verificar si las conclusiones del ANOVA se mantenían al utilizar un método que no requiere supuestos estrictos de normalidad. El resultado fue consistente: no se encontró evidencia suficiente de diferencias significativas entre los grupos de uso de redes sociales.
 
 \textbf{Contraste con la literatura:} Esta ficha no se compara directamente con un autor específico, sino que fortalece la validez del análisis estadístico usado para contrastar los patrones observados.
 
 \textbf{Lo que NO explica este resultado:} No mide el tamaño exacto del efecto ni indica causalidad. Solo permite evaluar si existen diferencias entre los grupos.
 
-\textbf{Implicación para el siguiente paso:} Ayudó a decidir que las conclusiones debían apoyarse en más de una prueba y no solo en el ANOVA.
+\textbf{Implicación para el siguiente paso:} Los resultados reforzaron la necesidad de utilizar correlaciones y modelos de regresión para aprovechar la información continua de las horas de uso.
+\end{tcolorbox}
 
-\subsubsection*{Ficha 4. Pearson: horas en redes vs promedio}
+
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!black,
+title=Ficha 4. Pearson: horas en redes vs promedio]
 
 \textbf{Nivel descriptivo: qué encontramos}
 
@@ -513,13 +523,17 @@ A continuación se presentan las fichas de resultados principales obtenidas dura
 
 \textbf{Conexión con la pregunta de investigación:} Esta ficha conecta directamente con la pregunta principal, porque analiza si el tiempo en redes sociales se relaciona con el rendimiento académico. La tendencia observada es negativa, aunque no totalmente fuerte.
 
-\textbf{Contraste con la literatura:} Esta ficha coincide parcialmente con autores que señalan que el uso elevado de redes puede afectar el rendimiento. Sin embargo, también coincide con estudios de resultados mixtos, porque la relación no es perfecta ni explica todos los casos.
+\textbf{Contraste con la literatura:} Este resultado coincide parcialmente con Aljemely (2020), quien encontró que el uso problemático de teléfonos inteligentes y redes sociales puede relacionarse con un menor rendimiento académico. También es consistente con Ogunbiyi (2024), que reporta una influencia negativa del uso excesivo de redes sociales sobre el desempeño académico de estudiantes universitarios. Sin embargo, la asociación observada en nuestro estudio es moderada, por lo que también guarda relación con León Luyo et al. (2023), quienes no encontraron una relación significativa entre ambas variables.
 
 \textbf{Lo que NO explica este resultado:} No explica el tipo de uso de redes sociales ni si el estudiante usa esas plataformas para estudiar, entretenerse o comunicarse.
 
 \textbf{Implicación para el siguiente paso:} Fue necesario incluir variables como distracción académica, horas de estudio y asistencia.
+\end{tcolorbox}
 
-\subsubsection*{Ficha 5. Spearman: horas en redes vs promedio}
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!black,
+title=Ficha 5. Spearman: horas en redes vs promedio]
 
 \textbf{Nivel descriptivo: qué encontramos}
 
@@ -537,17 +551,21 @@ A continuación se presentan las fichas de resultados principales obtenidas dura
 
 \textbf{Conexión con la pregunta de investigación:} Esta prueba ayuda a revisar la relación entre redes sociales y rendimiento sin asumir que la relación debe ser completamente lineal. Esto es importante porque los gráficos mostraron una relación irregular.
 
-\textbf{Contraste con la literatura:} Esta ficha se relaciona con los estudios que muestran resultados no concluyentes. El uso de redes puede tener relación con el promedio, pero esa relación no se comporta igual para todos los estudiantes.
+\textbf{Contraste con la literatura:} La correlación de Spearman respalda la idea de que la relación entre redes sociales y rendimiento académico no siempre es simple ni completamente lineal. Este resultado coincide con León Luyo et al. (2023), quienes no encontraron una asociación clara entre ambas variables, y con Rodelo Moreno y Lizárraga Reyes (2018), quienes señalan que el impacto de las redes depende en gran medida de la forma en que son utilizadas por los estudiantes.
 
 \textbf{Lo que NO explica este resultado:} No explica diferencias individuales, como organización del tiempo, dificultad de los cursos o motivación académica.
 
 \textbf{Implicación para el siguiente paso:} Confirmó que era necesario construir una interpretación más completa y no basarse únicamente en una correlación simple.
+\end{tcolorbox}
 
-\subsubsection*{Ficha 6. Pearson: horas de estudio vs promedio}
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!black,
+title=Ficha 6. Pearson: horas de estudio vs promedio]
 
 \textbf{Nivel descriptivo: qué encontramos}
 
-\textbf{Titular:} Estudiar más ayuda al promedio.
+\textbf{Titular:} Más horas de estudio se asocian con mejores promedios.
 
 \textbf{Nombre del hallazgo/resultado:} Asociación entre horas de estudio y promedio académico.
 
@@ -568,17 +586,21 @@ A continuación se presentan las fichas de resultados principales obtenidas dura
 
 \textbf{Conexión con la pregunta de investigación:} Este resultado muestra que el rendimiento académico no debe explicarse únicamente por el uso de redes sociales. Las horas de estudio también tienen un papel importante en el promedio.
 
-\textbf{Contraste con la literatura:} Este resultado coincide con la idea general de que el rendimiento académico es multifactorial. No contradice la literatura sobre redes sociales, sino que ayuda a explicar por qué el tiempo en redes no es suficiente para entender el rendimiento.
+\textbf{Contraste con la literatura:} Este resultado coincide con Sotelo Correa et al. (2023) y Ramírez Jaime et al. (2023), quienes señalan que el rendimiento académico está influenciado por múltiples factores además del uso de redes sociales. Nuestros resultados muestran que las horas de estudio presentan una asociación positiva con el promedio académico, reforzando la idea de que los hábitos de estudio son una variable relevante para comprender el desempeño estudiantil.
 
 \textbf{Lo que NO explica este resultado:} No mide la calidad del estudio. Un estudiante puede estudiar muchas horas, pero con baja concentración o poca organización.
 
 \textbf{Implicación para el siguiente paso:} Se incorporó esta variable dentro del modelo seleccionado para controlar parcialmente los hábitos académicos.
+\end{tcolorbox}
 
-\subsubsection*{Ficha 7. Distracción académica vs promedio}
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!black,
+title=Ficha 7. Distracción académica vs promedio]
 
 \textbf{Nivel descriptivo: qué encontramos}
 
-\textbf{Titular:} La distracción sí importa.
+\textbf{Titular:} La distracción se asocia con menores promedios.
 
 \textbf{Nombre del hallazgo/resultado:} Asociación entre distracción académica y promedio académico.
 
@@ -599,13 +621,17 @@ A continuación se presentan las fichas de resultados principales obtenidas dura
 
 \textbf{Conexión con la pregunta de investigación:} Esta ficha es una de las más importantes, porque muestra que no solo importa cuánto tiempo se usan las redes sociales, sino también si ese uso interrumpe el estudio. Esto permite entender mejor la relación entre redes y rendimiento.
 
-\textbf{Contraste con la literatura:} Esta ficha coincide con autores que señalan que el uso de redes puede afectar la concentración. También ayuda a explicar por qué algunos estudios no encuentran una relación directa entre tiempo en redes y rendimiento.
+\textbf{Contraste con la literatura:} Este resultado coincide con Ogunbiyi (2024), quien plantea que los efectos negativos de las redes sociales sobre el rendimiento académico pueden estar relacionados con problemas de concentración y atención. También guarda relación con Aljemely (2020), quien encontró que la adicción a redes sociales y teléfonos inteligentes puede afectar el desempeño académico a través de mecanismos asociados con la distracción y la pérdida de concentración.
 
 \textbf{Lo que NO explica este resultado:} No demuestra que la distracción sea causada únicamente por redes sociales. La distracción también puede venir de otros factores personales, familiares o académicos.
 
 \textbf{Implicación para el siguiente paso:} La distracción académica se mantuvo como variable principal dentro del modelo final.
+\end{tcolorbox}
 
-\subsubsection*{Ficha 8. Diagnóstico del modelo}
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!black,
+title=Ficha 8. Diagnóstico del modelo]
 
 \textbf{Nivel descriptivo: qué encontramos}
 
@@ -618,6 +644,17 @@ A continuación se presentan las fichas de resultados principales obtenidas dura
 \textbf{Método o análisis que lo produjo:} Gráficos de residuos, QQ plot, histograma de residuos y distancia de Cook.
 
 \textbf{Evidencia:} Figuras \ref{fig:diagnostico-residuos} y \ref{fig:diagnostico-qq}.
+
+\textbf{Nivel analítico: qué significa}
+
+\textbf{Conexión con la pregunta de investigación:} El diagnóstico no responde directamente si existe relación entre redes sociales y rendimiento, pero permite saber si el modelo usado para responder la pregunta puede interpretarse de forma razonable.
+
+\textbf{Contraste con la literatura:} Esta ficha no se contrasta directamente con literatura teórica, porque corresponde a la validación estadística del modelo.
+
+\textbf{Lo que NO explica este resultado:} No explica el comportamiento académico de los estudiantes. Solo revisa si el modelo presenta problemas importantes.
+
+\textbf{Implicación para el siguiente paso:} Los resultados del modelo deben presentarse como asociaciones estadísticas y no como conclusiones causales definitivas.
+\end{tcolorbox}
 
 \begin{figure}[H]
     \centering
@@ -633,17 +670,10 @@ A continuación se presentan las fichas de resultados principales obtenidas dura
     \label{fig:diagnostico-qq}
 \end{figure}
 
-\textbf{Nivel analítico: qué significa}
-
-\textbf{Conexión con la pregunta de investigación:} El diagnóstico no responde directamente si existe relación entre redes sociales y rendimiento, pero permite saber si el modelo usado para responder la pregunta puede interpretarse de forma razonable.
-
-\textbf{Contraste con la literatura:} Esta ficha no se contrasta directamente con literatura teórica, porque corresponde a la validación estadística del modelo.
-
-\textbf{Lo que NO explica este resultado:} No explica el comportamiento académico de los estudiantes. Solo revisa si el modelo presenta problemas importantes.
-
-\textbf{Implicación para el siguiente paso:} Los resultados del modelo deben presentarse como asociaciones estadísticas y no como conclusiones causales definitivas.
-
-\subsubsection*{Ficha 9. Modelo seleccionado}
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!black,
+title=Ficha 9. Modelo seleccionado]
 
 \textbf{Nivel descriptivo: qué encontramos}
 
@@ -659,22 +689,26 @@ A continuación se presentan las fichas de resultados principales obtenidas dura
 
 \textbf{Nivel analítico: qué significa}
 
-\textbf{Conexión con la pregunta de investigación:} El modelo permite responder que sí existe asociación entre uso de redes sociales y rendimiento académico. Las horas en redes sociales tienen una relación negativa con el promedio, mientras que las horas de estudio y la asistencia tienen relación positiva. Además, la distracción académica también se relaciona negativamente con el rendimiento.
+\textbf{Conexión con la pregunta de investigación:} El modelo permite responder que existe evidencia de una asociación negativa entre las horas de uso de redes sociales y el rendimiento académico, incluso después de considerar variables como horas de estudio, asistencia y distracción académica. Además, las horas de estudio y la asistencia presentan asociaciones positivas con el promedio académico, mientras que la distracción académica muestra una asociación negativa. Aunque se exploró una posible interacción entre el uso de redes sociales y la distracción académica, esta no resultó estadísticamente significativa, por lo que no se encontró evidencia suficiente para afirmar que el efecto de las redes cambie según el nivel de distracción.
 
-\textbf{Contraste con la literatura:} Esta es la ficha principal para comparar con la literatura. El resultado coincide parcialmente con estudios que señalan efectos negativos del uso excesivo de redes, pero también coincide con estudios que muestran relaciones mixtas. Esto ocurre porque el modelo muestra que las redes sociales no explican todo el rendimiento académico. El resultado más importante es que el rendimiento depende de varios factores al mismo tiempo.
+\textbf{Contraste con la literatura:} El modelo seleccionado muestra que las horas en redes sociales y la distracción académica se asocian negativamente con el rendimiento académico, mientras que las horas de estudio y la asistencia presentan asociaciones positivas. Estos resultados coinciden parcialmente con \cite{aljemely2020}, Ogunbiyi (2024) y Ramírez Jaime et al. (2023), quienes reportan efectos negativos del uso excesivo de redes sociales sobre el desempeño académico. Sin embargo, nuestros hallazgos también son consistentes con León Luyo et al. (2023) y Rodelo Moreno y Lizárraga Reyes (2018), quienes sugieren que la relación entre redes sociales y rendimiento académico no es uniforme y depende de otros factores. En conjunto, nuestros resultados respaldan la idea de que el rendimiento académico es un fenómeno multifactorial que no puede explicarse únicamente por el tiempo de uso de redes sociales.
 
 \textbf{Lo que NO explica este resultado:} El modelo no explica toda la variabilidad del promedio académico. Su $R^2$ ajustado fue aproximadamente $0.172$, por lo que explica cerca del 17\% del rendimiento. Tampoco permite afirmar causalidad.
 
 \textbf{Implicación para el siguiente paso:} En el reporte final, los resultados deben presentarse como evidencia de una relación moderada y multifactorial entre redes sociales, distracción y hábitos académicos.
+\end{tcolorbox}
 
 \subsubsection*{Comparación explícita con la literatura}
 
-El resultado principal del modelo coincide parcialmente con la literatura revisada. Algunos autores señalan que el uso excesivo de redes sociales puede relacionarse con menor rendimiento académico, especialmente cuando afecta la concentración o reduce el tiempo de estudio. En nuestro caso, las horas en redes sociales y la distracción académica presentaron una relación negativa con el promedio, lo cual coincide con esa interpretación.
+Al comparar nuestros resultados con los estudios revisados al inicio del proyecto, observamos que existen puntos en común, pero también algunas diferencias. En nuestro análisis encontramos que las horas de uso de redes sociales y la distracción académica presentan una relación negativa con el promedio académico. Por el contrario, las horas de estudio y la asistencia muestran una relación positiva con el rendimiento.
 
-Sin embargo, nuestros resultados también muestran que la relación no es completamente directa ni fuerte. El modelo explicó solo una parte moderada del rendimiento académico y variables como las horas de estudio y la asistencia también fueron importantes. Esto se parece a los estudios que plantean que no siempre existe una relación clara entre redes sociales y rendimiento, porque depende del contexto, del tipo de uso y de los hábitos del estudiante.
+Estos resultados coinciden con lo planteado por Aljemely (2020), quien señala que el uso excesivo de redes sociales y teléfonos inteligentes puede afectar el desempeño académico. De manera similar, Ogunbiyi (2024) menciona que las redes sociales pueden convertirse en un factor que dificulte la concentración de los estudiantes, mientras que Ramírez Jaime et al. (2023) destacan la relación entre el uso problemático de redes sociales y distintas dificultades académicas.
 
-Por tanto, la principal implicación es que no podemos concluir que las redes sociales, por sí solas, expliquen el rendimiento académico. Más bien, los resultados sugieren que el problema debe entenderse como multifactorial. El uso de redes sociales importa, pero su interpretación debe hacerse junto con la distracción académica, las horas de estudio y la asistencia.
-```
+Sin embargo, no todos los trabajos revisados llegan a las mismas conclusiones. León Luyo et al. (2023), por ejemplo, no encontraron evidencia suficiente para afirmar que existe una relación significativa entre el uso de redes sociales y el rendimiento académico. Asimismo, Rodelo Moreno y Lizárraga Reyes (2018) sugieren que los efectos pueden variar dependiendo del uso que cada estudiante haga de estas plataformas.
+
+Los resultados obtenidos en nuestro proyecto parecen ubicarse en una posición intermedia. Aunque encontramos evidencia de una asociación entre el uso de redes sociales y el promedio académico, esta relación no es lo suficientemente fuerte como para explicar por sí sola el rendimiento de los estudiantes. De hecho, variables como las horas de estudio, la asistencia y la distracción académica también mostraron una influencia importante dentro del modelo.
+
+Por esta razón, consideramos que el rendimiento académico debe entenderse como un fenómeno en el que intervienen múltiples factores. Las redes sociales forman parte de esa explicación, pero no son el único elemento que influye en los resultados académicos observados en nuestra muestra.
 
 
 
@@ -710,7 +744,7 @@ Diagnósticos del modelo seleccionado & Advertencias sobre asociación y no caus
 \end{table}
 
 \subsubsection{Orden propuesto para el artículo final}
-Con base a los elementos anteriores se propone el siguiente orden para la redacción del artículo final.
+Con base en los elementos anteriores se propone el siguiente orden para la redacción del artículo final.
 
 \begin{table}[H]
 \centering
@@ -746,7 +780,7 @@ Resultados & Influencia de la distracción académica (Primario) \\
 Resultados & Resultados del modelo seleccionado (Primario) \\
 Resultados & Diagnósticos del modelo seleccionado (Primario) \\
 Resultados & Comparación con estudios previos (Secundario) \\
-Resultados & Influencia de horas de estudio y sueño (Secundario) \\
+Resultados & Influencia de horas de estudio(Secundario) \\
 \midrule
 Discusión & Interpretación general de los resultados obtenidos (Primario) \\
 Discusión & Comparación entre lo esperado según la literatura y lo encontrado en la muestra (Primario) \\
@@ -928,6 +962,102 @@ También aprendimos que la forma en que se definen y agrupan las variables puede
 
 
 \section{Log de contribuciones}
+\begin{tcolorbox}[
+colback=gray!5,
+colframe=black!75,
+title={Log de contribuciones},
+fonttitle=\bfseries
+]
+
+\textbf{Katia Moreno:} Colaboró en la redacción y organización general de la Bitácora 3. Participó en la elaboración de la introducción, el rastro de decisiones, la definición de la audiencia, los elementos de comunicación, el orden propuesto para el artículo y el desarrollo del arco narrativo. Asimismo, contribuyó en la sección de escritura y en la elaboración del diario de aprendizaje.
+
+\vspace{0.3cm}
+
+\textbf{Luis Elizondo :} Participó en el análisis de modelación y en la construcción de la propuesta metodológica. Además, colaboró en la redacción de las secciones relacionadas con la selección, justificación e interpretación de los métodos estadísticos utilizados en el proyecto.
+
+\vspace{0.3cm}
+
+\textbf{Sebastián Calderón:} Se encargó de la programación y ejecución de los análisis estadísticos realizados durante esta etapa del proyecto. Asimismo, elaboró las fichas de resultados iniciales y participó en la construcción e interpretación del modelo estadístico seleccionado.
+
+\vspace{0.3cm}
+
+\textbf{Jeremy García:} Complementó las fichas de resultados mediante la incorporación del contraste con la literatura revisada, fortaleciendo la interpretación de los hallazgos. Además, diseñó el aspecto visual de las fichas en \LaTeX{}, elaboró el log de contribuciones y el registro de uso de inteligencia artificial, y realizó la revisión final del documento para verificar la coherencia y consistencia de la bitácora.
+
+\end{tcolorbox}
 \section{Registro de uso de IA}
+
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!white,
+title=Interpretación de resultados estadísticos]
+\textbf{Herramienta:} ChatGPT
+
+\textbf{Prompt:}
+
+Explícame cómo interpretar los resultados de una correlación de Pearson, una correlación de Spearman y un modelo de regresión lineal múltiple dentro de un proyecto de investigación.
+
+\textbf{Respuesta de la IA:}
+La IA explicó el significado de los coeficientes de correlación, la diferencia entre asociación y causalidad, y cómo interpretar los coeficientes de un modelo de regresión considerando las demás variables incluidas.
+
+\textbf{Evaluación:}
+La respuesta fue útil para comprender mejor los resultados obtenidos y para redactar las conclusiones de manera adecuada. Sin embargo, fue necesario contrastar las explicaciones con los contenidos vistos en clase para asegurar que fueran consistentes con el enfoque del curso.
+
+\textbf{Modificaciones:}
+Se utilizaron las explicaciones como guía para interpretar los resultados, pero las conclusiones finales se redactaron utilizando únicamente la evidencia obtenida en los análisis realizados.
+
+\textbf{Aprendizaje:}
+Aprendimos que una asociación estadística no implica causalidad y que los resultados deben interpretarse considerando las limitaciones de los datos y del modelo utilizado.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!white,
+title=Apoyo en redacción académica]
+\textbf{Herramienta:} ChatGPT
+
+\textbf{Prompt:}
+
+Ayúdame a mejorar la redacción de la sección de discusión preliminar de mi proyecto sobre redes sociales y rendimiento académico. Quiero que tenga un tono académico, pero que sea fácil de entender y coherente con los resultados obtenidos.
+
+\textbf{Respuesta de la IA:}
+La IA sugirió reorganizar las ideas principales de la discusión, conectar los resultados con la literatura revisada y enfatizar que los hallazgos corresponden a asociaciones estadísticas y no a relaciones causales.
+
+\textbf{Evaluación:}
+La respuesta fue útil porque permitió mejorar la claridad y fluidez del texto. Sin embargo, algunas frases propuestas eran demasiado generales y debieron adaptarse a los resultados específicos del proyecto.
+
+\textbf{Modificaciones:}
+Se ajustó la redacción para incorporar los resultados reales obtenidos en el modelo y se eliminaron afirmaciones que no estaban respaldadas por los datos analizados.
+
+\textbf{Aprendizaje:}
+Aprendimos la importancia de diferenciar entre describir resultados y discutir su significado dentro del contexto de la investigación.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+colback=blue!5,
+colframe=blue!75!white,
+title=Diseño visual de las fichas en LaTeX]
+\textbf{Herramienta:} ChatGPT
+
+\textbf{Prompt:}
+
+¿Cómo puedo crear fichas de resultados en LaTeX utilizando cuadros de color para que se vean más organizadas y profesionales dentro de la Bitácora 3?
+
+\textbf{Respuesta de la IA:}
+La IA sugirió utilizar el paquete tcolorbox para encerrar cada ficha en cuadros de color. También proporcionó ejemplos de código para personalizar el color de fondo, color de borde, tamaño del título y espaciado interno, con el fin de mejorar la presentación visual del documento.
+
+\textbf{Evaluación:}
+La respuesta fue útil porque permitió mejorar significativamente la organización y apariencia de las fichas de resultados. Sin embargo, algunos ejemplos debieron ajustarse para mantener consistencia con el formato general de la bitácora y evitar problemas de compatibilidad con otros elementos del documento.
+
+\textbf{Modificaciones:}
+Se modificaron los colores, márgenes y estilos propuestos para adaptarlos al diseño final de la bitácora. Además, se ajustó el código para integrarlo correctamente con las secciones y subsecciones ya existentes en el documento.
+
+\textbf{Aprendizaje:}
+Aprendimos a utilizar el paquete \textit{tcolorbox} para mejorar la presentación visual de documentos en LaTeX y comprendimos cómo pequeños cambios en el diseño pueden facilitar la lectura y organización de los resultados.
+
+\end{tcolorbox}
+\nocite{*}
+\printbibliography
 
 \end{document}

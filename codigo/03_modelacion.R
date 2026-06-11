@@ -796,4 +796,72 @@ readr::write_csv(
   file.path(ruta_salidas, "21_metricas_modelo_seleccionado.csv")
 )
 
+# ------------------------------------------------------------
+# 10. Intervalos de confianza para efectos marginales de horas_redes
+# ------------------------------------------------------------
+# El efecto de horas_redes sobre el promedio depende del nivel de distraccion
+# porque hay un termino de interaccion. Para cada nivel de distraccion d,
+# el efecto marginal es:
+#
+#   d(promedio) / d(horas_redes) = beta_horas_redes + beta_interaccion * d
+#
+# El error estandar de ese efecto marginal se calcula con la formula:
+#
+#   SE(d) = sqrt( Var(b1) + d^2 * Var(b3) + 2*d * Cov(b1, b3) )
+#
+# donde b1 = coef de horas_redes, b3 = coef de la interaccion.
+# Con ese SE construimos el IC al 95% usando el cuantil t con gl residuales.
 
+# Extraemos los coeficientes y la matriz de varianza-covarianza del modelo
+coef_m3     <- coef(modelo_3)
+vcov_m3     <- vcov(modelo_3)
+gl_resid    <- df.residual(modelo_3)
+t_critico   <- qt(0.975, df = gl_resid)   # cuantil t al 95% (dos colas)
+
+# Varianzas y covarianza relevantes
+var_b1  <- vcov_m3["horas_redes", "horas_redes"]
+var_b3  <- vcov_m3["horas_redes:distraccion_acad", "horas_redes:distraccion_acad"]
+cov_b13 <- vcov_m3["horas_redes", "horas_redes:distraccion_acad"]
+
+# Calculamos el efecto marginal y su IC para cada nivel de distraccion (1 a 5)
+ic_efecto_marginal <- tibble(distraccion = 1:5) %>%
+  mutate(
+    efecto     = coef_m3["horas_redes"] + coef_m3["horas_redes:distraccion_acad"] * distraccion,
+    se_efecto  = sqrt(var_b1 + distraccion^2 * var_b3 + 2 * distraccion * cov_b13),
+    ic_inf     = efecto - t_critico * se_efecto,
+    ic_sup     = efecto + t_critico * se_efecto,
+    # Interpretacion: cambio esperado en promedio por cada hora adicional en redes
+    # manteniendo estudio y asistencia en su media, para este nivel de distraccion
+    significativo = if_else(ic_inf > 0 | ic_sup < 0, "Si", "No")
+  )
+
+readr::write_csv(
+  ic_efecto_marginal,
+  file.path(ruta_salidas, "22_ic_efecto_marginal_horas_redes.csv")
+)
+
+# Figura del efecto marginal con su IC al 95%
+# Muestra como cambia la pendiente de horas_redes segun el nivel de distraccion.
+# Una barra que no cruza el cero indica efecto significativo para ese nivel.
+fig_efecto_marginal <- ggplot(
+  ic_efecto_marginal,
+  aes(x = factor(distraccion), y = efecto)
+) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = col_rojo, linewidth = 0.8) +
+  geom_errorbar(
+    aes(ymin = ic_inf, ymax = ic_sup),
+    width = 0.2, linewidth = 0.9, color = col_verde_oscuro
+  ) +
+  geom_point(size = 3.5, color = col_verde_oscuro) +
+  labs(
+    title = "Efecto marginal de horas en redes sobre el promedio",
+    subtitle = "Por nivel de distraccion academica. IC al 95%. Estudio y asistencia en su media.",
+    x = "Nivel de distraccion academica (1 = minima, 5 = maxima)",
+    y = "Cambio en promedio por hora adicional en redes"
+  ) +
+  tema_grupo()
+
+ggsave(
+  file.path(ruta_figuras, "figura_07_efecto_marginal_horas_redes.png"),
+  fig_efecto_marginal, width = 8, height = 5.5, dpi = 300
+)

@@ -11,6 +11,8 @@
 \usepackage{makecell}
 \usepackage{array}
 \usepackage{float}
+\usepackage{amsmath}
+
 
 \title{Análisis de la relación entre el uso de redes sociales y el rendimiento académico en estudiantes\vspace{11cm}}
 
@@ -32,10 +34,312 @@ Katia Moreno Aspiroz C6A060\vspace{2cm}}
 
 \newpage
 
-\section*{Escritura}
-\section*{Conclusión}
 \section*{Introducción}
+
+\section*{Escritura}
+
+\subsubsection*{Formulación de métodos y conexión con la pregunta de investigación}
+
+La pregunta de investigación es: \textit{¿existe una relación entre el uso de redes sociales y el rendimiento académico de los estudiantes universitarios, y en qué medida esa relación está moderada por la distracción académica autoreportada?}
+
+Los métodos se organizan en tres capas de complejidad creciente. Cada una responde una versión más matizada de la misma pregunta.
+
+\paragraph{Capa 1 - Asociación bivariada (correlación)}
+
+Cuantifica si existe asociación entre \(X_1 = \text{horas\_redes}\) e \(Y = \text{promedio}\), sin condicionamiento.
+
+\textit{Correlación de Pearson:}
+\[
+r = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i - \bar{x})^2 \cdot \sum_{i=1}^{n}(y_i - \bar{y})^2}}
+\]
+Este coeficiente, introducido por Pearson \cite{pearson1896} como medida estandarizada del grado de relación lineal entre dos variables continuas, sigue siendo el estadístico de referencia para asociación bivariada en ciencias sociales y de la salud \cite{montgomery2014}. Hipótesis: \(H_0: \rho = 0\) vs. \(H_1: \rho \neq 0\). El estadístico de prueba es \(t = r\sqrt{(n-2)/(1-r^2)} \sim t_{n-2}\) bajo \(H_0\).
+
+La Figura~\ref{fig:loess} muestra la relación bruta entre ambas variables antes de cualquier ajuste:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figuras/figura_01_horas_redes_vs_promedio.png}
+    \caption{Horas en redes vs. promedio académico, con curva de tendencia LOESS.}
+    \label{fig:loess}
+\end{figure}
+
+La curva de tendencia muestra que el promedio se mantiene relativamente estable (alrededor de 4.0–4.3) hasta aproximadamente 6 horas diarias, a partir de donde desciende de forma marcada. La alta variabilidad en la franja 0–5 horas es coherente con la dispersión de colores por plataforma, lo que sugiere que la plataforma por sí sola no explica diferencias importantes.
+
+\textit{Correlación de Spearman:} misma fórmula aplicada a los rangos de \(x\) e \(y\). Propuesta originalmente por Spearman \cite{spearman1904} como alternativa basada en rangos que no exige relación lineal entre las variables, es preferible cuando la relación es monótona pero no lineal, o cuando hay valores extremos influyentes. Se usa como verificación de robustez dado que la curva LOESS de la Figura~\ref{fig:loess} muestra cierta curvatura.
+
+¿Por qué estas y no otras? Una correlación de Kendall también habría sido válida, pero Pearson y Spearman son más estándar en el área, tienen interpretación directa como ``fuerza de asociación'', y sus \(p\)-valores son comparables con los del modelo de regresión.
+
+\textbf{Resultado obtenido:} \(r_{\text{Pearson}} = -0.158\) (\(p = 0.0029\)), \(\rho_{\text{Spearman}} = -0.155\) (\(p = 0.0035\)). La asociación negativa es débil pero estadísticamente robusta en ambos métodos.
+
+\paragraph{Capa 2 - Comparación de grupos (pruebas de hipótesis)}
+
+Responde si la diferencia de promedio entre usuarios con distinto nivel de uso es detectablemente distinta de cero. Esto es útil para el trabajo porque comunica la pregunta de forma intuitiva: \textit{¿tienen mejor promedio quienes usan menos redes?}
+
+\textit{Prueba t de Welch} para dos grupos (\(G_1\): horas\_redes \(\leq 4\), \(G_2\): horas\_redes \(> 4\)):
+\[
+t = \frac{\bar{Y}_1 - \bar{Y}_2}{\sqrt{s_1^2/n_1 + s_2^2/n_2}}, \quad \nu \approx \frac{(s_1^2/n_1 + s_2^2/n_2)^2}{\frac{(s_1^2/n_1)^2}{n_1-1} + \frac{(s_2^2/n_2)^2}{n_2-1}}
+\]
+Esta variante, propuesta por Welch \cite{welch1947} como solución al llamado problema de Behrens-Fisher, se usa (en lugar de la \(t\) estándar de Student) porque no asume varianzas iguales entre grupos, supuesto que no está garantizado aquí. El punto de corte de 4 h se eligió cerca del promedio observado de horas en redes para balancear los grupos.
+
+\textit{ANOVA de un factor} con cuatro categorías (0–2 h, 2–4 h, 4–6 h, \(>6\) h):
+\[
+F = \frac{\text{SCE}/(k-1)}{\text{SCD}/(n-k)}, \quad \text{SCE} = \sum_{j=1}^{k} n_j(\bar{Y}_j - \bar{Y})^2, \quad \text{SCD} = \sum_{j=1}^{k}\sum_{i=1}^{n_j}(Y_{ij} - \bar{Y}_j)^2
+\]
+El ANOVA, cuyo tratamiento moderno como descomposición de varianza puede consultarse en \cite{montgomery2014}, extiende la prueba \(t\) a más de dos grupos pero asume normalidad y homocedasticidad dentro de cada grupo.
+
+La Figura~\ref{fig:boxplot} muestra la distribución del promedio dentro de cada una de las cuatro categorías usadas por el ANOVA:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figuras/figura_02_boxplot_uso_redes.png}
+    \caption{Distribución del promedio académico por categoría de uso de redes sociales.}
+    \label{fig:boxplot}
+\end{figure}
+
+Las medianas son similares entre los grupos 0–2 h, 2–4 h y 4–6 h (alrededor de 4.0), mientras que el grupo \(>6\) h muestra una mediana ligeramente inferior (\(\sim3.9\)) y mayor presencia de valores bajos. El descenso no es dramático en términos absolutos pero sí consistente, lo que anticipa el resultado de no significancia del ANOVA reportado más adelante.
+
+\textit{Kruskal-Wallis} como alternativa no paramétrica al ANOVA:
+\[
+H = \frac{12}{n(n+1)} \sum_{j=1}^{k} \frac{R_j^2}{n_j} - 3(n+1)
+\]
+donde \(R_j\) es la suma de rangos del grupo \(j\). Propuesta por Kruskal y Wallis \cite{kruskalwallis1952} como extensión a más de dos grupos del razonamiento basado en rangos, se incluye porque el promedio académico está acotado en \([0, 5]\) y la distribución dentro de cada categoría podría desviarse de la normalidad; su justificación como alternativa estándar al ANOVA en presencia de datos no normales o acotados se desarrolla en \cite{conover1999}. La concordancia entre ANOVA y Kruskal-Wallis refuerza la validez de los resultados.
+
+¿Por qué estas pruebas y no simplemente la regresión? Porque son más fáciles de interpretar para una audiencia no técnica y proporcionan una respuesta directa a ``¿hay diferencia de grupo?''. Sin embargo, al discretizar \texttt{horas\_redes} se pierde información continua, lo que explica que ni el ANOVA (\(p = 0.217\)) ni Kruskal-Wallis (\(p = 0.109\)) alcanzaran significancia aunque la correlación sí la alcanzó.
+
+\paragraph{Capa 3 - Regresión lineal múltiple con interacción (método central)}
+
+Este es el método principal para responder la pregunta completa. La regresión controla por variables de confusión y estima el efecto neto de las redes sobre el promedio. El marco general de regresión lineal múltiple, su estimación por mínimos cuadrados ordinarios y la interpretación de coeficientes parciales siguen el tratamiento estándar de \cite{kutner2005}.
+
+Se ajustaron tres modelos en progresión:
+
+\textit{Modelo 1 (simple):}
+\[
+Y_i = \beta_0 + \beta_1 X_{1i} + \varepsilon_i
+\]
+donde \(Y_i = \text{promedio}_i\) y \(X_1 = \text{horas\_redes}\). Cuantifica la asociación bruta pero es susceptible a confusión: un estudiante puede tener muchas horas en redes y buen promedio simplemente porque estudia muchas horas.
+
+\textit{Modelo 2 (ajustado):}
+\[
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \beta_4 X_{4i} + \varepsilon_i
+\]
+con \(X_2 = \text{horas\_estudio}\), \(X_3 = \text{asistencia}\), \(X_4 = \text{distraccion\_acad}\). Controla por las principales variables académicas. El coeficiente \(\hat\beta_1\) ya es el efecto parcial de las redes manteniendo las demás constantes.
+
+La necesidad de controlar por \texttt{horas\_estudio} en el Modelo 2 se ilustra en la Figura~\ref{fig:estudio}:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figuras/figura_03_horas_estudio_vs_promedio.png}
+    \caption{Horas de estudio vs. promedio, coloreado por intensidad de uso de redes.}
+    \label{fig:estudio}
+\end{figure}
+
+La regresión lineal muestra una pendiente positiva clara: más horas de estudio se asocian a mayor promedio. Los puntos de color más rojo (muchas horas en redes) no se concentran consistentemente en la parte baja del gráfico, lo que anticipa que el efecto de las redes puede ser moderado por otras variables, y confirma que \texttt{horas\_estudio} es un confusor que debe controlarse explícitamente.
+
+Antes de especificar el Modelo 3, la Figura~\ref{fig:heatmap} explora si el efecto de las redes sobre el promedio es homogéneo entre niveles de distracción:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figuras/figura_05_heatmap_redes_distraccion.png}
+    \caption{Promedio académico según horas en redes y nivel de distracción académica.}
+    \label{fig:heatmap}
+\end{figure}
+
+El patrón más consistente es que en niveles de distracción baja (Distr. 1 y 2), el promedio decrece conforme aumentan las horas en redes. En niveles altos de distracción (Distr. 4 y 5), el patrón es menos monótono, con algunas celdas de promedio relativamente alto asociadas a uso moderado o alto de redes. Esta heterogeneidad es la que motiva incluir un término de interacción en el modelo.
+
+\textit{Modelo 3 (interacción - modelo de análisis):}
+\[
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{4i} + \beta_3 (X_{1i} \cdot X_{4i}) + \beta_4 X_{2i} + \beta_5 X_{3i} + \varepsilon_i
+\]
+El término \(\beta_3 (X_1 \cdot X_4)\) captura la moderación: si \(\hat\beta_3 \neq 0\), la pendiente de \texttt{horas\_redes} depende del nivel de \texttt{distraccion\_acad}. La inclusión de un término de producto para modelar moderación, así como la práctica de evaluar el efecto marginal condicional en distintos niveles del moderador, sigue el marco metodológico de regresión moderada desarrollado por Aiken y West \cite{aikenwest1991}, hoy el estándar de referencia para este tipo de análisis en ciencias sociales y del comportamiento. Formalmente, el efecto marginal de \(X_1\) sobre \(Y\) es:
+\[
+\frac{\partial \hat{Y}}{\partial X_1} = \hat\beta_1 + \hat\beta_3 X_4
+\]
+lo que significa que para cada nivel de distracción \(d\), la pendiente esperada es \(\hat\beta_1 + \hat\beta_3 \cdot d\). Con \(\hat\beta_1 = -0.057\) y \(\hat\beta_3 = 0.010\), la pendiente para distracción baja (\(d=1\)) es \(-0.057 + 0.010 \cdot 1 = -0.047\) y para distracción alta (\(d=5\)) es \(-0.057 + 0.010 \cdot 5 = -0.007\).
+
+La Figura~\ref{fig:predicciones} sintetiza las predicciones del Modelo 3 para distintos niveles de distracción académica:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figuras/figura_06_predicciones_modelo_interaccion.png}
+    \caption{Predicciones del Modelo 3 (con interacción) por nivel de distracción académica.}
+    \label{fig:predicciones}
+\end{figure}
+
+\paragraph{Pruebas de hipótesis}
+
+\begin{table}[H]
+\centering
+\caption{Resumen de pruebas de hipótesis realizadas.}
+\begin{tabular}{lccc}
+\toprule
+Prueba & Estadístico & \(p\)-valor & Conclusión \\
+\midrule
+Correlación de Pearson & \(r = -0.158\) & \(0.0029\) & Se rechaza \(H_0: \rho = 0\) \\
+Correlación de Spearman & \(\rho = -0.155\) & \(0.0035\) & Se rechaza \(H_0: \rho = 0\) \\
+Prueba \(t\) de Welch & \(t(289.9) = 1.957\) & \(0.051\) & No se rechaza \(H_0\) al 5\% \\
+ANOVA (4 categorías) & \(F(3, 349) = 1.488\) & \(0.217\) & No se rechaza \(H_0\) \\
+Kruskal-Wallis & \(H(3) = 6.057\) & \(0.109\) & No se rechaza \(H_0\) \\
+Prueba \(F\) global (M3) & \(F(5, 347) = 15.61\) & \(< 0.001\) & El modelo M3 es globalmente significativo \\
+Prueba \(F\): M1 \(\rightarrow\) M2 & \(F(3, 348) = 21.88\) & \(< 0.001\) & M2 mejora significativamente sobre M1 \\
+Prueba \(F\): M2 \(\rightarrow\) M3 & \(F(1, 347) = 1.755\) & \(0.186\) & La interacción no mejora el ajuste \\
+\bottomrule
+\end{tabular}
+\label{tab:pruebas_hipotesis}
+\end{table}
+
+La aparente contradicción entre la no significancia de la prueba \(t\)/ANOVA y la significancia de las correlaciones y la regresión tiene una explicación directa: al discretizar \texttt{horas\_redes} en categorías se pierde información continua. La regresión y la correlación aprovechan toda la variación de la variable continua. (Esta tabla resume, en un solo lugar, los estadísticos de las Capas 1, 2 y 3 ya presentadas arriba; las tablas y figuras específicas de cada prueba ya se mostraron en su sección correspondiente.)
+
+\paragraph{Verificación de supuestos del modelo}
+
+\textit{Normalidad de residuales.} La prueba de Shapiro-Wilk \cite{shapirowilk1965}, ampliamente usada para evaluar normalidad en muestras completas, arroja: \(W = 0.973\), \(p = 3.1 \times 10^{-6}\). La prueba rechaza normalidad, pero con \(n = 353\) esta prueba detecta desviaciones muy pequeñas de la normalidad teórica.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/diagnostico_02_qqplot_residuales.png}
+    \caption{Diagnóstico 2 - QQ plot de los residuales del Modelo 3.}
+    \label{fig:qqplot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/diagnostico_03_histograma_residuales.png}
+    \caption{Diagnóstico 3 - Histograma de los residuales del Modelo 3.}
+    \label{fig:histograma}
+\end{figure}
+
+El QQ plot (Figura~\ref{fig:qqplot}) muestra colas ligeramente pesadas pero el cuerpo central sigue bien la recta teórica; el histograma (Figura~\ref{fig:histograma}) confirma una forma aproximadamente simétrica y unimodal, sin asimetría marcada. Por el Teorema Central del Límite, la distribución de los estimadores \(\hat\beta\) es aproximadamente normal para este tamaño muestral, por lo que la inferencia es válida.
+
+\textit{Linealidad y homocedasticidad.}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/diagnostico_01_residuales_vs_ajustados.png}
+    \caption{Diagnóstico 1 - Residuales vs. valores ajustados del Modelo 3.}
+    \label{fig:residvsajustados}
+\end{figure}
+
+El gráfico de residuales vs. ajustados (Figura~\ref{fig:residvsajustados}), interpretado siguiendo el procedimiento estándar de diagnóstico de regresión descrito en \cite{kutner2005}, no muestra patrones sistemáticos severos: la curva LOESS oscila cerca de cero. Hay una leve tendencia descendente en la zona de valores ajustados altos (\(\approx 4.5\)), coherente con el efecto de la cota superior \(Y \leq 5\). No hay evidencia visual de heterocedasticidad (expansión en abanico de la nube).
+
+\textit{Multicolinealidad.} VIF del Modelo 3:
+
+\begin{table}[H]
+\centering
+\caption{Factores de Inflación de Varianza (VIF) para el Modelo 3.}
+\begin{tabular}{lcc}
+\toprule
+Variable & VIF & Interpretación \\
+\midrule
+\texttt{horas\_redes} & 4.83 & Aceptable; elevado por la interacción \\
+\texttt{distraccion\_acad} & 3.06 & Aceptable \\
+\texttt{horas\_estudio} & 1.08 & Sin problema \\
+\texttt{asistencia} & 1.04 & Sin problema \\
+\texttt{horas\_redes:distraccion\_acad} & 7.71 & Elevado, pero inherente a cualquier interacción no centrada \\
+\bottomrule
+\end{tabular}
+\label{tab:vif_modelo3}
+\end{table}
+
+La interpretación de estos valores sigue la recomendación de O'Brien \cite{obrien2007}, quien advierte que reglas mecánicas como ``VIF $>$ 10'' no deben aplicarse sin considerar otros factores que afectan la varianza de los coeficientes (tamaño muestral, $R^2$ del modelo, magnitud de los efectos). El VIF de 7.71 para el término de interacción es el valor esperado cuando los predictores no están centrados antes de construir el producto. Esto infla el error estándar de \(\hat\beta_3\) (de 0.0076 a aproximadamente \(0.0076 \times \sqrt{7.71/1} \approx 0.021\) si estuvieran sin colinealidad), lo que contribuye a la no significancia del término. Se recomienda re-estimar el modelo con variables centradas, siguiendo el procedimiento de centrado para regresión moderada de \cite{aikenwest1991}, como análisis de sensibilidad.
+
+\textit{Observaciones influyentes.}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figuras/diagnostico_04_distancia_cook.png}
+    \caption{Diagnóstico 4 - Distancia de Cook por observación, Modelo 3.}
+    \label{fig:cook}
+\end{figure}
+
+La distancia de Cook \cite{cook1977}, que combina los residuales studentizados con el leverage (apalancamiento) de cada observación en una sola medida de influencia, identifica en la Figura~\ref{fig:cook} una observación (índice \(\approx 12\)) que alcanza \(D \approx 0.049\), superando el umbral \(4/n = 0.011\). Las demás observaciones quedan bien por debajo. El valor de 0.049 es moderado (el umbral de preocupación estricto propuesto por el propio autor es \(D > 1\)), pero justifica verificar esa observación.
+
+\paragraph{Métricas de ajuste del modelo seleccionado}
+
+\begin{table}[H]
+\centering
+\caption{Métricas de ajuste del Modelo 3.}
+\begin{tabular}{lcc}
+\toprule
+Métrica & Valor & Interpretación \\
+\midrule
+\(R^2\) & 0.184 & El modelo explica el 18.4\% de la varianza del promedio \\
+\(R^2_{\text{adj}}\) & 0.172 & Penalizado por el número de predictores \\
+\(\sigma\) (error estándar residual) & 0.600 & Error típico en la escala del promedio \\
+RMSE & 0.594 & Error cuadrático medio de predicción \\
+MAE & 0.495 & Error absoluto medio de predicción \\
+AIC & 648.6 & Para comparación entre modelos \\
+BIC & 675.7 & Penaliza más fuertemente la complejidad que AIC \\
+\bottomrule
+\end{tabular}
+\label{tab:metricas_modelo3}
+\end{table}
+
+Los criterios de comparación de la tabla anterior provienen de dos propuestas independientes: el AIC de Akaike \cite{akaike1974}, basado en la pérdida esperada de información al aproximar el proceso generador real con el modelo ajustado, y el BIC de Schwarz \cite{schwarz1978}, derivado de un argumento bayesiano que impone una penalización por complejidad que crece con \(\log(n)\) y por eso castiga más fuerte los parámetros adicionales que el AIC cuando la muestra es grande, como ocurre aquí (\(n=353\)).
+
+El \(R^2\) de 18.4\% indica que hay variabilidad importante del promedio académico que no está capturada por las variables incluidas. Esto es esperable en datos de encuesta transversal: factores como motivación intrínseca, calidad del sueño, método de estudio y contexto socioeconómico no fueron modelados explícitamente. No obstante, el objetivo no es predecir el promedio individual sino estimar el efecto parcial de las redes sociales, para lo cual el modelo es adecuado.
+
+\paragraph{Intervalos de confianza al 95\% para el efecto marginal de horas en redes}
+
+Dado el término de interacción, el efecto de \texttt{horas\_redes} sobre el promedio no es único: depende del nivel de distracción de cada estudiante. Para cada nivel \(d\), el efecto marginal es \(\hat\beta_1 + \hat\beta_3 \cdot d\), y su error estándar se calcula con la varianza de esa combinación lineal usando la matriz de varianza-covarianza del modelo, siguiendo el procedimiento estándar para efectos condicionales en regresión moderada de \cite{aikenwest1991}.
+
+\begin{table}[H]
+\centering
+\caption{Efecto marginal de horas en redes sobre el promedio según nivel de distracción.}
+\begin{tabular}{cccccc}
+\toprule
+Distracción (\(d\)) & Efecto por hora & EE & IC 95\% inferior & IC 95\% superior & Significativo \\
+\midrule
+1 (mínima) & \(-0.0468\) & \(0.0202\) & \(-0.0865\) & \(-0.0070\) & Sí \\
+2 & \(-0.0368\) & \(0.0150\) & \(-0.0662\) & \(-0.0074\) & Sí \\
+3 (media) & \(-0.0268\) & \(0.0124\) & \(-0.0511\) & \(-0.0024\) & Sí \\
+4 & \(-0.0168\) & \(0.0141\) & \(-0.0444\) & \(+0.0109\) & No \\
+5 (máxima) & \(-0.0067\) & \(0.0189\) & \(-0.0438\) & \(+0.0303\) & No \\
+\bottomrule
+\end{tabular}
+\label{tab:efecto_marginal_detallado}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figuras/figura_07_efecto_marginal_horas_redes.png}
+    \caption{Efecto marginal de horas en redes sobre el promedio con intervalos de confianza al 95\%, según nivel de distracción.}
+    \label{fig:efecto_marginal}
+\end{figure}
+
+La tabla y la Figura~\ref{fig:efecto_marginal} muestran un patrón claro: el efecto negativo de las redes sobre el promedio es estadísticamente significativo para estudiantes con distracción baja o media (niveles 1, 2 y 3), pero deja de serlo para quienes reportan distracción alta (niveles 4 y 5). En estos últimos, el intervalo de confianza cruza el cero, lo que indica que el efecto es incierto en esa subpoblación.
+
+Un estudiante con distracción mínima (nivel 1) que pasa una hora adicional diaria en redes tiene un promedio predicho 0.047 puntos menor, con un rango de \(-0.086\) a \(-0.007\). Para un estudiante con distracción máxima (nivel 5), ese mismo cambio se asocia con apenas \(-0.007\) puntos y el intervalo es tan amplio (\([-0.044, +0.030]\)) que no permite descartar que el efecto sea nulo o incluso positivo. Esto no significa que las redes sean inofensivas para los más distraídos, sino que la muestra no tiene suficiente potencia para detectar el efecto en ese subgrupo.
+
+\begin{table}[H]
+\centering
+\caption{Intervalos de confianza para predictores fijos del Modelo 3.}
+\begin{tabular}{lcc}
+\toprule
+Predictor & \(\hat\beta\) & IC 95\% \\
+\midrule
+Horas de estudio & \(+0.069\) & \([+0.037, +0.100]\) \\
+Asistencia & \(+0.011\) & \([+0.007, +0.015]\) \\
+\bottomrule
+\end{tabular}
+\label{tab:ic_predictores_fijos}
+\end{table}
+
+\subsubsection*{Análisis exploratorio descartado: la plataforma como eje central}
+
+Inicialmente, se consideró usar la red social principal como eje central del análisis, especialmente YouTube, porque podría tener un uso académico.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figuras/figura_04_promedio_por_plataforma.png}
+    \caption{Promedio académico por plataforma de red social principal.}
+    \label{fig:plataforma}
+\end{figure}
+
+Como muestra la Figura~\ref{fig:plataforma}, las diferencias entre plataformas son pequeñas (rango \(\approx 4.0\)–\(4.3\)). TikTok aparece con el promedio más alto pero con \(n=4\), lo que hace que esta estimación sea muy inestable. Facebook y YouTube concentran la mayoría de observaciones. Esta idea se descartó porque, además de la inestabilidad de las categorías pequeñas, la plataforma no indica si el uso fue académico o recreativo. Por esta razón, se decidió dejar la plataforma como una variable secundaria y centrar el análisis en la intensidad de uso, la distracción académica, las horas de estudio y la asistencia.
+
+\section*{Conclusión}
 \section*{Resumen}
 \section*{Ordenamiento final}
 
+\bibliographystyle{apalike}
+\bibliography{referencias}
 \end{document}

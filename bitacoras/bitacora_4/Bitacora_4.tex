@@ -365,7 +365,355 @@ Como recomendación para investigaciones futuras, sería conveniente recopilar i
 Finalmente, este trabajo aporta evidencia sobre un aspecto que ha recibido relativamente menos atención en la literatura: el posible papel moderador de la distracción académica en la relación entre el uso de redes sociales y el rendimiento académico. Mientras muchos estudios se enfocan únicamente en determinar si existe una asociación entre estas variables, esta investigación analizó simultáneamente factores académicos relevantes y evaluó cómo la distracción puede alterar dicha relación. De esta manera, el estudio contribuye a una comprensión más completa del fenómeno y ayuda a reducir una brecha existente en el conocimiento sobre los factores que intervienen en el desempeño académico de los estudiantes universitarios.
 
 \section*{Resumen}
-\section*{Ordenamiento final}
+Esta investigación analiza la relación entre el uso de redes sociales y el rendimiento académico en estudiantes universitarios, incorporando además la distracción académica, las horas de estudio y la asistencia como variables explicativas. Se empleó una base de datos de estudiantes con información sobre promedio académico y hábitos de uso de redes sociales y estudio.\\
+
+La metodología combina análisis descriptivo, correlaciones de Pearson y Spearman, pruebas de comparación de grupos (t de Welch, ANOVA y Kruskal-Wallis) y un modelo de regresión lineal múltiple con término de interacción entre uso de redes y distracción académica.\\
+
+Los resultados muestran una asociación negativa débil pero estadísticamente significativa entre el uso de redes sociales y el rendimiento académico. Sin embargo, las comparaciones por grupos no detectan diferencias significativas, lo que sugiere pérdida de información al discretizar la variable. El modelo de regresión es globalmente significativo y explica aproximadamente un 18.4\% de la variabilidad del rendimiento. En este, las horas de estudio y la asistencia presentan efectos positivos, mientras que el uso de redes sociales y la distracción académica se asocian negativamente. La interacción entre ambas variables no resulta significativa.\\
+
+En conclusión, el rendimiento académico parece depender de múltiples factores, siendo el efecto del uso de redes sociales estadísticamente detectable pero limitado, y no suficiente por sí solo para explicar el desempeño académico.
+
+\newpage
+\section*{Relación entre el uso de redes sociales y el rendimiento académico en estudiantes universitarios: análisis mediante métodos estadísticos}
+
+\begin{abstract}
+Esta investigación analiza la relación entre el uso de redes sociales y el rendimiento académico en estudiantes universitarios, incorporando además la distracción académica, las horas de estudio y la asistencia como variables explicativas. Se empleó una base de datos de estudiantes con información sobre promedio académico y hábitos de uso de redes sociales y estudio.
+
+La metodología combina análisis descriptivo, correlaciones de Pearson y Spearman, pruebas de comparación de grupos (t de Welch, ANOVA y Kruskal-Wallis) y un modelo de regresión lineal múltiple con término de interacción entre uso de redes y distracción académica.
+
+Los resultados muestran una asociación negativa débil pero estadísticamente significativa entre el uso de redes sociales y el rendimiento académico. Sin embargo, las comparaciones por grupos no detectan diferencias significativas, lo que sugiere pérdida de información al discretizar la variable. El modelo de regresión es globalmente significativo y explica aproximadamente un 18.4\% de la variabilidad del rendimiento. En este, las horas de estudio y la asistencia presentan efectos positivos, mientras que el uso de redes sociales y la distracción académica se asocian negativamente. La interacción entre ambas variables no resulta significativa.
+
+En conclusión, el rendimiento académico parece depender de múltiples factores, siendo el efecto del uso de redes sociales estadísticamente detectable pero limitado, y no suficiente por sí solo para explicar el desempeño académico.
+\end{abstract}
+
+\textbf{Palabras clave:} redes sociales, rendimiento académico, estudiantes universitarios, regresión lineal múltiple, distracción académica.
+
+\subsection*{Introducción}
+La literatura previa no es concluyente respecto a la relación entre el uso de redes sociales y el rendimiento académico. Algunos estudios sugieren un efecto negativo asociado a la distracción y la reducción del tiempo de estudio, mientras que otros señalan que el impacto depende de factores individuales como los hábitos de aprendizaje y la autorregulación del tiempo.\\
+
+La literatura previa ha analizado principalmente el efecto del uso de redes sociales de forma aislada o mediante modelos bivariados, sin integrar simultáneamente variables académicas clave como la asistencia, las horas de estudio y la distracción académica en un único marco multivariante, lo que puede limitar la estimación del efecto real del uso de redes sociales.\\
+
+En este trabajo se analiza la relación entre las horas de uso de redes sociales y el rendimiento académico en estudiantes universitarios. Además, se incorpora la distracción académica como posible factor moderador, junto con variables de control como las horas de estudio y la asistencia a clase.\\
+
+El objetivo es cuantificar el efecto del uso de redes sociales sobre el rendimiento académico y evaluar si dicho efecto varía en función del nivel de distracción académica.\\
+
+El análisis se estructura en tres etapas: correlación entre variables, comparación de grupos según niveles de uso de redes sociales y un modelo de regresión lineal múltiple con interacción entre uso de redes y distracción académica.
+
+\subsection*{Metodología}
+
+\subsubsection*{Formulación de métodos y conexión con la pregunta de investigación}
+
+La pregunta de investigación es: \textit{¿existe una relación entre el uso de redes sociales y el rendimiento académico de los estudiantes universitarios, y en qué medida esa relación está moderada por la distracción académica autoreportada?}
+
+Para responder a esta cuestión, se plantea una estrategia metodológica estructurada en tres niveles de análisis complementarios, que permiten estudiar la relación entre variables desde una perspectiva progresiva: asociación bivariada, comparación entre grupos y modelización multivariante.
+
+\subsubsection*{Datos y descripción del conjunto de datos}
+
+El análisis se basa en una muestra de $n = \text{403}$ estudiantes universitarios, que incluye información sobre su rendimiento académico y hábitos de estudio y uso de redes sociales.
+
+Las variables consideradas son el promedio académico ($Y$), las horas diarias de uso de redes sociales ($X_1$), las horas de estudio ($X_2$), la asistencia a clase ($X_3$) y el nivel de distracción académica ($X_4$).
+
+En términos generales, las variables académicas presentan menor dispersión que las variables de comportamiento, especialmente el uso de redes sociales y la distracción, lo que sugiere heterogeneidad en los hábitos de los estudiantes.
+
+Este conjunto de datos permite analizar la relación entre rendimiento académico y hábitos digitales mediante técnicas de correlación, comparación de grupos y regresión lineal múltiple.
+
+\paragraph{Capa 1 - Asociación bivariada (correlación)}
+
+En primer lugar, se analiza la existencia de una asociación entre \(X_1 = \text{horas\_redes}\) e \(Y = \text{promedio}\), sin introducir variables de control.
+
+Para ello se utiliza la correlación de Pearson:
+
+\[
+r = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i - \bar{x})^2 \cdot \sum_{i=1}^{n}(y_i - \bar{y})^2}}
+\]
+
+Este coeficiente, introducido por Pearson \cite{pearson1896}, cuantifica la intensidad de la relación lineal entre dos variables continuas y constituye una medida estándar en el análisis estadístico aplicado en ciencias sociales \cite{montgomery2014}. La hipótesis nula considerada es \(H_0: \rho = 0\), frente a la alternativa \(H_1: \rho \neq 0\), evaluada mediante un estadístico \(t\) con \(n-2\) grados de libertad.
+
+De forma complementaria, se emplea la correlación de Spearman, basada en rangos, propuesta por Spearman \cite{spearman1904}, que permite evaluar relaciones monótonas sin asumir normalidad ni linealidad estricta.
+
+El uso conjunto de ambas medidas permite asegurar la robustez de los resultados frente a posibles desviaciones de los supuestos paramétricos.
+
+\paragraph{Capa 2 - Comparación de grupos (pruebas de hipótesis)}
+
+En una segunda fase, se analiza si existen diferencias en el rendimiento académico entre grupos de estudiantes definidos según su nivel de uso de redes sociales.
+
+Para el caso de dos grupos independientes se emplea la prueba t de Welch, definida como:
+
+\[
+t = \frac{\bar{Y}_1 - \bar{Y}_2}{\sqrt{s_1^2/n_1 + s_2^2/n_2}}
+\]
+
+Esta prueba, propuesta por Welch \cite{welch1947}, constituye una alternativa robusta al test t de Student cuando no se puede asumir igualdad de varianzas entre grupos.
+
+Para el caso de más de dos grupos, se utiliza un análisis de varianza (ANOVA) de un factor, cuyo estadístico se define como:
+
+\[
+F = \frac{\text{SCE}/(k-1)}{\text{SCD}/(n-k)}
+\]
+
+Este enfoque se basa en la descomposición de la varianza total en variabilidad entre y dentro de grupos \cite{montgomery2014}.
+
+Como alternativa no paramétrica, se aplica el test de Kruskal-Wallis, basado en rangos:
+
+\[
+H = \frac{12}{n(n+1)} \sum_{j=1}^{k} \frac{R_j^2}{n_j} - 3(n+1)
+\]
+
+propuesto por Kruskal y Wallis \cite{kruskalwallis1952}, el cual no requiere supuestos de normalidad y resulta adecuado cuando la variable respuesta está acotada o presenta desviaciones de los supuestos clásicos.
+
+En conjunto, estas pruebas permiten evaluar si la discretización de una variable continua afecta la detección de relaciones estadísticas.
+
+\paragraph{Capa 3 - Regresión lineal múltiple con interacción}
+
+El análisis principal se basa en modelos de regresión lineal múltiple estimados mediante mínimos cuadrados ordinarios \cite{kutner2005}, con el objetivo de estimar el efecto parcial del uso de redes sociales controlando por variables académicas relevantes.
+
+Se especifican tres modelos progresivos:
+
+\textit{Modelo 1 (básico):}
+\[
+Y_i = \beta_0 + \beta_1 X_{1i} + \varepsilon_i
+\]
+
+\textit{Modelo 2 (ajustado):}
+\[
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \beta_4 X_{4i} + \varepsilon_i
+\]
+
+donde:
+- \(X_1 = \text{horas\_redes}\)
+- \(X_2 = \text{horas\_estudio}\)
+- \(X_3 = \text{asistencia}\)
+- \(X_4 = \text{distraccion\_acad}\)
+
+Este modelo permite estimar el efecto parcial del uso de redes sociales manteniendo constantes el resto de factores académicos.
+
+\textit{Modelo 3 (con interacción):}
+\[
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{4i} + \beta_3 (X_{1i} \cdot X_{4i}) + \beta_4 X_{2i} + \beta_5 X_{3i} + \varepsilon_i
+\]
+
+El término de interacción permite capturar si el efecto del uso de redes sociales depende del nivel de distracción académica. Este enfoque sigue el marco de regresión moderada propuesto por Aiken y West \cite{aikenwest1991}.
+
+El efecto marginal de \(X_1\) sobre \(Y\) viene dado por:
+
+\[
+\frac{\partial \hat{Y}}{\partial X_1} = \hat\beta_1 + \hat\beta_3 X_4
+\]
+
+\paragraph{Evaluación del modelo}
+
+La inferencia se realiza mediante pruebas F globales y contrastes entre modelos anidados, junto con intervalos de confianza para los coeficientes estimados.
+
+Adicionalmente, se evalúan los supuestos del modelo de regresión lineal:
+
+\begin{itemize}
+\item Normalidad de residuos mediante la prueba de Shapiro-Wilk y análisis gráfico QQ.
+\item Linealidad y homocedasticidad mediante gráficos de residuos frente a valores ajustados.
+\item Multicolinealidad mediante el Factor de Inflación de Varianza (VIF).
+\item Influencia de observaciones mediante la distancia de Cook.
+\end{itemize}
+
+Estos diagnósticos siguen las recomendaciones estándar para modelos de regresión lineal múltiple \cite{kutner2005}.
+
+\paragraph{Criterios de selección de modelos}
+
+La comparación entre modelos se basa en los siguientes criterios:
+
+\begin{itemize}
+\item Coeficiente de determinación \(R^2\) y \(R^2\) ajustado como medida de capacidad explicativa.
+\item Criterios de información AIC y BIC como penalización por complejidad del modelo \cite{akaike1974, schwarz1978}.
+\item Métricas de error como RMSE y MAE.
+\end{itemize}
+
+Estos indicadores permiten evaluar el equilibrio entre ajuste, interpretabilidad y complejidad del modelo.
+
+\paragraph{Análisis exploratorio descartado}
+
+Inicialmente se consideró incluir la plataforma de red social como variable explicativa principal. Sin embargo, debido a la fuerte desproporción entre categorías y a la imposibilidad de distinguir entre uso académico y recreativo, esta variable fue descartada como eje central del análisis.
+
+En su lugar, se priorizaron variables continuas relacionadas con la intensidad de uso y los hábitos académicos.
+
+\subsection*{Resultados}
+
+\subsubsection*{Capa 1 - Asociación bivariada (correlación)}
+
+Se analiza la relación entre \(X_1 = \text{horas\_redes}\) e \(Y = \text{promedio}\) mediante correlación de Pearson:
+
+\[
+r = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i - \bar{x})^2 \cdot \sum_{i=1}^{n}(y_i - \bar{y})^2}}
+\]
+
+Este coeficiente, propuesto por Pearson \cite{pearson1896}, mide la asociación lineal entre variables continuas y es el estándar en análisis bivariado \cite{montgomery2014}. Se contrasta \(H_0: \rho = 0\) mediante el estadístico \(t = r\sqrt{(n-2)/(1-r^2)}\).
+
+La Figura~\ref{fig:loess} muestra la relación entre variables con ajuste LOESS.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figura_01_horas_redes_vs_promedio.png}
+    \caption{Horas en redes vs. promedio académico con curva LOESS.}
+    \label{fig:loess}
+\end{figure}
+
+Se observa estabilidad del promedio hasta aproximadamente 6 horas diarias, seguida de un descenso progresivo. La dispersión sugiere la existencia de factores adicionales más allá del uso de redes.
+
+Se complementa con la correlación de Spearman, basada en rangos \cite{spearman1904}, adecuada cuando la relación no es estrictamente lineal o presenta valores extremos.
+
+\textbf{Resultado:} \(r = -0.158\) (\(p = 0.0029\)), \(\rho = -0.155\) (\(p = 0.0035\)). Se observa una asociación negativa débil pero estadísticamente significativa.
+
+\subsubsection*{Capa 2 - Comparación de grupos}
+
+Se evalúan diferencias en el promedio académico según niveles de uso de redes.
+
+\textit{Prueba t de Welch}:
+\[
+t = \frac{\bar{Y}_1 - \bar{Y}_2}{\sqrt{s_1^2/n_1 + s_2^2/n_2}}
+\]
+
+Se utiliza esta versión por no asumir varianzas iguales \cite{welch1947}. El corte se fija en 4 horas para balance de grupos.
+
+\textit{ANOVA de un factor}:
+\[
+F = \frac{\text{SCE}/(k-1)}{\text{SCD}/(n-k)}
+\]
+
+Este contraste generaliza la prueba t a múltiples grupos \cite{montgomery2014}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figura_02_boxplot_uso_redes.png}
+    \caption{Distribución del promedio académico por niveles de uso de redes.}
+    \label{fig:boxplot}
+\end{figure}
+
+Se observa una ligera disminución del promedio en el grupo de mayor uso, aunque sin diferencias marcadas entre categorías intermedias.
+
+Se aplica también el test de Kruskal-Wallis \cite{kruskalwallis1952}, alternativa no paramétrica al ANOVA:
+
+\[
+H = \frac{12}{n(n+1)} \sum_{j=1}^{k} \frac{R_j^2}{n_j} - 3(n+1)
+\]
+
+La concordancia entre ambos métodos refuerza la consistencia de los resultados.
+
+\textbf{Conclusión:} no se detectan diferencias significativas entre grupos al 5\%.
+
+\subsubsection*{Capa 3 - Regresión lineal múltiple}
+
+Se modela el efecto conjunto de las variables mediante regresión lineal:
+
+\textit{Modelo 1:}
+\[
+Y_i = \beta_0 + \beta_1 X_{1i} + \varepsilon_i
+\]
+
+\textit{Modelo 2 (ajustado):}
+\[
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \beta_4 X_{4i} + \varepsilon_i
+\]
+
+donde \(X_2\) = horas de estudio, \(X_3\) = asistencia, \(X_4\) = distracción académica \cite{kutner2005}.
+
+La Figura~\ref{fig:estudio} muestra la relación entre horas de estudio y rendimiento.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figura_03_horas_estudio_vs_promedio.png}
+    \caption{Relación entre horas de estudio y promedio académico.}
+    \label{fig:estudio}
+\end{figure}
+
+Se observa una relación positiva clara, confirmando su papel como variable de control relevante.
+
+Antes del modelo con interacción, se explora la heterogeneidad del efecto mediante la Figura~\ref{fig:heatmap}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figura_05_heatmap_redes_distraccion.png}
+    \caption{Promedio según uso de redes y nivel de distracción académica.}
+    \label{fig:heatmap}
+\end{figure}
+
+Se observa que el efecto del uso de redes no es homogéneo, justificando la inclusión de interacción.
+
+\textit{Modelo 3 (interacción):}
+\[
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{4i} + \beta_3 (X_{1i}X_{4i}) + \beta_4 X_{2i} + \beta_5 X_{3i} + \varepsilon_i
+\]
+
+El efecto marginal de \(X_1\) depende de \(X_4\):
+\[
+\frac{\partial Y}{\partial X_1} = \beta_1 + \beta_3 X_4
+\]
+
+La Figura~\ref{fig:predicciones} muestra las predicciones del modelo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figura_06_predicciones_modelo_interaccion.png}
+    \caption{Predicciones del modelo con interacción.}
+    \label{fig:predicciones}
+\end{figure}
+
+\subsubsection*{Síntesis de pruebas de hipótesis}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+Prueba & Estadístico & \(p\)-valor & Conclusión \\
+\midrule
+Pearson & \(r=-0.158\) & 0.0029 & Significativo \\
+Spearman & \(\rho=-0.155\) & 0.0035 & Significativo \\
+Welch & \(t=1.957\) & 0.051 & No significativo \\
+ANOVA & \(F=1.488\) & 0.217 & No significativo \\
+Kruskal-Wallis & \(H=6.057\) & 0.109 & No significativo \\
+Modelo global & \(F=15.61\) & <0.001 & Significativo \\
+\bottomrule
+\end{tabular}
+\caption{Resumen de pruebas de hipótesis.}
+\label{tab:tests}
+\end{table}
+
+La diferencia entre correlación y pruebas por grupos se explica por la pérdida de información al discretizar la variable continua.
+
+\subsubsection*{Diagnósticos del modelo}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\linewidth]{diagnostico_02_qqplot_residuales.png}
+    \includegraphics[width=0.48\linewidth]{diagnostico_03_histograma_residuales.png}
+    
+    \vspace{0.5cm}
+    
+    \includegraphics[width=0.7\linewidth]{diagnostico_01_residuales_vs_ajustados.png}
+    
+    \caption{Diagnósticos del modelo: QQ plot, histograma y residuos vs ajustados.}
+\end{figure}
+
+Los diagnósticos no muestran violaciones graves de los supuestos del modelo.
+
+\subsubsection*{Conclusión del modelo}
+
+El modelo explica aproximadamente un 18\% de la variabilidad del rendimiento académico, lo que es razonable en datos observacionales. El efecto del uso de redes es negativo pero pequeño y depende del nivel de distracción académica.
+
+
+\subsection*{Conclusiones}
+
+El objetivo de esta investigación fue analizar la relación entre el uso de redes sociales y el rendimiento académico en estudiantes universitarios, así como el posible papel moderador de la distracción académica. Este tema resulta relevante debido al uso extendido de redes sociales en la vida universitaria y a la incertidumbre existente sobre su impacto real en el desempeño académico.\\
+
+Los resultados muestran, en primer lugar, que existe una relación negativa entre las horas de uso de redes sociales y el promedio académico, aunque su magnitud es reducida. En segundo lugar, se observa que variables como las horas de estudio y la asistencia a clase presentan una asociación positiva más clara con el rendimiento académico. En tercer lugar, no se encuentra evidencia estadísticamente concluyente de que la distracción académica modifique de forma significativa el efecto del uso de redes sociales, aunque sí sugiere cierta heterogeneidad en la relación.\\
+
+En cuanto a las limitaciones del estudio, destaca en primer lugar el uso de datos basados en información declarada por los propios estudiantes, lo que puede introducir sesgos de medición. En segundo lugar, el modelo no incluye otras variables relevantes como motivación, calidad del sueño o contexto socioeconómico, que podrían explicar parte de la variabilidad del rendimiento académico.\\
+
+En conjunto, los resultados indican que el uso de redes sociales tiene un efecto estadísticamente detectable pero limitado sobre el rendimiento académico, siendo más determinantes otros factores relacionados con los hábitos de estudio.\\
+
+\subsection*{Agradecimientos}
+
+Se agradece a la institución responsable de la recopilación del conjunto de datos utilizado en este estudio, así como a todas las personas que participaron proporcionando la información que lo compone, ya que sin su colaboración este análisis no habría sido posible.
+
+Asimismo, se agradece al profesorado encargado de la asignatura por el seguimiento y las orientaciones proporcionadas durante el desarrollo del trabajo, que han permitido estructurar y mejorar el enfoque metodológico de la investigación.
+
 
 \bibliographystyle{apalike}
 \bibliography{referencias}
